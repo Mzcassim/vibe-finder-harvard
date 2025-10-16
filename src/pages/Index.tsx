@@ -4,7 +4,7 @@ import { SearchBar } from "@/components/SearchBar";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useAuth } from "@/contexts/AuthContext";
-import { LogOut, Bookmark, Sparkles, MapPin, User } from "lucide-react";
+import { LogOut, Bookmark, Sparkles, MapPin, Settings as SettingsIcon, Plus, User } from "lucide-react";
 import { trackSearch } from "@/lib/analytics";
 
 // Example search suggestions
@@ -111,11 +111,30 @@ const Index = () => {
             <Button
               variant="ghost"
               size="sm"
-              onClick={() => navigate("/profile")}
+              onClick={() => {
+                const userEmail = localStorage.getItem("user_email");
+                console.log("My Profile clicked, user email:", userEmail);
+                if (userEmail) {
+                  const profileUrl = `/user/${encodeURIComponent(userEmail)}`;
+                  console.log("Navigating to:", profileUrl);
+                  navigate(profileUrl);
+                } else {
+                  console.error("No user email found in localStorage");
+                }
+              }}
               className="flex items-center gap-2"
             >
               <User className="h-4 w-4" />
-              <span className="hidden sm:inline">Profile</span>
+              <span className="hidden sm:inline">My Profile</span>
+            </Button>
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => navigate("/settings")}
+              className="flex items-center gap-2"
+            >
+              <SettingsIcon className="h-4 w-4" />
+              <span className="hidden sm:inline">Settings</span>
             </Button>
             <Button
               variant="outline"
@@ -182,6 +201,27 @@ const Index = () => {
               </Button>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Contribute CTA */}
+      <section className="container mx-auto px-4 pb-12">
+        <div className="max-w-2xl mx-auto bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 border border-primary/20 rounded-2xl p-8 text-center">
+          <div className="inline-flex items-center justify-center h-12 w-12 rounded-full bg-primary/20 mb-4">
+            <Plus className="h-6 w-6 text-primary" />
+          </div>
+          <h3 className="text-2xl font-bold mb-2">Know a Hidden Gem?</h3>
+          <p className="text-muted-foreground mb-6">
+            Help the community discover amazing places! Add venues, events, and pop-ups to our map.
+          </p>
+          <Button
+            size="lg"
+            onClick={() => navigate("/contribute")}
+            className="bg-gradient-to-r from-primary to-accent"
+          >
+            <Plus className="h-4 w-4 mr-2" />
+            Contribute to the Vibes
+          </Button>
         </div>
       </section>
 

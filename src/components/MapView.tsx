@@ -62,15 +62,26 @@ export const MapView = ({
         defaultWidth={800}
         defaultHeight={600}
       >
-        {venues.map((venue) => (
-          <Marker 
-            key={venue.id}
-            anchor={[venue.geo.lat, venue.geo.lon]}
-            color={selectedVenueId === venue.id ? "#000" : getVibeColor(venue.primaryVibe)}
-            onClick={() => handleMarkerClick(venue)}
-            style={{ cursor: "pointer" }}
-          />
-        ))}
+        {venues.map((venue) => {
+          // Grey marker for unverified venues
+          let markerColor = getVibeColor(venue.primaryVibe);
+          if (venue.isVerified === false) {
+            markerColor = "#9ca3af"; // Grey for unverified
+          }
+          if (selectedVenueId === venue.id) {
+            markerColor = "#000"; // Black for selected
+          }
+          
+          return (
+            <Marker 
+              key={venue.id}
+              anchor={[venue.geo.lat, venue.geo.lon]}
+              color={markerColor}
+              onClick={() => handleMarkerClick(venue)}
+              style={{ cursor: "pointer" }}
+            />
+          );
+        })}
       </Map>
 
       {/* Venue Info Popup */}

@@ -10,7 +10,10 @@ import Signup from "./pages/Signup";
 import Onboarding from "./pages/Onboarding";
 import Results from "./pages/Results";
 import Explore from "./pages/Explore";
-import Profile from "./pages/Profile";
+import Settings from "./pages/Settings";
+import Contribute from "./pages/Contribute";
+import AdminVerify from "./pages/AdminVerify";
+import UserProfile from "./pages/UserProfile";
 import VenueDetail from "./pages/VenueDetail";
 import Saved from "./pages/Saved";
 import NotFound from "./pages/NotFound";
@@ -68,10 +71,34 @@ const AppRoutes = () => {
           }
         />
         <Route
-          path="/profile"
+          path="/settings"
           element={
             <ProtectedRoute>
-              <Profile />
+              <Settings />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/contribute"
+          element={
+            <ProtectedRoute>
+              <Contribute />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/verify"
+          element={
+            <ProtectedRoute>
+              <AdminVerify />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/user/:username"
+          element={
+            <ProtectedRoute>
+              <UserProfile />
             </ProtectedRoute>
           }
         />

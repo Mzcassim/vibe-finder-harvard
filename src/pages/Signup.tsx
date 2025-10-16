@@ -29,6 +29,9 @@ const Signup = () => {
             return;
         }
 
+        // Save user email to localStorage
+        localStorage.setItem("user_email", email);
+
         // Set authentication to true (simulating successful signup)
         login();
     };
