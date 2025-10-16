@@ -7,7 +7,12 @@ import { AuthProvider, useAuth } from "@/contexts/AuthContext";
 import Index from "./pages/Index";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import LocationDetail from "./pages/LocationDetail";
+import Onboarding from "./pages/Onboarding";
+import Results from "./pages/Results";
+import Explore from "./pages/Explore";
+import Profile from "./pages/Profile";
+import VenueDetail from "./pages/VenueDetail";
+import Saved from "./pages/Saved";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -39,6 +44,46 @@ const AppRoutes = () => {
           }
         />
         <Route
+          path="/onboarding"
+          element={
+            <ProtectedRoute>
+              <Onboarding />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/results"
+          element={
+            <ProtectedRoute>
+              <Results />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/explore"
+          element={
+            <ProtectedRoute>
+              <Explore />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <ProtectedRoute>
+              <Profile />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/saved"
+          element={
+            <ProtectedRoute>
+              <Saved />
+            </ProtectedRoute>
+          }
+        />
+        <Route
           path="/login"
           element={
             isAuthenticated ? <Navigate to="/" replace /> : <Login />
@@ -51,10 +96,18 @@ const AppRoutes = () => {
           }
         />
         <Route
+          path="/venue/:id"
+          element={
+            <ProtectedRoute>
+              <VenueDetail />
+            </ProtectedRoute>
+          }
+        />
+        <Route
           path="/location/:locationId"
           element={
             <ProtectedRoute>
-              <LocationDetail />
+              <VenueDetail />
             </ProtectedRoute>
           }
         />

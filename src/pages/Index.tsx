@@ -1,72 +1,79 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNavigate, Link } from "react-router-dom";
 import { SearchBar } from "@/components/SearchBar";
-import { PlaceCard } from "@/components/PlaceCard";
-import { MapView } from "@/components/MapView";
 import { Button } from "@/components/ui/button";
-import { Skeleton } from "@/components/ui/skeleton";
+import { Badge } from "@/components/ui/badge";
 import { useAuth } from "@/contexts/AuthContext";
-import { LogOut, MapPin, Star, Clock } from "lucide-react";
+import { LogOut, Bookmark, Sparkles, MapPin, User } from "lucide-react";
+import { trackSearch } from "@/lib/analytics";
 
-// Mock data for wireframe
-const MOCK_PLACES = [
-  {
-    name: "Café Nero",
-    address: "1 Harvard Square",
-    rating: 4.5,
-    category: "Coffee Shop",
-    vibe: "cozy studying",
-    distance: "0.2 mi",
-    locationId: "cafe-nero",
-  },
-  {
-    name: "The Sinclair",
-    address: "52 Church St",
-    rating: 4.7,
-    category: "Bar & Music",
-    vibe: "lively social",
-    distance: "0.3 mi",
-    locationId: "the-sinclair",
-  },
-  {
-    name: "Tatte Bakery",
-    address: "1288 Massachusetts Ave",
-    rating: 4.6,
-    category: "Bakery & Café",
-    vibe: "instagram-worthy",
-    distance: "0.4 mi",
-    locationId: "tatte-bakery",
-  },
-  {
-    name: "Widener Library",
-    address: "Harvard Yard",
-    rating: 4.8,
-    category: "Library",
-    vibe: "quiet reading",
-    distance: "0.5 mi",
-    locationId: "widener-library",
-  },
+// Example search suggestions
+const SUGGESTED_VIBES = [
+  "cozy study spot",
+  "romantic dinner",
+  "lively brunch",
+  "quiet reading",
+  "group hangout",
+  "late night food",
 ];
 
 const Index = () => {
+  const navigate = useNavigate();
   const [searchValue, setSearchValue] = useState("");
-  const [showResults, setShowResults] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+  const [parsedTags, setParsedTags] = useState<string[]>([]);
   const { logout } = useAuth();
 
-  const handleSearch = () => {
-    setIsLoading(true);
-    setShowResults(false);
+  // Check if user has completed onboarding
+  useEffect(() => {
+    const profile = localStorage.getItem("vibe_profile");
+    if (!profile) {
+      navigate("/onboarding");
+    }
+  }, [navigate]);
 
-    // Simulate API call with fake loading time
-    setTimeout(() => {
-      setIsLoading(false);
-      setShowResults(true);
-    }, 5000); // 5 second loading time
+  // Simple client-side parser preview
+  useEffect(() => {
+    if (!searchValue) {
+      setParsedTags([]);
+      return;
+    }
+
+    const query = searchValue.toLowerCase();
+    const tags: string[] = [];
+
+    // Simple keyword matching
+    if (query.includes("cozy") || query.includes("warm")) tags.push("cozy");
+    if (query.includes("quiet") || query.includes("silent")) tags.push("quiet");
+    if (query.includes("study") || query.includes("work")) tags.push("studious");
+    if (query.includes("romantic") || query.includes("date")) tags.push("romantic");
+    if (query.includes("lively") || query.includes("energetic")) tags.push("lively");
+    if (query.includes("cheap") || query.includes("budget")) tags.push("budget");
+    if (query.includes("upscale") || query.includes("fancy")) tags.push("upscale");
+
+    setParsedTags(tags);
+  }, [searchValue]);
+
+  const handleSearch = () => {
+    if (!searchValue.trim()) return;
+
+    // Track search
+    trackSearch({
+      query: searchValue,
+      tags: parsedTags,
+      axes: {},
+      radiusMeters: 2000,
+    });
+
+    // Navigate to results page with query params
+    const params = new URLSearchParams({
+      q: searchValue,
+      ...(parsedTags.length > 0 && { tags: parsedTags.join(",") }),
+    });
+    navigate(`/results?${params}`);
   };
 
-  const handleLogout = () => {
-    logout();
+  const handleSuggestionClick = (suggestion: string) => {
+    setSearchValue(suggestion);
   };
 
   return (
@@ -82,24 +89,50 @@ const Index = () => {
               VibeMap
             </span>
           </div>
-          <div className="flex items-center gap-4">
-            <span className="text-sm text-muted-foreground">Harvard Area</span>
+          <div className="flex items-center gap-2">
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => navigate("/explore")}
+              className="flex items-center gap-2"
+            >
+              <MapPin className="h-4 w-4" />
+              <span className="hidden sm:inline">Explore</span>
+            </Button>
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => navigate("/saved")}
+              className="flex items-center gap-2"
+            >
+              <Bookmark className="h-4 w-4" />
+              <span className="hidden sm:inline">Saved</span>
+            </Button>
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => navigate("/profile")}
+              className="flex items-center gap-2"
+            >
+              <User className="h-4 w-4" />
+              <span className="hidden sm:inline">Profile</span>
+            </Button>
             <Button
               variant="outline"
               size="sm"
-              onClick={handleLogout}
+              onClick={logout}
               className="flex items-center gap-2"
             >
               <LogOut className="h-4 w-4" />
-              Sign Out
+              <span className="hidden sm:inline">Sign Out</span>
             </Button>
           </div>
         </div>
       </header>
 
       {/* Hero Section */}
-      <section className="container mx-auto px-4 py-12 text-center space-y-6">
-        <div className="space-y-4 mb-8">
+      <section className="container mx-auto px-4 py-12 text-center space-y-8">
+        <div className="space-y-4">
           <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-primary via-primary-glow to-accent bg-clip-text text-transparent">
             Find Your Vibe
           </h1>
@@ -108,100 +141,76 @@ const Index = () => {
           </p>
         </div>
 
-        <SearchBar
-          value={searchValue}
-          onChange={setSearchValue}
-          onSearch={handleSearch}
-        />
+        <div className="max-w-2xl mx-auto space-y-4">
+          <SearchBar
+            value={searchValue}
+            onChange={setSearchValue}
+            onSearch={handleSearch}
+          />
+
+          {/* Parser Preview */}
+          {parsedTags.length > 0 && (
+            <div className="flex items-center justify-center gap-2 text-sm">
+              <Sparkles className="h-4 w-4 text-primary" />
+              <span className="text-muted-foreground">Detected vibes:</span>
+              <div className="flex gap-1">
+                {parsedTags.map((tag) => (
+                  <Badge key={tag} variant="secondary">
+                    {tag}
+                  </Badge>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Suggestions */}
+        <div className="max-w-3xl mx-auto">
+          <p className="text-sm text-muted-foreground mb-3">
+            Try searching for:
+          </p>
+          <div className="flex flex-wrap gap-2 justify-center">
+            {SUGGESTED_VIBES.map((vibe) => (
+              <Button
+                key={vibe}
+                variant="outline"
+                size="sm"
+                onClick={() => handleSuggestionClick(vibe)}
+                className="text-xs"
+              >
+                {vibe}
+              </Button>
+            ))}
+          </div>
+        </div>
       </section>
 
-      {/* Loading Section */}
-      {isLoading && (
-        <section className="container mx-auto px-4 pb-16">
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Map Loading Skeleton */}
-            <div className="order-2 md:order-1">
-              <div className="h-[600px] sticky top-24">
-                <Skeleton className="w-full h-full rounded-lg" />
-              </div>
-            </div>
-
-            {/* Results Loading Skeleton */}
-            <div className="order-1 md:order-2 space-y-4">
-              <div className="flex items-center justify-between mb-6">
-                <div className="flex items-center gap-2">
-                  <Skeleton className="h-8 w-48" />
-                  <div className="flex items-center gap-1">
-                    <Clock className="h-4 w-4 text-muted-foreground animate-pulse" />
-                    <span className="text-sm text-muted-foreground">Searching...</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Loading Place Cards */}
-              {Array.from({ length: 4 }).map((_, index) => (
-                <div key={index} className="border border-border rounded-lg p-6 bg-card/50 backdrop-blur-sm">
-                  <div className="flex items-start gap-4">
-                    {/* Place Image Skeleton */}
-                    <Skeleton className="w-16 h-16 rounded-lg flex-shrink-0" />
-
-                    <div className="flex-1 space-y-3">
-                      {/* Place Name */}
-                      <Skeleton className="h-6 w-32" />
-
-                      {/* Address */}
-                      <div className="flex items-center gap-2">
-                        <MapPin className="h-4 w-4 text-muted-foreground" />
-                        <Skeleton className="h-4 w-48" />
-                      </div>
-
-                      {/* Rating and Category */}
-                      <div className="flex items-center gap-4">
-                        <div className="flex items-center gap-1">
-                          <Star className="h-4 w-4 text-muted-foreground" />
-                          <Skeleton className="h-4 w-8" />
-                        </div>
-                        <Skeleton className="h-4 w-20" />
-                      </div>
-
-                      {/* Vibe */}
-                      <Skeleton className="h-4 w-24" />
-
-                      {/* Distance */}
-                      <Skeleton className="h-4 w-12" />
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
+      {/* Info Section */}
+      <section className="container mx-auto px-4 pb-16">
+        <div className="max-w-4xl mx-auto grid md:grid-cols-3 gap-6">
+          <div className="text-center p-6 border border-border rounded-lg bg-card/50">
+            <div className="text-3xl mb-2">🎯</div>
+            <h3 className="font-semibold mb-2">AI-Powered</h3>
+            <p className="text-sm text-muted-foreground">
+              Smart vibe detection from reviews and data
+            </p>
           </div>
-        </section>
-      )}
-
-      {/* Results Section */}
-      {showResults && !isLoading && (
-        <section className="container mx-auto px-4 pb-16">
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Map */}
-            <div className="order-2 md:order-1">
-              <MapView className="h-[600px] sticky top-24" />
-            </div>
-
-            {/* Results List */}
-            <div className="order-1 md:order-2 space-y-4">
-              <div className="flex items-center justify-between mb-6">
-                <h2 className="text-2xl font-semibold text-foreground">
-                  Found {MOCK_PLACES.length} places
-                </h2>
-              </div>
-
-              {MOCK_PLACES.map((place, index) => (
-                <PlaceCard key={index} {...place} />
-              ))}
-            </div>
+          <div className="text-center p-6 border border-border rounded-lg bg-card/50">
+            <div className="text-3xl mb-2">📍</div>
+            <h3 className="font-semibold mb-2">Harvard Square</h3>
+            <p className="text-sm text-muted-foreground">
+              Curated spots around campus and beyond
+            </p>
           </div>
-        </section>
-      )}
+          <div className="text-center p-6 border border-border rounded-lg bg-card/50">
+            <div className="text-3xl mb-2">✨</div>
+            <h3 className="font-semibold mb-2">Personalized</h3>
+            <p className="text-sm text-muted-foreground">
+              Results tailored to your vibe preferences
+            </p>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
