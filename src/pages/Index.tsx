@@ -1,7 +1,12 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { SearchBar } from "@/components/SearchBar";
 import { PlaceCard } from "@/components/PlaceCard";
 import { MapView } from "@/components/MapView";
+import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
+import { useAuth } from "@/contexts/AuthContext";
+import { LogOut, MapPin, Star, Clock } from "lucide-react";
 
 // Mock data for wireframe
 const MOCK_PLACES = [
@@ -12,6 +17,7 @@ const MOCK_PLACES = [
     category: "Coffee Shop",
     vibe: "cozy studying",
     distance: "0.2 mi",
+    locationId: "cafe-nero",
   },
   {
     name: "The Sinclair",
@@ -20,6 +26,7 @@ const MOCK_PLACES = [
     category: "Bar & Music",
     vibe: "lively social",
     distance: "0.3 mi",
+    locationId: "the-sinclair",
   },
   {
     name: "Tatte Bakery",
@@ -28,6 +35,7 @@ const MOCK_PLACES = [
     category: "Bakery & Café",
     vibe: "instagram-worthy",
     distance: "0.4 mi",
+    locationId: "tatte-bakery",
   },
   {
     name: "Widener Library",
@@ -36,15 +44,29 @@ const MOCK_PLACES = [
     category: "Library",
     vibe: "quiet reading",
     distance: "0.5 mi",
+    locationId: "widener-library",
   },
 ];
 
 const Index = () => {
   const [searchValue, setSearchValue] = useState("");
   const [showResults, setShowResults] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const { logout } = useAuth();
 
   const handleSearch = () => {
-    setShowResults(true);
+    setIsLoading(true);
+    setShowResults(false);
+
+    // Simulate API call with fake loading time
+    setTimeout(() => {
+      setIsLoading(false);
+      setShowResults(true);
+    }, 5000); // 5 second loading time
+  };
+
+  const handleLogout = () => {
+    logout();
   };
 
   return (
@@ -60,7 +82,18 @@ const Index = () => {
               VibeMap
             </span>
           </div>
-          <span className="text-sm text-muted-foreground">Harvard Area</span>
+          <div className="flex items-center gap-4">
+            <span className="text-sm text-muted-foreground">Harvard Area</span>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={handleLogout}
+              className="flex items-center gap-2"
+            >
+              <LogOut className="h-4 w-4" />
+              Sign Out
+            </Button>
+          </div>
         </div>
       </header>
 
@@ -74,23 +107,86 @@ const Index = () => {
             Discover places that match your mood with natural language search
           </p>
         </div>
-        
-        <SearchBar 
+
+        <SearchBar
           value={searchValue}
           onChange={setSearchValue}
           onSearch={handleSearch}
         />
       </section>
 
+      {/* Loading Section */}
+      {isLoading && (
+        <section className="container mx-auto px-4 pb-16">
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Map Loading Skeleton */}
+            <div className="order-2 md:order-1">
+              <div className="h-[600px] sticky top-24">
+                <Skeleton className="w-full h-full rounded-lg" />
+              </div>
+            </div>
+
+            {/* Results Loading Skeleton */}
+            <div className="order-1 md:order-2 space-y-4">
+              <div className="flex items-center justify-between mb-6">
+                <div className="flex items-center gap-2">
+                  <Skeleton className="h-8 w-48" />
+                  <div className="flex items-center gap-1">
+                    <Clock className="h-4 w-4 text-muted-foreground animate-pulse" />
+                    <span className="text-sm text-muted-foreground">Searching...</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Loading Place Cards */}
+              {Array.from({ length: 4 }).map((_, index) => (
+                <div key={index} className="border border-border rounded-lg p-6 bg-card/50 backdrop-blur-sm">
+                  <div className="flex items-start gap-4">
+                    {/* Place Image Skeleton */}
+                    <Skeleton className="w-16 h-16 rounded-lg flex-shrink-0" />
+
+                    <div className="flex-1 space-y-3">
+                      {/* Place Name */}
+                      <Skeleton className="h-6 w-32" />
+
+                      {/* Address */}
+                      <div className="flex items-center gap-2">
+                        <MapPin className="h-4 w-4 text-muted-foreground" />
+                        <Skeleton className="h-4 w-48" />
+                      </div>
+
+                      {/* Rating and Category */}
+                      <div className="flex items-center gap-4">
+                        <div className="flex items-center gap-1">
+                          <Star className="h-4 w-4 text-muted-foreground" />
+                          <Skeleton className="h-4 w-8" />
+                        </div>
+                        <Skeleton className="h-4 w-20" />
+                      </div>
+
+                      {/* Vibe */}
+                      <Skeleton className="h-4 w-24" />
+
+                      {/* Distance */}
+                      <Skeleton className="h-4 w-12" />
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Results Section */}
-      {showResults && (
+      {showResults && !isLoading && (
         <section className="container mx-auto px-4 pb-16">
           <div className="grid md:grid-cols-2 gap-8">
             {/* Map */}
             <div className="order-2 md:order-1">
               <MapView className="h-[600px] sticky top-24" />
             </div>
-            
+
             {/* Results List */}
             <div className="order-1 md:order-2 space-y-4">
               <div className="flex items-center justify-between mb-6">
@@ -98,7 +194,7 @@ const Index = () => {
                   Found {MOCK_PLACES.length} places
                 </h2>
               </div>
-              
+
               {MOCK_PLACES.map((place, index) => (
                 <PlaceCard key={index} {...place} />
               ))}

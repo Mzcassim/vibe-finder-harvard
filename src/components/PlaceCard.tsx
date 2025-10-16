@@ -1,6 +1,7 @@
 import { MapPin, Star } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { useNavigate } from "react-router-dom";
 
 interface PlaceCardProps {
   name: string;
@@ -9,11 +10,23 @@ interface PlaceCardProps {
   category: string;
   vibe: string;
   distance: string;
+  locationId?: string;
 }
 
-export const PlaceCard = ({ name, address, rating, category, vibe, distance }: PlaceCardProps) => {
+export const PlaceCard = ({ name, address, rating, category, vibe, distance, locationId }: PlaceCardProps) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    if (locationId) {
+      navigate(`/location/${locationId}`);
+    }
+  };
+
   return (
-    <Card className="hover:shadow-lg transition-all duration-300 hover:scale-[1.02] cursor-pointer border-border">
+    <Card
+      className="hover:shadow-lg transition-all duration-300 hover:scale-[1.02] cursor-pointer border-border"
+      onClick={handleClick}
+    >
       <CardContent className="p-6">
         <div className="flex justify-between items-start mb-3">
           <div>
@@ -28,14 +41,14 @@ export const PlaceCard = ({ name, address, rating, category, vibe, distance }: P
             <span className="font-medium text-accent">{rating}</span>
           </div>
         </div>
-        
+
         <div className="flex flex-wrap gap-2 mb-3">
           <Badge variant="secondary">{category}</Badge>
           <Badge variant="outline" className="border-primary text-primary">
             {vibe}
           </Badge>
         </div>
-        
+
         <div className="text-sm text-muted-foreground">
           {distance} away
         </div>
