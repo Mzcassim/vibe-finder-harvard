@@ -161,8 +161,19 @@ export const SAMPLE_VENUES = [
 /**
  * Initialize localStorage with sample data if it's empty
  * This runs once on first app load
+ * 
+ * Toggle via VITE_ENABLE_SEED_DATA environment variable
+ * Set to 'false' when using a real backend
  */
 export function seedSampleData() {
+  // Check if seeding is enabled (default: true for demos)
+  const seedingEnabled = import.meta.env.VITE_ENABLE_SEED_DATA !== "false";
+  
+  if (!seedingEnabled) {
+    console.log("⏭️ Sample data seeding disabled (VITE_ENABLE_SEED_DATA=false)");
+    return;
+  }
+  
   // Check if we've already seeded data
   const hasSeeded = localStorage.getItem("data_seeded");
   
