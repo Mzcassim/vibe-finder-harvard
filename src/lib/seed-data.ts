@@ -167,7 +167,10 @@ export const SAMPLE_VENUES = [
  */
 export function seedSampleData() {
   // Check if seeding is enabled (default: true for demos)
-  const seedingEnabled = import.meta.env.VITE_ENABLE_SEED_DATA !== "false";
+  const envValue = import.meta.env.VITE_ENABLE_SEED_DATA;
+  const seedingEnabled = envValue === undefined || envValue === "true" || envValue === true;
+  
+  console.log("🌱 Seed data config:", { envValue, seedingEnabled });
   
   if (!seedingEnabled) {
     console.log("⏭️ Sample data seeding disabled (VITE_ENABLE_SEED_DATA=false)");
@@ -176,22 +179,25 @@ export function seedSampleData() {
   
   // Check if we've already seeded data
   const hasSeeded = localStorage.getItem("data_seeded");
+  const existingVerified = JSON.parse(localStorage.getItem("verified_venues") || "[]");
   
-  if (!hasSeeded) {
+  console.log("📊 Current state:", { 
+    hasSeeded, 
+    existingVenueCount: existingVerified.length 
+  });
+  
+  // Seed if never seeded OR if seeded but venues are missing (recovery)
+  if (!hasSeeded || existingVerified.length === 0) {
     console.log("🌱 Seeding sample venue data...");
     
-    // Seed verified venues
-    const existingVerified = JSON.parse(localStorage.getItem("verified_venues") || "[]");
-    if (existingVerified.length === 0) {
-      localStorage.setItem("verified_venues", JSON.stringify(SAMPLE_VENUES));
-      console.log(`✅ Seeded ${SAMPLE_VENUES.length} sample venues`);
-    }
+    localStorage.setItem("verified_venues", JSON.stringify(SAMPLE_VENUES));
+    console.log(`✅ Seeded ${SAMPLE_VENUES.length} sample venues`);
     
     // Mark as seeded
     localStorage.setItem("data_seeded", "true");
     localStorage.setItem("data_seeded_timestamp", new Date().toISOString());
   } else {
-    console.log("ℹ️ Sample data already seeded");
+    console.log(`ℹ️ Sample data already present (${existingVerified.length} venues)`);
   }
 }
 

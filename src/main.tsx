@@ -4,13 +4,22 @@ import "./index.css";
 import { seedSampleData } from "./lib/seed-data";
 
 async function enableMocking() {
-  // Enable MSW in both development and production for demo purposes
-  // Set VITE_USE_MOCKS=false to disable mocking
-  if (import.meta.env.VITE_USE_MOCKS !== "false") {
+  // Enable MSW by default for demo purposes
+  // Only disable if explicitly set to "false"
+  const useMocks = import.meta.env.VITE_USE_MOCKS;
+  const shouldMock = useMocks === undefined || useMocks === "true" || useMocks === true;
+  
+  console.log("🔧 Mock config:", { useMocks, shouldMock });
+  
+  if (shouldMock) {
+    console.log("🎭 Starting MSW for API mocking...");
     const { worker } = await import("./mocks/browser");
-    return worker.start({
+    await worker.start({
       onUnhandledRequest: "bypass",
     });
+    console.log("✅ MSW started successfully");
+  } else {
+    console.log("⏭️ MSW disabled, using real API");
   }
 }
 

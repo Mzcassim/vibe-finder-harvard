@@ -16,7 +16,8 @@ dist-ssr
 .env
 .env.local
 .env.development
-.env.production
+# Keep demo production config (no secrets, safe to commit)
+!.env.production
 # Keep example files
 !.env.example
 !.env.production.backend
