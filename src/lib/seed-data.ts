@@ -7,17 +7,27 @@ export const SAMPLE_VENUES = [
   {
     venue_id: "sample-cafe-001",
     name: "Tatte Bakery & Cafe",
-    lat: 42.373611,
-    lon: -71.118944,
-    primary_vibe: "cozy",
-    vibe_tags: ["cozy", "studious", "trendy"],
-    axes: {
-      noise_level: 0.4,
-      price_level: 0.6,
-      wifi_quality: 0.8,
-      crowd_density: 0.7,
-      lighting: 0.7,
-      seating_comfort: 0.8,
+    geo: {
+      lat: 42.373611,
+      lon: -71.118944,
+    },
+    images: [],
+    metadata: {
+      category: "Cafe",
+      addr: "1288 Massachusetts Ave, Cambridge, MA",
+    },
+    llm_labels: {
+      vibe_tags: ["cozy", "studious", "trendy"],
+      axes: {
+        noise_level: 0.4,
+        price_level: 0.6,
+        crowd_density: 0.7,
+      },
+      rationales: ["Popular bakery with comfortable seating for studying"],
+    },
+    agg_signals: {
+      avg_rating: 4.5,
+      review_count: 450,
     },
     is_verified: true,
     confidence: 0.95,
@@ -26,17 +36,27 @@ export const SAMPLE_VENUES = [
   {
     venue_id: "sample-cafe-002",
     name: "Pavement Coffeehouse",
-    lat: 42.373333,
-    lon: -71.119167,
-    primary_vibe: "studious",
-    vibe_tags: ["studious", "quiet", "cozy"],
-    axes: {
-      noise_level: 0.2,
-      price_level: 0.4,
-      wifi_quality: 0.9,
-      crowd_density: 0.5,
-      lighting: 0.6,
-      seating_comfort: 0.6,
+    geo: {
+      lat: 42.373333,
+      lon: -71.119167,
+    },
+    images: [],
+    metadata: {
+      category: "Cafe",
+      addr: "1334 Massachusetts Ave, Cambridge, MA",
+    },
+    llm_labels: {
+      vibe_tags: ["studious", "quiet", "cozy"],
+      axes: {
+        noise_level: 0.2,
+        price_level: 0.4,
+        crowd_density: 0.5,
+      },
+      rationales: ["Quiet coffee shop perfect for focused work"],
+    },
+    agg_signals: {
+      avg_rating: 4.3,
+      review_count: 320,
     },
     is_verified: true,
     confidence: 0.92,
@@ -45,17 +65,27 @@ export const SAMPLE_VENUES = [
   {
     venue_id: "sample-cafe-003",
     name: "Render Coffee",
-    lat: 42.372778,
-    lon: -71.116944,
-    primary_vibe: "trendy",
-    vibe_tags: ["trendy", "modern", "vibrant"],
-    axes: {
-      noise_level: 0.6,
-      price_level: 0.7,
-      wifi_quality: 0.8,
-      crowd_density: 0.8,
-      lighting: 0.8,
-      seating_comfort: 0.7,
+    geo: {
+      lat: 42.372778,
+      lon: -71.116944,
+    },
+    images: [],
+    metadata: {
+      category: "Cafe",
+      addr: "563 Massachusetts Ave, Cambridge, MA",
+    },
+    llm_labels: {
+      vibe_tags: ["trendy", "modern", "vibrant"],
+      axes: {
+        noise_level: 0.6,
+        price_level: 0.7,
+        crowd_density: 0.8,
+      },
+      rationales: ["Modern coffee spot with specialty drinks"],
+    },
+    agg_signals: {
+      avg_rating: 4.6,
+      review_count: 280,
     },
     is_verified: true,
     confidence: 0.88,
@@ -64,17 +94,27 @@ export const SAMPLE_VENUES = [
   {
     venue_id: "sample-cafe-004",
     name: "Cafe Nero",
-    lat: 42.372222,
-    lon: -71.118056,
-    primary_vibe: "vibrant",
-    vibe_tags: ["vibrant", "social", "energetic"],
-    axes: {
-      noise_level: 0.7,
-      price_level: 0.5,
-      wifi_quality: 0.7,
-      crowd_density: 0.9,
-      lighting: 0.7,
-      seating_comfort: 0.6,
+    geo: {
+      lat: 42.372222,
+      lon: -71.118056,
+    },
+    images: [],
+    metadata: {
+      category: "Cafe",
+      addr: "1 Brattle Square, Cambridge, MA",
+    },
+    llm_labels: {
+      vibe_tags: ["vibrant", "social", "energetic"],
+      axes: {
+        noise_level: 0.7,
+        price_level: 0.5,
+        crowd_density: 0.9,
+      },
+      rationales: ["Busy cafe with lots of activity"],
+    },
+    agg_signals: {
+      avg_rating: 4.2,
+      review_count: 410,
     },
     is_verified: true,
     confidence: 0.85,
@@ -83,17 +123,27 @@ export const SAMPLE_VENUES = [
   {
     venue_id: "sample-lib-001",
     name: "Widener Library",
-    lat: 42.374444,
-    lon: -71.116667,
-    primary_vibe: "quiet",
-    vibe_tags: ["quiet", "studious", "historic"],
-    axes: {
-      noise_level: 0.1,
-      price_level: 0.0,
-      wifi_quality: 0.9,
-      crowd_density: 0.4,
-      lighting: 0.5,
-      seating_comfort: 0.7,
+    geo: {
+      lat: 42.374444,
+      lon: -71.116667,
+    },
+    images: [],
+    metadata: {
+      category: "Library",
+      addr: "Harvard Yard, Cambridge, MA",
+    },
+    llm_labels: {
+      vibe_tags: ["quiet", "studious", "historic"],
+      axes: {
+        noise_level: 0.1,
+        price_level: 0.0,
+        crowd_density: 0.4,
+      },
+      rationales: ["Historic university library with quiet study spaces"],
+    },
+    agg_signals: {
+      avg_rating: 4.8,
+      review_count: 180,
     },
     is_verified: true,
     confidence: 0.98,
@@ -102,17 +152,27 @@ export const SAMPLE_VENUES = [
   {
     venue_id: "sample-restaurant-001",
     name: "Felipe's Taqueria",
-    lat: 42.373056,
-    lon: -71.118611,
-    primary_vibe: "energetic",
-    vibe_tags: ["energetic", "casual", "social"],
-    axes: {
-      noise_level: 0.8,
-      price_level: 0.3,
-      wifi_quality: 0.6,
-      crowd_density: 0.9,
-      lighting: 0.7,
-      seating_comfort: 0.5,
+    geo: {
+      lat: 42.373056,
+      lon: -71.118611,
+    },
+    images: [],
+    metadata: {
+      category: "Restaurant",
+      addr: "21 Brattle St, Cambridge, MA",
+    },
+    llm_labels: {
+      vibe_tags: ["energetic", "casual", "social"],
+      axes: {
+        noise_level: 0.8,
+        price_level: 0.3,
+        crowd_density: 0.9,
+      },
+      rationales: ["Popular taqueria with lively atmosphere"],
+    },
+    agg_signals: {
+      avg_rating: 4.4,
+      review_count: 620,
     },
     is_verified: true,
     confidence: 0.9,
@@ -121,17 +181,27 @@ export const SAMPLE_VENUES = [
   {
     venue_id: "sample-cafe-005",
     name: "Clover Food Lab",
-    lat: 42.373889,
-    lon: -71.117778,
-    primary_vibe: "healthy",
-    vibe_tags: ["healthy", "modern", "casual"],
-    axes: {
-      noise_level: 0.5,
-      price_level: 0.5,
-      wifi_quality: 0.7,
-      crowd_density: 0.7,
-      lighting: 0.8,
-      seating_comfort: 0.6,
+    geo: {
+      lat: 42.373889,
+      lon: -71.117778,
+    },
+    images: [],
+    metadata: {
+      category: "Restaurant",
+      addr: "7 Holyoke St, Cambridge, MA",
+    },
+    llm_labels: {
+      vibe_tags: ["healthy", "modern", "casual"],
+      axes: {
+        noise_level: 0.5,
+        price_level: 0.5,
+        crowd_density: 0.7,
+      },
+      rationales: ["Fast-casual vegetarian restaurant"],
+    },
+    agg_signals: {
+      avg_rating: 4.3,
+      review_count: 380,
     },
     is_verified: true,
     confidence: 0.87,
@@ -140,17 +210,27 @@ export const SAMPLE_VENUES = [
   {
     venue_id: "sample-bookstore-001",
     name: "Harvard Book Store",
-    lat: 42.372500,
-    lon: -71.117500,
-    primary_vibe: "cozy",
-    vibe_tags: ["cozy", "quiet", "intellectual"],
-    axes: {
-      noise_level: 0.2,
-      price_level: 0.6,
-      wifi_quality: 0.5,
-      crowd_density: 0.4,
-      lighting: 0.6,
-      seating_comfort: 0.7,
+    geo: {
+      lat: 42.372500,
+      lon: -71.117500,
+    },
+    images: [],
+    metadata: {
+      category: "Bookstore",
+      addr: "1256 Massachusetts Ave, Cambridge, MA",
+    },
+    llm_labels: {
+      vibe_tags: ["cozy", "quiet", "intellectual"],
+      axes: {
+        noise_level: 0.2,
+        price_level: 0.6,
+        crowd_density: 0.4,
+      },
+      rationales: ["Independent bookstore with reading nooks"],
+    },
+    agg_signals: {
+      avg_rating: 4.7,
+      review_count: 540,
     },
     is_verified: true,
     confidence: 0.91,
