@@ -19,9 +19,11 @@ export const SAMPLE_VENUES = [
     llm_labels: {
       vibe_tags: ["cozy", "studious", "trendy"],
       axes: {
-        noise_level: 0.4,
-        price_level: 0.6,
-        crowd_density: 0.7,
+        casualness: 0.6,
+        comfort: 0.7,
+        energy: 0.4,
+        elegance: 0.6,
+        authenticity: 0.7,
       },
       rationales: ["Popular bakery with comfortable seating for studying"],
     },
@@ -48,9 +50,11 @@ export const SAMPLE_VENUES = [
     llm_labels: {
       vibe_tags: ["studious", "quiet", "cozy"],
       axes: {
-        noise_level: 0.2,
-        price_level: 0.4,
-        crowd_density: 0.5,
+        casualness: 0.8,
+        comfort: 0.8,
+        energy: 0.2,
+        elegance: 0.4,
+        authenticity: 0.8,
       },
       rationales: ["Quiet coffee shop perfect for focused work"],
     },
@@ -77,9 +81,11 @@ export const SAMPLE_VENUES = [
     llm_labels: {
       vibe_tags: ["trendy", "modern", "vibrant"],
       axes: {
-        noise_level: 0.6,
-        price_level: 0.7,
-        crowd_density: 0.8,
+        casualness: 0.6,
+        comfort: 0.7,
+        energy: 0.6,
+        elegance: 0.7,
+        authenticity: 0.7,
       },
       rationales: ["Modern coffee spot with specialty drinks"],
     },
@@ -106,9 +112,11 @@ export const SAMPLE_VENUES = [
     llm_labels: {
       vibe_tags: ["vibrant", "social", "energetic"],
       axes: {
-        noise_level: 0.7,
-        price_level: 0.5,
-        crowd_density: 0.9,
+        casualness: 0.7,
+        comfort: 0.6,
+        energy: 0.7,
+        elegance: 0.5,
+        authenticity: 0.8,
       },
       rationales: ["Busy cafe with lots of activity"],
     },
@@ -135,9 +143,11 @@ export const SAMPLE_VENUES = [
     llm_labels: {
       vibe_tags: ["quiet", "studious", "historic"],
       axes: {
-        noise_level: 0.1,
-        price_level: 0.0,
-        crowd_density: 0.4,
+        casualness: 1.0,
+        comfort: 0.8,
+        energy: 0.1,
+        elegance: 0.0,
+        authenticity: 0.9,
       },
       rationales: ["Historic university library with quiet study spaces"],
     },
@@ -164,9 +174,11 @@ export const SAMPLE_VENUES = [
     llm_labels: {
       vibe_tags: ["energetic", "casual", "social"],
       axes: {
-        noise_level: 0.8,
-        price_level: 0.3,
-        crowd_density: 0.9,
+        casualness: 0.8,
+        comfort: 0.6,
+        energy: 0.8,
+        elegance: 0.3,
+        authenticity: 0.8,
       },
       rationales: ["Popular taqueria with lively atmosphere"],
     },
@@ -193,9 +205,11 @@ export const SAMPLE_VENUES = [
     llm_labels: {
       vibe_tags: ["healthy", "modern", "casual"],
       axes: {
-        noise_level: 0.5,
-        price_level: 0.5,
-        crowd_density: 0.7,
+        casualness: 0.7,
+        comfort: 0.7,
+        energy: 0.5,
+        elegance: 0.5,
+        authenticity: 0.8,
       },
       rationales: ["Fast-casual vegetarian restaurant"],
     },
@@ -222,9 +236,11 @@ export const SAMPLE_VENUES = [
     llm_labels: {
       vibe_tags: ["cozy", "quiet", "intellectual"],
       axes: {
-        noise_level: 0.2,
-        price_level: 0.6,
-        crowd_density: 0.4,
+        casualness: 0.6,
+        comfort: 0.8,
+        energy: 0.2,
+        elegance: 0.6,
+        authenticity: 0.7,
       },
       rationales: ["Independent bookstore with reading nooks"],
     },
@@ -251,9 +267,11 @@ export const SAMPLE_VENUES = [
     llm_labels: {
       vibe_tags: ["romantic", "cozy", "dimly-lit"],
       axes: {
-        noise_level: 0.4,
-        price_level: 0.6,
-        crowd_density: 0.6,
+        casualness: 0.6,
+        comfort: 0.7,
+        energy: 0.4,
+        elegance: 0.6,
+        authenticity: 0.7,
       },
       rationales: ["Basement restaurant with intimate atmosphere and candlelight"],
     },
@@ -280,9 +298,11 @@ export const SAMPLE_VENUES = [
     llm_labels: {
       vibe_tags: ["studious", "busy", "convenient"],
       axes: {
-        noise_level: 0.5,
-        price_level: 0.5,
-        crowd_density: 0.7,
+        casualness: 0.7,
+        comfort: 0.7,
+        energy: 0.5,
+        elegance: 0.5,
+        authenticity: 0.8,
       },
       rationales: ["Popular chain cafe with consistent quality"],
     },
@@ -309,9 +329,11 @@ export const SAMPLE_VENUES = [
     llm_labels: {
       vibe_tags: ["upscale", "romantic", "sophisticated"],
       axes: {
-        noise_level: 0.3,
-        price_level: 0.8,
-        crowd_density: 0.5,
+        casualness: 0.5,
+        comfort: 0.8,
+        energy: 0.3,
+        elegance: 0.8,
+        authenticity: 0.7,
       },
       rationales: ["Upscale dining with seasonal American cuisine"],
     },
@@ -338,9 +360,11 @@ export const SAMPLE_VENUES = [
     llm_labels: {
       vibe_tags: ["cozy", "casual", "sweet"],
       axes: {
-        noise_level: 0.5,
-        price_level: 0.5,
-        crowd_density: 0.8,
+        casualness: 0.7,
+        comfort: 0.7,
+        energy: 0.5,
+        elegance: 0.5,
+        authenticity: 0.8,
       },
       rationales: ["Famous bakery with delicious pastries and casual seating"],
     },
@@ -367,9 +391,11 @@ export const SAMPLE_VENUES = [
     llm_labels: {
       vibe_tags: ["lively", "social", "fun"],
       axes: {
-        noise_level: 0.8,
-        price_level: 0.6,
-        crowd_density: 0.9,
+        casualness: 0.6,
+        comfort: 0.6,
+        energy: 0.8,
+        elegance: 0.6,
+        authenticity: 0.7,
       },
       rationales: ["Popular college bar with energetic nightlife atmosphere"],
     },
@@ -396,9 +422,11 @@ export const SAMPLE_VENUES = [
     llm_labels: {
       vibe_tags: ["casual", "social", "gastropub"],
       axes: {
-        noise_level: 0.7,
-        price_level: 0.6,
-        crowd_density: 0.8,
+        casualness: 0.6,
+        comfort: 0.7,
+        energy: 0.7,
+        elegance: 0.6,
+        authenticity: 0.7,
       },
       rationales: ["Irish-style gastropub with comfort food and drinks"],
     },
@@ -425,9 +453,11 @@ export const SAMPLE_VENUES = [
     llm_labels: {
       vibe_tags: ["hipster", "artisanal", "trendy"],
       axes: {
-        noise_level: 0.4,
-        price_level: 0.7,
-        crowd_density: 0.6,
+        casualness: 0.6,
+        comfort: 0.7,
+        energy: 0.4,
+        elegance: 0.7,
+        authenticity: 0.7,
       },
       rationales: ["Artisanal coffee shop with specialty drinks"],
     },
@@ -454,9 +484,11 @@ export const SAMPLE_VENUES = [
     llm_labels: {
       vibe_tags: ["upscale", "modern", "creative"],
       axes: {
-        noise_level: 0.6,
-        price_level: 0.8,
-        crowd_density: 0.7,
+        casualness: 0.5,
+        comfort: 0.7,
+        energy: 0.6,
+        elegance: 0.8,
+        authenticity: 0.7,
       },
       rationales: ["Contemporary American cuisine with creative small plates"],
     },
@@ -483,9 +515,11 @@ export const SAMPLE_VENUES = [
     llm_labels: {
       vibe_tags: ["casual", "budget-friendly", "authentic"],
       axes: {
-        noise_level: 0.6,
-        price_level: 0.3,
-        crowd_density: 0.8,
+        casualness: 0.8,
+        comfort: 0.7,
+        energy: 0.6,
+        elegance: 0.3,
+        authenticity: 0.8,
       },
       rationales: ["Affordable authentic dumplings, often busy"],
     },
@@ -512,9 +546,11 @@ export const SAMPLE_VENUES = [
     llm_labels: {
       vibe_tags: ["quiet", "studious", "academic"],
       axes: {
-        noise_level: 0.1,
-        price_level: 0.0,
-        crowd_density: 0.5,
+        casualness: 1.0,
+        comfort: 0.8,
+        energy: 0.1,
+        elegance: 0.0,
+        authenticity: 0.9,
       },
       rationales: ["24-hour undergraduate library with quiet study spaces"],
     },
@@ -541,9 +577,11 @@ export const SAMPLE_VENUES = [
     llm_labels: {
       vibe_tags: ["elegant", "romantic", "sophisticated"],
       axes: {
-        noise_level: 0.4,
-        price_level: 0.8,
-        crowd_density: 0.5,
+        casualness: 0.5,
+        comfort: 0.8,
+        energy: 0.4,
+        elegance: 0.8,
+        authenticity: 0.7,
       },
       rationales: ["French brasserie with elegant ambiance"],
     },
@@ -570,9 +608,11 @@ export const SAMPLE_VENUES = [
     llm_labels: {
       vibe_tags: ["relaxing", "zen", "peaceful"],
       axes: {
-        noise_level: 0.2,
-        price_level: 0.5,
-        crowd_density: 0.3,
+        casualness: 0.7,
+        comfort: 0.8,
+        energy: 0.2,
+        elegance: 0.5,
+        authenticity: 0.8,
       },
       rationales: ["Peaceful tea house with meditative atmosphere"],
     },
@@ -599,9 +639,11 @@ export const SAMPLE_VENUES = [
     llm_labels: {
       vibe_tags: ["casual", "comfort-food", "authentic"],
       axes: {
-        noise_level: 0.5,
-        price_level: 0.4,
-        crowd_density: 0.7,
+        casualness: 0.8,
+        comfort: 0.7,
+        energy: 0.5,
+        elegance: 0.4,
+        authenticity: 0.8,
       },
       rationales: ["Authentic Japanese ramen in casual setting"],
     },
@@ -628,9 +670,11 @@ export const SAMPLE_VENUES = [
     llm_labels: {
       vibe_tags: ["local", "casual", "sandwich-shop"],
       axes: {
-        noise_level: 0.5,
-        price_level: 0.5,
-        crowd_density: 0.6,
+        casualness: 0.7,
+        comfort: 0.7,
+        energy: 0.5,
+        elegance: 0.5,
+        authenticity: 0.8,
       },
       rationales: ["Local favorite for sandwiches and coffee"],
     },

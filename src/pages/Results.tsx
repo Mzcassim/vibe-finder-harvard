@@ -68,6 +68,14 @@ const Results: React.FC = () => {
           params.set("tags", filters.tags.join(","));
         }
 
+        // Add axis filters if any
+        if (Object.keys(filters.axes).length > 0) {
+          const axesStr = Object.entries(filters.axes)
+            .map(([key, { min, max }]) => `${key}:${min}-${max}`)
+            .join(",");
+          params.set("axes", axesStr);
+        }
+
         const response = await fetch(`/api/search?${params}`);
         const data = await response.json();
 
@@ -111,6 +119,14 @@ const Results: React.FC = () => {
 
       if (filters.tags.length > 0) {
         params.set("tags", filters.tags.join(","));
+      }
+
+      // Add axis filters if any
+      if (Object.keys(filters.axes).length > 0) {
+        const axesStr = Object.entries(filters.axes)
+          .map(([key, { min, max }]) => `${key}:${min}-${max}`)
+          .join(",");
+        params.set("axes", axesStr);
       }
 
       const response = await fetch(`/api/search?${params}`);

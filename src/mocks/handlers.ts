@@ -19,6 +19,21 @@ export const handlers = [
     const radiusM = parseInt(url.searchParams.get("radius_m") || "2000");
     const cursor = url.searchParams.get("cursor");
     
+    // Parse axis filters (format: "key:min-max,key:min-max")
+    const axesFilter = url.searchParams.get("axes");
+    const axesRanges: Record<string, { min: number; max: number }> = {};
+    if (axesFilter) {
+      axesFilter.split(",").forEach((axisStr) => {
+        const [key, range] = axisStr.split(":");
+        if (range) {
+          const [min, max] = range.split("-").map(parseFloat);
+          if (!isNaN(min) && !isNaN(max)) {
+            axesRanges[key] = { min, max };
+          }
+        }
+      });
+    }
+    
     // Combine mock venues with user contributions and verified venues
     let results = [...MOCK_VENUES];
     
@@ -53,6 +68,20 @@ export const handlers = [
           )
         )
       );
+    }
+    
+    // Filter by axis ranges if provided
+    if (Object.keys(axesRanges).length > 0) {
+      results = results.filter((venue) => {
+        const venueAxes = venue.llm_labels.axes || {};
+        
+        // Check if venue's axes fall within the specified ranges
+        return Object.entries(axesRanges).every(([key, range]) => {
+          const venueValue = venueAxes[key as keyof typeof venueAxes];
+          if (venueValue === undefined) return true; // Skip if venue doesn't have this axis
+          return venueValue >= range.min && venueValue <= range.max;
+        });
+      });
     }
     
     // Filter by query text (simple search in name, tags, and category)

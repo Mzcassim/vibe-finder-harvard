@@ -13,7 +13,7 @@ import { Badge } from "@/components/ui/badge";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 import { TagChips } from "./TagChips";
-import { AxesSliders } from "./AxesSliders";
+import { AxesSliders, DEFAULT_VIBE_AXES } from "./AxesSliders";
 import { SlidersHorizontal, X } from "lucide-react";
 
 export interface FilterState {
@@ -147,35 +147,16 @@ export const FiltersDrawer: React.FC<FiltersDrawerProps> = ({
             </div>
           </div>
 
-          {/* Axes Sliders */}
+          {/* Vibe Metrics Sliders */}
           <div>
             <Label className="text-base font-semibold mb-3 block">
-              Vibe Preferences
+              Vibe Metrics
             </Label>
             <p className="text-xs text-muted-foreground mb-4">
-              Set your preferred range for each vibe dimension
+              Set your preferred range for each vibe metric (±30%)
             </p>
             <AxesSliders
-              axes={[
-                {
-                  key: "noise_level",
-                  label: "Noise Level",
-                  lowLabel: "Quiet",
-                  highLabel: "Loud",
-                },
-                {
-                  key: "price_level",
-                  label: "Price",
-                  lowLabel: "Budget",
-                  highLabel: "Upscale",
-                },
-                {
-                  key: "crowd_density",
-                  label: "Crowd",
-                  lowLabel: "Empty",
-                  highLabel: "Packed",
-                },
-              ]}
+              axes={DEFAULT_VIBE_AXES}
               values={Object.fromEntries(
                 Object.entries(localFilters.axes).map(([k, v]) => [
                   k,
@@ -183,7 +164,7 @@ export const FiltersDrawer: React.FC<FiltersDrawerProps> = ({
                 ])
               )}
               onChange={(key, value) => {
-                // For now, set a range around the selected value
+                // Set a ±30% range around the selected value
                 const range = 0.3;
                 handleAxisChange(
                   key,
