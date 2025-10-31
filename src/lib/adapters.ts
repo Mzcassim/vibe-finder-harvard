@@ -14,16 +14,16 @@ function clamp01(value: number | undefined): number {
  */
 function formatAxisLabel(key: string): string {
   const labels: Record<string, string> = {
+    casualness: "Casualness",
+    comfort: "Comfort",
+    energy: "Energy",
+    elegance: "Elegance",
+    authenticity: "Authenticity",
+    // Legacy support
     noise_level: "Noise",
     lighting_warmth: "Lighting",
     crowd_density: "Crowd",
     price_level: "Price",
-    music_energy: "Energy",
-    formality: "Formality",
-    novelty: "Novelty",
-    authenticity: "Authentic",
-    cleanliness: "Clean",
-    accessibility: "Accessible",
   };
   return labels[key] || key;
 }
@@ -40,18 +40,17 @@ export function toVenueVM(
 ): VenueVM {
   const axes = dto.llm_labels?.axes ?? {};
   
-  // Define priority order for radar display
+  // Define priority order for radar display - 5 core vibe metrics
   const radarKeysPriority = [
+    "casualness",
+    "comfort",
+    "energy",
+    "elegance",
+    "authenticity",
+    // Legacy support
     "noise_level",
     "price_level",
     "crowd_density",
-    "lighting_warmth",
-    "formality",
-    "music_energy",
-    "novelty",
-    "authenticity",
-    "cleanliness",
-    "accessibility",
   ];
 
   // Filter to only axes that exist in the data

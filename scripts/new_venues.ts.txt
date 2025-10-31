@@ -1,0 +1,870 @@
+  {
+    venue_id: "csv-0",
+    name: "Gramercy Tavern",
+    geo: {
+      lat: 40.684773,
+      lon: -74.010987,
+    },
+    images: [],
+    metadata: {
+      category: "Bar",
+      addr: "42 E 20th St, New York, NY 10003, USA",
+    },
+    llm_labels: {
+      vibe_tags: ["comfort", "elegance", "energy"],
+      axes: {
+        noise_level: 0.6,
+        price_level: 1.0,
+        crowd_density: 0.9,
+      },
+      rationales: ["Imported from venue database with 95% confidence"],
+    },
+    agg_signals: {
+      avg_rating: 4.45,
+      review_count: 5,
+    },
+    is_verified: true,
+    confidence: 0.95,
+    contributor_name: "AI Vibe Maps Team",
+  },
+  {
+    venue_id: "csv-1",
+    name: "Boucherie Union Square",
+    geo: {
+      lat: 40.726622,
+      lon: -73.993827,
+    },
+    images: [],
+    metadata: {
+      category: "Restaurant",
+      addr: "225 Park Ave S, New York, NY 10003, USA",
+    },
+    llm_labels: {
+      vibe_tags: ["comfort", "elegance", "authenticity"],
+      axes: {
+        noise_level: 0.3,
+        price_level: 0.75,
+        crowd_density: 0.8,
+      },
+      rationales: ["Imported from venue database with 90% confidence"],
+    },
+    agg_signals: {
+      avg_rating: 4.4,
+      review_count: 5,
+    },
+    is_verified: true,
+    confidence: 0.9,
+    contributor_name: "AI Vibe Maps Team",
+  },
+  {
+    venue_id: "csv-2",
+    name: "Nobu Downtown",
+    geo: {
+      lat: 40.717242,
+      lon: -74.032023,
+    },
+    images: [],
+    metadata: {
+      category: "Restaurant",
+      addr: "195 Broadway, New York, NY 10007, USA",
+    },
+    llm_labels: {
+      vibe_tags: ["elegance", "comfort", "authenticity"],
+      axes: {
+        noise_level: 0.5,
+        price_level: 1.0,
+        crowd_density: 0.8,
+      },
+      rationales: ["Imported from venue database with 95% confidence"],
+    },
+    agg_signals: {
+      avg_rating: 4.45,
+      review_count: 5,
+    },
+    is_verified: true,
+    confidence: 0.95,
+    contributor_name: "AI Vibe Maps Team",
+  },
+  {
+    venue_id: "csv-3",
+    name: "The Dutch",
+    geo: {
+      lat: 40.688163,
+      lon: -73.991689,
+    },
+    images: [],
+    metadata: {
+      category: "Restaurant",
+      addr: "131 Sullivan St, New York, NY 10012, USA",
+    },
+    llm_labels: {
+      vibe_tags: ["casualness", "comfort", "energy"],
+      axes: {
+        noise_level: 0.8,
+        price_level: 0.75,
+        crowd_density: 0.8,
+      },
+      rationales: ["Imported from venue database with 95% confidence"],
+    },
+    agg_signals: {
+      avg_rating: 4.45,
+      review_count: 5,
+    },
+    is_verified: true,
+    confidence: 0.95,
+    contributor_name: "AI Vibe Maps Team",
+  },
+  {
+    venue_id: "csv-4",
+    name: "Manhatta",
+    geo: {
+      lat: 40.686912,
+      lon: -73.985832,
+    },
+    images: [],
+    metadata: {
+      category: "Restaurant",
+      addr: "28 Liberty St 60th floor, New York, NY 10005, USA",
+    },
+    llm_labels: {
+      vibe_tags: ["elegance", "comfort"],
+      axes: {
+        noise_level: 0.5,
+        price_level: 1.0,
+        crowd_density: 0.7,
+      },
+      rationales: ["Imported from venue database with 95% confidence"],
+    },
+    agg_signals: {
+      avg_rating: 4.45,
+      review_count: 5,
+    },
+    is_verified: true,
+    confidence: 0.95,
+    contributor_name: "AI Vibe Maps Team",
+  },
+  {
+    venue_id: "csv-5",
+    name: "Jack's Wife Freda",
+    geo: {
+      lat: 40.714076,
+      lon: -74.018558,
+    },
+    images: [],
+    metadata: {
+      category: "Restaurant",
+      addr: "226 Lafayette St, New York, NY 10012, USA",
+    },
+    llm_labels: {
+      vibe_tags: ["casualness", "comfort", "energy"],
+      axes: {
+        noise_level: 0.8,
+        price_level: 0.5,
+        crowd_density: 0.8,
+      },
+      rationales: ["Imported from venue database with 95% confidence"],
+    },
+    agg_signals: {
+      avg_rating: 4.45,
+      review_count: 5,
+    },
+    is_verified: true,
+    confidence: 0.95,
+    contributor_name: "AI Vibe Maps Team",
+  },
+  {
+    venue_id: "csv-6",
+    name: "Lindens",
+    geo: {
+      lat: 40.679635,
+      lon: -73.996363,
+    },
+    images: [],
+    metadata: {
+      category: "Restaurant",
+      addr: "2 Renwick St, New York, NY 10013, USA",
+    },
+    llm_labels: {
+      vibe_tags: ["comfort", "casualness", "energy"],
+      axes: {
+        noise_level: 0.7,
+        price_level: 0.5,
+        crowd_density: 0.9,
+      },
+      rationales: ["Imported from venue database with 95% confidence"],
+    },
+    agg_signals: {
+      avg_rating: 4.45,
+      review_count: 5,
+    },
+    is_verified: true,
+    confidence: 0.95,
+    contributor_name: "AI Vibe Maps Team",
+  },
+  {
+    venue_id: "csv-7",
+    name: "Tatiana by Kwame Onwuachi",
+    geo: {
+      lat: 40.707975,
+      lon: -73.98145,
+    },
+    images: [],
+    metadata: {
+      category: "Restaurant",
+      addr: "10 Lincoln Center Plaza, New York, NY 10023, USA",
+    },
+    llm_labels: {
+      vibe_tags: ["comfort", "authenticity", "energy"],
+      axes: {
+        noise_level: 0.8,
+        price_level: 1.0,
+        crowd_density: 0.9,
+      },
+      rationales: ["Imported from venue database with 95% confidence"],
+    },
+    agg_signals: {
+      avg_rating: 4.45,
+      review_count: 5,
+    },
+    is_verified: true,
+    confidence: 0.95,
+    contributor_name: "AI Vibe Maps Team",
+  },
+  {
+    venue_id: "csv-8",
+    name: "Craft New York",
+    geo: {
+      lat: 40.699029,
+      lon: -74.007751,
+    },
+    images: [],
+    metadata: {
+      category: "Restaurant",
+      addr: "43 E 19th St, New York, NY 10003, USA",
+    },
+    llm_labels: {
+      vibe_tags: ["comfort", "elegance"],
+      axes: {
+        noise_level: 0.4,
+        price_level: 0.75,
+        crowd_density: 0.9,
+      },
+      rationales: ["Imported from venue database with 95% confidence"],
+    },
+    agg_signals: {
+      avg_rating: 4.45,
+      review_count: 5,
+    },
+    is_verified: true,
+    confidence: 0.95,
+    contributor_name: "AI Vibe Maps Team",
+  },
+  {
+    venue_id: "csv-9",
+    name: "The Tyger",
+    geo: {
+      lat: 40.69052,
+      lon: -74.032581,
+    },
+    images: [],
+    metadata: {
+      category: "Restaurant",
+      addr: "1 Howard St, New York, NY 10013, USA",
+    },
+    llm_labels: {
+      vibe_tags: ["comfort", "authenticity", "energy"],
+      axes: {
+        noise_level: 0.6,
+        price_level: 0.5,
+        crowd_density: 0.9,
+      },
+      rationales: ["Imported from venue database with 85% confidence"],
+    },
+    agg_signals: {
+      avg_rating: 4.35,
+      review_count: 5,
+    },
+    is_verified: true,
+    confidence: 0.85,
+    contributor_name: "AI Vibe Maps Team",
+  },
+  {
+    venue_id: "csv-10",
+    name: "Little Collins",
+    geo: {
+      lat: 40.68032,
+      lon: -74.020592,
+    },
+    images: [],
+    metadata: {
+      category: "Restaurant",
+      addr: "708 3rd Ave, New York, NY 10017, USA",
+    },
+    llm_labels: {
+      vibe_tags: ["casualness", "comfort", "energy"],
+      axes: {
+        noise_level: 0.8,
+        price_level: 0.5,
+        crowd_density: 0.8,
+      },
+      rationales: ["Imported from venue database with 95% confidence"],
+    },
+    agg_signals: {
+      avg_rating: 4.45,
+      review_count: 5,
+    },
+    is_verified: true,
+    confidence: 0.95,
+    contributor_name: "AI Vibe Maps Team",
+  },
+  {
+    venue_id: "csv-11",
+    name: "Bibble & Sip",
+    geo: {
+      lat: 40.697943,
+      lon: -74.021782,
+    },
+    images: [],
+    metadata: {
+      category: "Cafe",
+      addr: "253 W 51st St, New York, NY 10019, USA",
+    },
+    llm_labels: {
+      vibe_tags: ["authenticity", "casualness", "energy"],
+      axes: {
+        noise_level: 0.7,
+        price_level: 0.5,
+        crowd_density: 0.5,
+      },
+      rationales: ["Imported from venue database with 95% confidence"],
+    },
+    agg_signals: {
+      avg_rating: 4.45,
+      review_count: 5,
+    },
+    is_verified: true,
+    confidence: 0.95,
+    contributor_name: "AI Vibe Maps Team",
+  },
+  {
+    venue_id: "csv-12",
+    name: "Coffee Project New York | East Village",
+    geo: {
+      lat: 40.713423,
+      lon: -73.983199,
+    },
+    images: [],
+    metadata: {
+      category: "Cafe",
+      addr: "239 E 5th St, New York, NY 10003, USA",
+    },
+    llm_labels: {
+      vibe_tags: ["casualness", "comfort", "authenticity"],
+      axes: {
+        noise_level: 0.5,
+        price_level: 0.5,
+        crowd_density: 0.8,
+      },
+      rationales: ["Imported from venue database with 95% confidence"],
+    },
+    agg_signals: {
+      avg_rating: 4.45,
+      review_count: 5,
+    },
+    is_verified: true,
+    confidence: 0.95,
+    contributor_name: "AI Vibe Maps Team",
+  },
+  {
+    venue_id: "csv-13",
+    name: "In Common NYC - A Breakfast & Brunch Restaurant",
+    geo: {
+      lat: 40.747877,
+      lon: -73.981181,
+    },
+    images: [],
+    metadata: {
+      category: "Restaurant",
+      addr: "441 9th Ave Suite 101, New York, NY 10001, USA",
+    },
+    llm_labels: {
+      vibe_tags: ["casualness", "comfort", "energy"],
+      axes: {
+        noise_level: 0.9,
+        price_level: 0.5,
+        crowd_density: 0.9,
+      },
+      rationales: ["Imported from venue database with 95% confidence"],
+    },
+    agg_signals: {
+      avg_rating: 4.45,
+      review_count: 5,
+    },
+    is_verified: true,
+    confidence: 0.95,
+    contributor_name: "AI Vibe Maps Team",
+  },
+  {
+    venue_id: "csv-14",
+    name: "Café Lyria",
+    geo: {
+      lat: 40.699749,
+      lon: -73.986027,
+    },
+    images: [],
+    metadata: {
+      category: "Restaurant",
+      addr: "166 Crosby St, New York, NY 10012, USA",
+    },
+    llm_labels: {
+      vibe_tags: ["energy", "authenticity", "casualness"],
+      axes: {
+        noise_level: 0.9,
+        price_level: 0.5,
+        crowd_density: 0.6,
+      },
+      rationales: ["Imported from venue database with 90% confidence"],
+    },
+    agg_signals: {
+      avg_rating: 4.4,
+      review_count: 5,
+    },
+    is_verified: true,
+    confidence: 0.9,
+    contributor_name: "AI Vibe Maps Team",
+  },
+  {
+    venue_id: "csv-15",
+    name: "787 Coffee Co.",
+    geo: {
+      lat: 40.688925,
+      lon: -74.037543,
+    },
+    images: [],
+    metadata: {
+      category: "Cafe",
+      addr: "251 W 30th St, New York, NY 10001, USA",
+    },
+    llm_labels: {
+      vibe_tags: ["casualness", "comfort", "authenticity"],
+      axes: {
+        noise_level: 0.6,
+        price_level: 0.5,
+        crowd_density: 0.9,
+      },
+      rationales: ["Imported from venue database with 95% confidence"],
+    },
+    agg_signals: {
+      avg_rating: 4.45,
+      review_count: 5,
+    },
+    is_verified: true,
+    confidence: 0.95,
+    contributor_name: "AI Vibe Maps Team",
+  },
+  {
+    venue_id: "csv-16",
+    name: "Urban Backyard",
+    geo: {
+      lat: 40.738436,
+      lon: -74.040494,
+    },
+    images: [],
+    metadata: {
+      category: "Restaurant",
+      addr: "180 Mulberry St, New York, NY 10012, USA",
+    },
+    llm_labels: {
+      vibe_tags: ["comfort", "casualness"],
+      axes: {
+        noise_level: 0.3,
+        price_level: 0.5,
+        crowd_density: 0.9,
+      },
+      rationales: ["Imported from venue database with 95% confidence"],
+    },
+    agg_signals: {
+      avg_rating: 4.45,
+      review_count: 5,
+    },
+    is_verified: true,
+    confidence: 0.95,
+    contributor_name: "AI Vibe Maps Team",
+  },
+  {
+    venue_id: "csv-17",
+    name: "Charlotte Cafe",
+    geo: {
+      lat: 40.744845,
+      lon: -74.032715,
+    },
+    images: [],
+    metadata: {
+      category: "Cafe",
+      addr: "605 2nd Ave, New York, NY 10016, USA",
+    },
+    llm_labels: {
+      vibe_tags: ["comfort", "casualness"],
+      axes: {
+        noise_level: 0.2,
+        price_level: 0.25,
+        crowd_density: 1.0,
+      },
+      rationales: ["Imported from venue database with 95% confidence"],
+    },
+    agg_signals: {
+      avg_rating: 4.45,
+      review_count: 5,
+    },
+    is_verified: true,
+    confidence: 0.95,
+    contributor_name: "AI Vibe Maps Team",
+  },
+  {
+    venue_id: "csv-18",
+    name: "Gold coffee",
+    geo: {
+      lat: 40.725185,
+      lon: -74.026275,
+    },
+    images: [],
+    metadata: {
+      category: "Cafe",
+      addr: "491 3rd Ave, New York, NY 10016, USA",
+    },
+    llm_labels: {
+      vibe_tags: ["casualness", "comfort"],
+      axes: {
+        noise_level: 0.5,
+        price_level: 0.25,
+        crowd_density: 0.8,
+      },
+      rationales: ["Imported from venue database with 95% confidence"],
+    },
+    agg_signals: {
+      avg_rating: 4.45,
+      review_count: 5,
+    },
+    is_verified: true,
+    confidence: 0.95,
+    contributor_name: "AI Vibe Maps Team",
+  },
+  {
+    venue_id: "csv-19",
+    name: "787 Coffee",
+    geo: {
+      lat: 40.719101,
+      lon: -74.025924,
+    },
+    images: [],
+    metadata: {
+      category: "Cafe",
+      addr: "310 W 14th St, New York, NY 10014, USA",
+    },
+    llm_labels: {
+      vibe_tags: ["comfort", "authenticity", "casualness"],
+      axes: {
+        noise_level: 0.5,
+        price_level: 0.5,
+        crowd_density: 1.0,
+      },
+      rationales: ["Imported from venue database with 95% confidence"],
+    },
+    agg_signals: {
+      avg_rating: 4.45,
+      review_count: 5,
+    },
+    is_verified: true,
+    confidence: 0.95,
+    contributor_name: "AI Vibe Maps Team",
+  },
+  {
+    venue_id: "csv-20",
+    name: "The Dead Rabbit",
+    geo: {
+      lat: 40.719473,
+      lon: -73.985423,
+    },
+    images: [],
+    metadata: {
+      category: "Restaurant",
+      addr: "30 Water St, New York, NY 10004, USA",
+    },
+    llm_labels: {
+      vibe_tags: ["energy", "authenticity", "casualness"],
+      axes: {
+        noise_level: 0.9,
+        price_level: 0.5,
+        crowd_density: 0.8,
+      },
+      rationales: ["Imported from venue database with 95% confidence"],
+    },
+    agg_signals: {
+      avg_rating: 4.45,
+      review_count: 5,
+    },
+    is_verified: true,
+    confidence: 0.95,
+    contributor_name: "AI Vibe Maps Team",
+  },
+  {
+    venue_id: "csv-21",
+    name: "Dear Irving on Hudson Rooftop Bar",
+    geo: {
+      lat: 40.714923,
+      lon: -73.98302,
+    },
+    images: [],
+    metadata: {
+      category: "Bar",
+      addr: "310 W 40th St, New York, NY 10018, USA",
+    },
+    llm_labels: {
+      vibe_tags: ["energy", "elegance", "comfort"],
+      axes: {
+        noise_level: 0.9,
+        price_level: 0.75,
+        crowd_density: 0.8,
+      },
+      rationales: ["Imported from venue database with 95% confidence"],
+    },
+    agg_signals: {
+      avg_rating: 4.45,
+      review_count: 5,
+    },
+    is_verified: true,
+    confidence: 0.95,
+    contributor_name: "AI Vibe Maps Team",
+  },
+  {
+    venue_id: "csv-22",
+    name: "Death & Co East Village",
+    geo: {
+      lat: 40.687618,
+      lon: -74.002149,
+    },
+    images: [],
+    metadata: {
+      category: "Restaurant",
+      addr: "433 E 6th St, New York, NY 10009, USA",
+    },
+    llm_labels: {
+      vibe_tags: ["elegance", "comfort", "energy"],
+      axes: {
+        noise_level: 0.8,
+        price_level: 0.75,
+        crowd_density: 0.8,
+      },
+      rationales: ["Imported from venue database with 95% confidence"],
+    },
+    agg_signals: {
+      avg_rating: 4.45,
+      review_count: 5,
+    },
+    is_verified: true,
+    confidence: 0.95,
+    contributor_name: "AI Vibe Maps Team",
+  },
+  {
+    venue_id: "csv-23",
+    name: "Dante NYC",
+    geo: {
+      lat: 40.729623,
+      lon: -74.016603,
+    },
+    images: [],
+    metadata: {
+      category: "Restaurant",
+      addr: "79-81 MacDougal St, New York, NY 10012, USA",
+    },
+    llm_labels: {
+      vibe_tags: ["elegance", "comfort", "energy"],
+      axes: {
+        noise_level: 0.8,
+        price_level: 0.75,
+        crowd_density: 0.8,
+      },
+      rationales: ["Imported from venue database with 95% confidence"],
+    },
+    agg_signals: {
+      avg_rating: 4.45,
+      review_count: 5,
+    },
+    is_verified: true,
+    confidence: 0.95,
+    contributor_name: "AI Vibe Maps Team",
+  },
+  {
+    venue_id: "csv-24",
+    name: "The Campbell",
+    geo: {
+      lat: 40.752211,
+      lon: -73.987088,
+    },
+    images: [],
+    metadata: {
+      category: "Restaurant",
+      addr: "15 Vanderbilt Ave, New York, NY 10017, USA",
+    },
+    llm_labels: {
+      vibe_tags: ["comfort", "elegance", "authenticity"],
+      axes: {
+        noise_level: 0.3,
+        price_level: 1.0,
+        crowd_density: 0.9,
+      },
+      rationales: ["Imported from venue database with 95% confidence"],
+    },
+    agg_signals: {
+      avg_rating: 4.45,
+      review_count: 5,
+    },
+    is_verified: true,
+    confidence: 0.95,
+    contributor_name: "AI Vibe Maps Team",
+  },
+  {
+    venue_id: "csv-25",
+    name: "Pocket Bar NYC",
+    geo: {
+      lat: 40.692589,
+      lon: -74.036728,
+    },
+    images: [],
+    metadata: {
+      category: "Bar",
+      addr: "455 W 48th St, New York, NY 10036, USA",
+    },
+    llm_labels: {
+      vibe_tags: ["comfort", "casualness", "energy"],
+      axes: {
+        noise_level: 0.7,
+        price_level: 0.5,
+        crowd_density: 0.9,
+      },
+      rationales: ["Imported from venue database with 95% confidence"],
+    },
+    agg_signals: {
+      avg_rating: 4.45,
+      review_count: 5,
+    },
+    is_verified: true,
+    confidence: 0.95,
+    contributor_name: "AI Vibe Maps Team",
+  },
+  {
+    venue_id: "csv-26",
+    name: "Old Town Bar",
+    geo: {
+      lat: 40.724095,
+      lon: -74.025367,
+    },
+    images: [],
+    metadata: {
+      category: "Bar",
+      addr: "45 E 18th St, New York, NY 10003, USA",
+    },
+    llm_labels: {
+      vibe_tags: ["casualness", "comfort", "authenticity"],
+      axes: {
+        noise_level: 0.8,
+        price_level: 0.5,
+        crowd_density: 0.9,
+      },
+      rationales: ["Imported from venue database with 95% confidence"],
+    },
+    agg_signals: {
+      avg_rating: 4.45,
+      review_count: 5,
+    },
+    is_verified: true,
+    confidence: 0.95,
+    contributor_name: "AI Vibe Maps Team",
+  },
+  {
+    venue_id: "csv-27",
+    name: "Hide Rooftop",
+    geo: {
+      lat: 40.729482,
+      lon: -74.01974,
+    },
+    images: [],
+    metadata: {
+      category: "Restaurant",
+      addr: "Artezen Hotel Lobby Entrance, 24 John St 20th Floor, New York, NY 10038, USA",
+    },
+    llm_labels: {
+      vibe_tags: ["comfort", "elegance", "energy"],
+      axes: {
+        noise_level: 0.7,
+        price_level: 0.5,
+        crowd_density: 0.9,
+      },
+      rationales: ["Imported from venue database with 95% confidence"],
+    },
+    agg_signals: {
+      avg_rating: 4.45,
+      review_count: 5,
+    },
+    is_verified: true,
+    confidence: 0.95,
+    contributor_name: "AI Vibe Maps Team",
+  },
+  {
+    venue_id: "csv-28",
+    name: "Rooftop Bars NYC",
+    geo: {
+      lat: 40.744107,
+      lon: -74.04266,
+    },
+    images: [],
+    metadata: {
+      category: "Bar",
+      addr: "1150 Broadway Entrance, New York, NY 10001, USA",
+    },
+    llm_labels: {
+      vibe_tags: ["energy", "casualness", "elegance"],
+      axes: {
+        noise_level: 0.9,
+        price_level: 0.5,
+        crowd_density: 0.6,
+      },
+      rationales: ["Imported from venue database with 90% confidence"],
+    },
+    agg_signals: {
+      avg_rating: 4.4,
+      review_count: 5,
+    },
+    is_verified: true,
+    confidence: 0.9,
+    contributor_name: "AI Vibe Maps Team",
+  },
+  {
+    venue_id: "csv-29",
+    name: "Slate",
+    geo: {
+      lat: 40.676154,
+      lon: -74.015215,
+    },
+    images: [],
+    metadata: {
+      category: "Restaurant",
+      addr: "54 W 21st St, New York, NY 10010, USA",
+    },
+    llm_labels: {
+      vibe_tags: ["energy", "casualness", "comfort"],
+      axes: {
+        noise_level: 1.0,
+        price_level: 0.5,
+        crowd_density: 0.8,
+      },
+      rationales: ["Imported from venue database with 95% confidence"],
+    },
+    agg_signals: {
+      avg_rating: 4.45,
+      review_count: 5,
+    },
+    is_verified: true,
+    confidence: 0.95,
+    contributor_name: "AI Vibe Maps Team",
+  }

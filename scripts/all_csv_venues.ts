@@ -1,654 +1,9 @@
-/**
- * Seed sample data to localStorage for production demo
- * This ensures the app has data even without a backend
- */
-
-export const SAMPLE_VENUES = [
-  {
-    venue_id: "sample-cafe-001",
-    name: "Tatte Bakery & Cafe",
-    geo: {
-      lat: 42.373611,
-      lon: -71.118944,
-    },
-    images: [],
-    metadata: {
-      category: "Cafe",
-      addr: "1288 Massachusetts Ave, Cambridge, MA",
-    },
-    llm_labels: {
-      vibe_tags: ["cozy", "studious", "trendy"],
-      axes: {
-        noise_level: 0.4,
-        price_level: 0.6,
-        crowd_density: 0.7,
-      },
-      rationales: ["Popular bakery with comfortable seating for studying"],
-    },
-    agg_signals: {
-      avg_rating: 4.5,
-      review_count: 450,
-    },
-    is_verified: true,
-    confidence: 0.95,
-    contributor_name: "AI Vibe Maps Team",
-  },
-  {
-    venue_id: "sample-cafe-002",
-    name: "Pavement Coffeehouse",
-    geo: {
-      lat: 42.373333,
-      lon: -71.119167,
-    },
-    images: [],
-    metadata: {
-      category: "Cafe",
-      addr: "1334 Massachusetts Ave, Cambridge, MA",
-    },
-    llm_labels: {
-      vibe_tags: ["studious", "quiet", "cozy"],
-      axes: {
-        noise_level: 0.2,
-        price_level: 0.4,
-        crowd_density: 0.5,
-      },
-      rationales: ["Quiet coffee shop perfect for focused work"],
-    },
-    agg_signals: {
-      avg_rating: 4.3,
-      review_count: 320,
-    },
-    is_verified: true,
-    confidence: 0.92,
-    contributor_name: "AI Vibe Maps Team",
-  },
-  {
-    venue_id: "sample-cafe-003",
-    name: "Render Coffee",
-    geo: {
-      lat: 42.372778,
-      lon: -71.116944,
-    },
-    images: [],
-    metadata: {
-      category: "Cafe",
-      addr: "563 Massachusetts Ave, Cambridge, MA",
-    },
-    llm_labels: {
-      vibe_tags: ["trendy", "modern", "vibrant"],
-      axes: {
-        noise_level: 0.6,
-        price_level: 0.7,
-        crowd_density: 0.8,
-      },
-      rationales: ["Modern coffee spot with specialty drinks"],
-    },
-    agg_signals: {
-      avg_rating: 4.6,
-      review_count: 280,
-    },
-    is_verified: true,
-    confidence: 0.88,
-    contributor_name: "AI Vibe Maps Team",
-  },
-  {
-    venue_id: "sample-cafe-004",
-    name: "Cafe Nero",
-    geo: {
-      lat: 42.372222,
-      lon: -71.118056,
-    },
-    images: [],
-    metadata: {
-      category: "Cafe",
-      addr: "1 Brattle Square, Cambridge, MA",
-    },
-    llm_labels: {
-      vibe_tags: ["vibrant", "social", "energetic"],
-      axes: {
-        noise_level: 0.7,
-        price_level: 0.5,
-        crowd_density: 0.9,
-      },
-      rationales: ["Busy cafe with lots of activity"],
-    },
-    agg_signals: {
-      avg_rating: 4.2,
-      review_count: 410,
-    },
-    is_verified: true,
-    confidence: 0.85,
-    contributor_name: "AI Vibe Maps Team",
-  },
-  {
-    venue_id: "sample-lib-001",
-    name: "Widener Library",
-    geo: {
-      lat: 42.374444,
-      lon: -71.116667,
-    },
-    images: [],
-    metadata: {
-      category: "Library",
-      addr: "Harvard Yard, Cambridge, MA",
-    },
-    llm_labels: {
-      vibe_tags: ["quiet", "studious", "historic"],
-      axes: {
-        noise_level: 0.1,
-        price_level: 0.0,
-        crowd_density: 0.4,
-      },
-      rationales: ["Historic university library with quiet study spaces"],
-    },
-    agg_signals: {
-      avg_rating: 4.8,
-      review_count: 180,
-    },
-    is_verified: true,
-    confidence: 0.98,
-    contributor_name: "AI Vibe Maps Team",
-  },
-  {
-    venue_id: "sample-restaurant-001",
-    name: "Felipe's Taqueria",
-    geo: {
-      lat: 42.373056,
-      lon: -71.118611,
-    },
-    images: [],
-    metadata: {
-      category: "Restaurant",
-      addr: "21 Brattle St, Cambridge, MA",
-    },
-    llm_labels: {
-      vibe_tags: ["energetic", "casual", "social"],
-      axes: {
-        noise_level: 0.8,
-        price_level: 0.3,
-        crowd_density: 0.9,
-      },
-      rationales: ["Popular taqueria with lively atmosphere"],
-    },
-    agg_signals: {
-      avg_rating: 4.4,
-      review_count: 620,
-    },
-    is_verified: true,
-    confidence: 0.9,
-    contributor_name: "AI Vibe Maps Team",
-  },
-  {
-    venue_id: "sample-cafe-005",
-    name: "Clover Food Lab",
-    geo: {
-      lat: 42.373889,
-      lon: -71.117778,
-    },
-    images: [],
-    metadata: {
-      category: "Restaurant",
-      addr: "7 Holyoke St, Cambridge, MA",
-    },
-    llm_labels: {
-      vibe_tags: ["healthy", "modern", "casual"],
-      axes: {
-        noise_level: 0.5,
-        price_level: 0.5,
-        crowd_density: 0.7,
-      },
-      rationales: ["Fast-casual vegetarian restaurant"],
-    },
-    agg_signals: {
-      avg_rating: 4.3,
-      review_count: 380,
-    },
-    is_verified: true,
-    confidence: 0.87,
-    contributor_name: "AI Vibe Maps Team",
-  },
-  {
-    venue_id: "sample-bookstore-001",
-    name: "Harvard Book Store",
-    geo: {
-      lat: 42.372500,
-      lon: -71.117500,
-    },
-    images: [],
-    metadata: {
-      category: "Bookstore",
-      addr: "1256 Massachusetts Ave, Cambridge, MA",
-    },
-    llm_labels: {
-      vibe_tags: ["cozy", "quiet", "intellectual"],
-      axes: {
-        noise_level: 0.2,
-        price_level: 0.6,
-        crowd_density: 0.4,
-      },
-      rationales: ["Independent bookstore with reading nooks"],
-    },
-    agg_signals: {
-      avg_rating: 4.7,
-      review_count: 540,
-    },
-    is_verified: true,
-    confidence: 0.91,
-    contributor_name: "AI Vibe Maps Team",
-  },
-  {
-    venue_id: "sample-restaurant-002",
-    name: "Grendel's Den",
-    geo: {
-      lat: 42.373000,
-      lon: -71.118333,
-    },
-    images: [],
-    metadata: {
-      category: "Restaurant",
-      addr: "89 Winthrop St, Cambridge, MA",
-    },
-    llm_labels: {
-      vibe_tags: ["romantic", "cozy", "dimly-lit"],
-      axes: {
-        noise_level: 0.4,
-        price_level: 0.6,
-        crowd_density: 0.6,
-      },
-      rationales: ["Basement restaurant with intimate atmosphere and candlelight"],
-    },
-    agg_signals: {
-      avg_rating: 4.4,
-      review_count: 480,
-    },
-    is_verified: true,
-    confidence: 0.89,
-    contributor_name: "AI Vibe Maps Team",
-  },
-  {
-    venue_id: "sample-cafe-006",
-    name: "Peet's Coffee",
-    geo: {
-      lat: 42.373700,
-      lon: -71.118200,
-    },
-    images: [],
-    metadata: {
-      category: "Cafe",
-      addr: "100 Mt Auburn St, Cambridge, MA",
-    },
-    llm_labels: {
-      vibe_tags: ["studious", "busy", "convenient"],
-      axes: {
-        noise_level: 0.5,
-        price_level: 0.5,
-        crowd_density: 0.7,
-      },
-      rationales: ["Popular chain cafe with consistent quality"],
-    },
-    agg_signals: {
-      avg_rating: 4.2,
-      review_count: 350,
-    },
-    is_verified: true,
-    confidence: 0.86,
-    contributor_name: "AI Vibe Maps Team",
-  },
-  {
-    venue_id: "sample-restaurant-003",
-    name: "The Red House",
-    geo: {
-      lat: 42.373556,
-      lon: -71.118889,
-    },
-    images: [],
-    metadata: {
-      category: "Restaurant",
-      addr: "98 Winthrop St, Cambridge, MA",
-    },
-    llm_labels: {
-      vibe_tags: ["upscale", "romantic", "sophisticated"],
-      axes: {
-        noise_level: 0.3,
-        price_level: 0.8,
-        crowd_density: 0.5,
-      },
-      rationales: ["Upscale dining with seasonal American cuisine"],
-    },
-    agg_signals: {
-      avg_rating: 4.6,
-      review_count: 290,
-    },
-    is_verified: true,
-    confidence: 0.90,
-    contributor_name: "AI Vibe Maps Team",
-  },
-  {
-    venue_id: "sample-cafe-007",
-    name: "Flour Bakery",
-    geo: {
-      lat: 42.371944,
-      lon: -71.117389,
-    },
-    images: [],
-    metadata: {
-      category: "Cafe",
-      addr: "190 Massachusetts Ave, Cambridge, MA",
-    },
-    llm_labels: {
-      vibe_tags: ["cozy", "casual", "sweet"],
-      axes: {
-        noise_level: 0.5,
-        price_level: 0.5,
-        crowd_density: 0.8,
-      },
-      rationales: ["Famous bakery with delicious pastries and casual seating"],
-    },
-    agg_signals: {
-      avg_rating: 4.8,
-      review_count: 720,
-    },
-    is_verified: true,
-    confidence: 0.94,
-    contributor_name: "AI Vibe Maps Team",
-  },
-  {
-    venue_id: "sample-bar-001",
-    name: "Shay's Pub & Wine Bar",
-    geo: {
-      lat: 42.373278,
-      lon: -71.118444,
-    },
-    images: [],
-    metadata: {
-      category: "Bar",
-      addr: "58 John F Kennedy St, Cambridge, MA",
-    },
-    llm_labels: {
-      vibe_tags: ["lively", "social", "fun"],
-      axes: {
-        noise_level: 0.8,
-        price_level: 0.6,
-        crowd_density: 0.9,
-      },
-      rationales: ["Popular college bar with energetic nightlife atmosphere"],
-    },
-    agg_signals: {
-      avg_rating: 4.1,
-      review_count: 410,
-    },
-    is_verified: true,
-    confidence: 0.87,
-    contributor_name: "AI Vibe Maps Team",
-  },
-  {
-    venue_id: "sample-restaurant-004",
-    name: "Grafton Street Pub",
-    geo: {
-      lat: 42.373389,
-      lon: -71.118222,
-    },
-    images: [],
-    metadata: {
-      category: "Restaurant",
-      addr: "1230 Massachusetts Ave, Cambridge, MA",
-    },
-    llm_labels: {
-      vibe_tags: ["casual", "social", "gastropub"],
-      axes: {
-        noise_level: 0.7,
-        price_level: 0.6,
-        crowd_density: 0.8,
-      },
-      rationales: ["Irish-style gastropub with comfort food and drinks"],
-    },
-    agg_signals: {
-      avg_rating: 4.3,
-      review_count: 530,
-    },
-    is_verified: true,
-    confidence: 0.88,
-    contributor_name: "AI Vibe Maps Team",
-  },
-  {
-    venue_id: "sample-cafe-008",
-    name: "Crema Cafe",
-    geo: {
-      lat: 42.371667,
-      lon: -71.117056,
-    },
-    images: [],
-    metadata: {
-      category: "Cafe",
-      addr: "27 Brattle St, Cambridge, MA",
-    },
-    llm_labels: {
-      vibe_tags: ["hipster", "artisanal", "trendy"],
-      axes: {
-        noise_level: 0.4,
-        price_level: 0.7,
-        crowd_density: 0.6,
-      },
-      rationales: ["Artisanal coffee shop with specialty drinks"],
-    },
-    agg_signals: {
-      avg_rating: 4.5,
-      review_count: 380,
-    },
-    is_verified: true,
-    confidence: 0.89,
-    contributor_name: "AI Vibe Maps Team",
-  },
-  {
-    venue_id: "sample-restaurant-005",
-    name: "Alden & Harlow",
-    geo: {
-      lat: 42.373167,
-      lon: -71.118556,
-    },
-    images: [],
-    metadata: {
-      category: "Restaurant",
-      addr: "40 Brattle St, Cambridge, MA",
-    },
-    llm_labels: {
-      vibe_tags: ["upscale", "modern", "creative"],
-      axes: {
-        noise_level: 0.6,
-        price_level: 0.8,
-        crowd_density: 0.7,
-      },
-      rationales: ["Contemporary American cuisine with creative small plates"],
-    },
-    agg_signals: {
-      avg_rating: 4.7,
-      review_count: 620,
-    },
-    is_verified: true,
-    confidence: 0.92,
-    contributor_name: "AI Vibe Maps Team",
-  },
-  {
-    venue_id: "sample-cafe-009",
-    name: "Думpling House",
-    geo: {
-      lat: 42.372333,
-      lon: -71.118000,
-    },
-    images: [],
-    metadata: {
-      category: "Restaurant",
-      addr: "950 Massachusetts Ave, Cambridge, MA",
-    },
-    llm_labels: {
-      vibe_tags: ["casual", "budget-friendly", "authentic"],
-      axes: {
-        noise_level: 0.6,
-        price_level: 0.3,
-        crowd_density: 0.8,
-      },
-      rationales: ["Affordable authentic dumplings, often busy"],
-    },
-    agg_signals: {
-      avg_rating: 4.4,
-      review_count: 890,
-    },
-    is_verified: true,
-    confidence: 0.91,
-    contributor_name: "AI Vibe Maps Team",
-  },
-  {
-    venue_id: "sample-library-002",
-    name: "Lamont Library",
-    geo: {
-      lat: 42.373889,
-      lon: -71.116111,
-    },
-    images: [],
-    metadata: {
-      category: "Library",
-      addr: "Harvard Yard, Cambridge, MA",
-    },
-    llm_labels: {
-      vibe_tags: ["quiet", "studious", "academic"],
-      axes: {
-        noise_level: 0.1,
-        price_level: 0.0,
-        crowd_density: 0.5,
-      },
-      rationales: ["24-hour undergraduate library with quiet study spaces"],
-    },
-    agg_signals: {
-      avg_rating: 4.6,
-      review_count: 150,
-    },
-    is_verified: true,
-    confidence: 0.95,
-    contributor_name: "AI Vibe Maps Team",
-  },
-  {
-    venue_id: "sample-bar-002",
-    name: "Beat Brasserie",
-    geo: {
-      lat: 42.372778,
-      lon: -71.118667,
-    },
-    images: [],
-    metadata: {
-      category: "Restaurant",
-      addr: "13 Brattle St, Cambridge, MA",
-    },
-    llm_labels: {
-      vibe_tags: ["elegant", "romantic", "sophisticated"],
-      axes: {
-        noise_level: 0.4,
-        price_level: 0.8,
-        crowd_density: 0.5,
-      },
-      rationales: ["French brasserie with elegant ambiance"],
-    },
-    agg_signals: {
-      avg_rating: 4.5,
-      review_count: 340,
-    },
-    is_verified: true,
-    confidence: 0.88,
-    contributor_name: "AI Vibe Maps Team",
-  },
-  {
-    venue_id: "sample-cafe-010",
-    name: "Dado Tea",
-    geo: {
-      lat: 42.372056,
-      lon: -71.117944,
-    },
-    images: [],
-    metadata: {
-      category: "Cafe",
-      addr: "955 Massachusetts Ave, Cambridge, MA",
-    },
-    llm_labels: {
-      vibe_tags: ["relaxing", "zen", "peaceful"],
-      axes: {
-        noise_level: 0.2,
-        price_level: 0.5,
-        crowd_density: 0.3,
-      },
-      rationales: ["Peaceful tea house with meditative atmosphere"],
-    },
-    agg_signals: {
-      avg_rating: 4.6,
-      review_count: 280,
-    },
-    is_verified: true,
-    confidence: 0.90,
-    contributor_name: "AI Vibe Maps Team",
-  },
-  {
-    venue_id: "sample-restaurant-006",
-    name: "Santouka Ramen",
-    geo: {
-      lat: 42.373444,
-      lon: -71.118111,
-    },
-    images: [],
-    metadata: {
-      category: "Restaurant",
-      addr: "1 Bow St, Cambridge, MA",
-    },
-    llm_labels: {
-      vibe_tags: ["casual", "comfort-food", "authentic"],
-      axes: {
-        noise_level: 0.5,
-        price_level: 0.4,
-        crowd_density: 0.7,
-      },
-      rationales: ["Authentic Japanese ramen in casual setting"],
-    },
-    agg_signals: {
-      avg_rating: 4.5,
-      review_count: 560,
-    },
-    is_verified: true,
-    confidence: 0.89,
-    contributor_name: "AI Vibe Maps Team",
-  },
-  {
-    venue_id: "sample-cafe-011",
-    name: "Darwin's Ltd",
-    geo: {
-      lat: 42.373611,
-      lon: -71.117222,
-    },
-    images: [],
-    metadata: {
-      category: "Cafe",
-      addr: "1629 Cambridge St, Cambridge, MA",
-    },
-    llm_labels: {
-      vibe_tags: ["local", "casual", "sandwich-shop"],
-      axes: {
-        noise_level: 0.5,
-        price_level: 0.5,
-        crowd_density: 0.6,
-      },
-      rationales: ["Local favorite for sandwiches and coffee"],
-    },
-    agg_signals: {
-      avg_rating: 4.4,
-      review_count: 420,
-    },
-    is_verified: true,
-    confidence: 0.87,
-    contributor_name: "AI Vibe Maps Team",
-  },
-  // Venues from CSV import (292 venues with properly geocoded coordinates)
   {
     venue_id: "csv-0",
     name: "Gramercy Tavern",
     geo: {
-      lat: 40.738389,
-      lon: -73.988414,
+      lat: 40.684773,
+      lon: -74.010987,
     },
     images: [],
     metadata: {
@@ -656,13 +11,11 @@ export const SAMPLE_VENUES = [
       addr: "42 E 20th St, New York, NY 10003, USA",
     },
     llm_labels: {
-      vibe_tags: ["upscale"],
+      vibe_tags: ["comfort", "elegance", "energy"],
       axes: {
-        casualness: 0.5,
-        comfort: 0.9,
-        energy: 0.6,
-        elegance: 0.9,
-        authenticity: 0.0,
+        noise_level: 0.6,
+        price_level: 1.0,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -678,8 +31,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-1",
     name: "Boucherie Union Square",
     geo: {
-      lat: 40.737323,
-      lon: -73.988172,
+      lat: 40.726622,
+      lon: -73.993827,
     },
     images: [],
     metadata: {
@@ -687,13 +40,11 @@ export const SAMPLE_VENUES = [
       addr: "225 Park Ave S, New York, NY 10003, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["comfort", "elegance", "authenticity"],
       axes: {
-        casualness: 0.5,
-        comfort: 0.8,
-        energy: 0.3,
-        elegance: 0.8,
-        authenticity: 0.7,
+        noise_level: 0.3,
+        price_level: 0.75,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -709,8 +60,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-2",
     name: "Nobu Downtown",
     geo: {
-      lat: 40.710735,
-      lon: -74.009683,
+      lat: 40.717242,
+      lon: -74.032023,
     },
     images: [],
     metadata: {
@@ -718,13 +69,11 @@ export const SAMPLE_VENUES = [
       addr: "195 Broadway, New York, NY 10007, USA",
     },
     llm_labels: {
-      vibe_tags: ["upscale"],
+      vibe_tags: ["elegance", "comfort", "authenticity"],
       axes: {
-        casualness: 0.1,
-        comfort: 0.8,
-        energy: 0.5,
-        elegance: 0.9,
-        authenticity: 0.8,
+        noise_level: 0.5,
+        price_level: 1.0,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -740,8 +89,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-3",
     name: "The Dutch",
     geo: {
-      lat: 40.726585,
-      lon: -74.002107,
+      lat: 40.688163,
+      lon: -73.991689,
     },
     images: [],
     metadata: {
@@ -749,13 +98,11 @@ export const SAMPLE_VENUES = [
       addr: "131 Sullivan St, New York, NY 10012, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["casualness", "comfort", "energy"],
       axes: {
-        casualness: 0.8,
-        comfort: 0.8,
-        energy: 0.8,
-        elegance: 0.4,
-        authenticity: 0.1,
+        noise_level: 0.8,
+        price_level: 0.75,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -771,8 +118,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-4",
     name: "Manhatta",
     geo: {
-      lat: 40.69662,
-      lon: -73.993395,
+      lat: 40.686912,
+      lon: -73.985832,
     },
     images: [],
     metadata: {
@@ -780,13 +127,11 @@ export const SAMPLE_VENUES = [
       addr: "28 Liberty St 60th floor, New York, NY 10005, USA",
     },
     llm_labels: {
-      vibe_tags: ["upscale"],
+      vibe_tags: ["elegance", "comfort"],
       axes: {
-        casualness: 0.1,
-        comfort: 0.7,
-        energy: 0.5,
-        elegance: 1.0,
-        authenticity: 0.0,
+        noise_level: 0.5,
+        price_level: 1.0,
+        crowd_density: 0.7,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -800,10 +145,10 @@ export const SAMPLE_VENUES = [
   },
   {
     venue_id: "csv-5",
-    name: "Jack\'s Wife Freda",
+    name: "Jack's Wife Freda",
     geo: {
-      lat: 40.722287,
-      lon: -73.997374,
+      lat: 40.714076,
+      lon: -74.018558,
     },
     images: [],
     metadata: {
@@ -811,13 +156,11 @@ export const SAMPLE_VENUES = [
       addr: "226 Lafayette St, New York, NY 10012, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["casualness", "comfort", "energy"],
       axes: {
-        casualness: 0.8,
-        comfort: 0.8,
-        energy: 0.8,
-        elegance: 0.2,
-        authenticity: 0.3,
+        noise_level: 0.8,
+        price_level: 0.5,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -833,8 +176,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-6",
     name: "Lindens",
     geo: {
-      lat: 40.724334,
-      lon: -74.008515,
+      lat: 40.679635,
+      lon: -73.996363,
     },
     images: [],
     metadata: {
@@ -842,13 +185,11 @@ export const SAMPLE_VENUES = [
       addr: "2 Renwick St, New York, NY 10013, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["comfort", "casualness", "energy"],
       axes: {
-        casualness: 0.7,
-        comfort: 0.9,
-        energy: 0.7,
-        elegance: 0.5,
-        authenticity: 0.1,
+        noise_level: 0.7,
+        price_level: 0.5,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -864,8 +205,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-7",
     name: "Tatiana by Kwame Onwuachi",
     geo: {
-      lat: 40.709784,
-      lon: -73.990656,
+      lat: 40.707975,
+      lon: -73.98145,
     },
     images: [],
     metadata: {
@@ -873,13 +214,11 @@ export const SAMPLE_VENUES = [
       addr: "10 Lincoln Center Plaza, New York, NY 10023, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["comfort", "authenticity", "energy"],
       axes: {
-        casualness: 0.1,
-        comfort: 0.9,
-        energy: 0.8,
-        elegance: 0.8,
-        authenticity: 0.9,
+        noise_level: 0.8,
+        price_level: 1.0,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -895,8 +234,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-8",
     name: "Craft New York",
     geo: {
-      lat: 40.738117,
-      lon: -73.988687,
+      lat: 40.699029,
+      lon: -74.007751,
     },
     images: [],
     metadata: {
@@ -904,13 +243,11 @@ export const SAMPLE_VENUES = [
       addr: "43 E 19th St, New York, NY 10003, USA",
     },
     llm_labels: {
-      vibe_tags: ["upscale"],
+      vibe_tags: ["comfort", "elegance"],
       axes: {
-        casualness: 0.1,
-        comfort: 0.9,
-        energy: 0.4,
-        elegance: 0.9,
-        authenticity: 0.0,
+        noise_level: 0.4,
+        price_level: 0.75,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -926,8 +263,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-9",
     name: "The Tyger",
     geo: {
-      lat: 40.718813,
-      lon: -73.999507,
+      lat: 40.69052,
+      lon: -74.032581,
     },
     images: [],
     metadata: {
@@ -935,13 +272,11 @@ export const SAMPLE_VENUES = [
       addr: "1 Howard St, New York, NY 10013, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["comfort", "authenticity", "energy"],
       axes: {
-        casualness: 0.5,
-        comfort: 0.9,
-        energy: 0.6,
-        elegance: 0.5,
-        authenticity: 0.7,
+        noise_level: 0.6,
+        price_level: 0.5,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 85% confidence"],
     },
@@ -957,8 +292,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-10",
     name: "Little Collins",
     geo: {
-      lat: 40.752393,
-      lon: -73.973503,
+      lat: 40.68032,
+      lon: -74.020592,
     },
     images: [],
     metadata: {
@@ -966,13 +301,11 @@ export const SAMPLE_VENUES = [
       addr: "708 3rd Ave, New York, NY 10017, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["casualness", "comfort", "energy"],
       axes: {
-        casualness: 0.9,
-        comfort: 0.8,
-        energy: 0.8,
-        elegance: 0.1,
-        authenticity: 0.4,
+        noise_level: 0.8,
+        price_level: 0.5,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -988,8 +321,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-11",
     name: "Bibble & Sip",
     geo: {
-      lat: 40.762889,
-      lon: -73.985089,
+      lat: 40.697943,
+      lon: -74.021782,
     },
     images: [],
     metadata: {
@@ -997,13 +330,11 @@ export const SAMPLE_VENUES = [
       addr: "253 W 51st St, New York, NY 10019, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["authenticity", "casualness", "energy"],
       axes: {
-        casualness: 0.8,
-        comfort: 0.5,
-        energy: 0.7,
-        elegance: 0.5,
-        authenticity: 0.9,
+        noise_level: 0.7,
+        price_level: 0.5,
+        crowd_density: 0.5,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -1019,8 +350,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-12",
     name: "Coffee Project New York | East Village",
     geo: {
-      lat: 40.727068,
-      lon: -73.989383,
+      lat: 40.713423,
+      lon: -73.983199,
     },
     images: [],
     metadata: {
@@ -1028,13 +359,11 @@ export const SAMPLE_VENUES = [
       addr: "239 E 5th St, New York, NY 10003, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["casualness", "comfort", "authenticity"],
       axes: {
-        casualness: 0.9,
-        comfort: 0.8,
-        energy: 0.5,
-        elegance: 0.5,
-        authenticity: 0.7,
+        noise_level: 0.5,
+        price_level: 0.5,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -1050,8 +379,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-13",
     name: "In Common NYC - A Breakfast & Brunch Restaurant",
     geo: {
-      lat: 40.734723,
-      lon: -73.990488,
+      lat: 40.747877,
+      lon: -73.981181,
     },
     images: [],
     metadata: {
@@ -1059,13 +388,11 @@ export const SAMPLE_VENUES = [
       addr: "441 9th Ave Suite 101, New York, NY 10001, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["casualness", "comfort", "energy"],
       axes: {
-        casualness: 0.9,
-        comfort: 0.9,
-        energy: 0.9,
-        elegance: 0.5,
-        authenticity: 0.4,
+        noise_level: 0.9,
+        price_level: 0.5,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -1081,8 +408,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-14",
     name: "Café Lyria",
     geo: {
-      lat: 40.725889,
-      lon: -73.995462,
+      lat: 40.699749,
+      lon: -73.986027,
     },
     images: [],
     metadata: {
@@ -1090,13 +417,11 @@ export const SAMPLE_VENUES = [
       addr: "166 Crosby St, New York, NY 10012, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["energy", "authenticity", "casualness"],
       axes: {
-        casualness: 0.8,
-        comfort: 0.6,
-        energy: 0.9,
-        elegance: 0.5,
-        authenticity: 0.9,
+        noise_level: 0.9,
+        price_level: 0.5,
+        crowd_density: 0.6,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -1112,8 +437,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-15",
     name: "787 Coffee Co.",
     geo: {
-      lat: 40.749457,
-      lon: -73.994267,
+      lat: 40.688925,
+      lon: -74.037543,
     },
     images: [],
     metadata: {
@@ -1121,13 +446,11 @@ export const SAMPLE_VENUES = [
       addr: "251 W 30th St, New York, NY 10001, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["casualness", "comfort", "authenticity"],
       axes: {
-        casualness: 0.9,
-        comfort: 0.9,
-        energy: 0.6,
-        elegance: 0.1,
-        authenticity: 0.9,
+        noise_level: 0.6,
+        price_level: 0.5,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -1143,8 +466,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-16",
     name: "Urban Backyard",
     geo: {
-      lat: 40.720791,
-      lon: -73.996529,
+      lat: 40.738436,
+      lon: -74.040494,
     },
     images: [],
     metadata: {
@@ -1152,13 +475,11 @@ export const SAMPLE_VENUES = [
       addr: "180 Mulberry St, New York, NY 10012, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["comfort", "casualness"],
       axes: {
-        casualness: 0.8,
-        comfort: 0.9,
-        energy: 0.3,
-        elegance: 0.5,
-        authenticity: 0.3,
+        noise_level: 0.3,
+        price_level: 0.5,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -1174,8 +495,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-17",
     name: "Charlotte Cafe",
     geo: {
-      lat: 40.744291,
-      lon: -73.976335,
+      lat: 40.744845,
+      lon: -74.032715,
     },
     images: [],
     metadata: {
@@ -1183,13 +504,11 @@ export const SAMPLE_VENUES = [
       addr: "605 2nd Ave, New York, NY 10016, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["comfort", "casualness"],
       axes: {
-        casualness: 0.8,
-        comfort: 1.0,
-        energy: 0.2,
-        elegance: 0.1,
-        authenticity: 0.1,
+        noise_level: 0.2,
+        price_level: 0.25,
+        crowd_density: 1.0,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -1205,8 +524,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-18",
     name: "Gold coffee",
     geo: {
-      lat: 40.745124,
-      lon: -73.978341,
+      lat: 40.725185,
+      lon: -74.026275,
     },
     images: [],
     metadata: {
@@ -1214,13 +533,11 @@ export const SAMPLE_VENUES = [
       addr: "491 3rd Ave, New York, NY 10016, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["casualness", "comfort"],
       axes: {
-        casualness: 0.9,
-        comfort: 0.8,
-        energy: 0.5,
-        elegance: 0.2,
-        authenticity: 0.2,
+        noise_level: 0.5,
+        price_level: 0.25,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -1236,8 +553,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-19",
     name: "787 Coffee",
     geo: {
-      lat: 40.739812,
-      lon: -74.003374,
+      lat: 40.719101,
+      lon: -74.025924,
     },
     images: [],
     metadata: {
@@ -1245,13 +562,11 @@ export const SAMPLE_VENUES = [
       addr: "310 W 14th St, New York, NY 10014, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["comfort", "authenticity", "casualness"],
       axes: {
-        casualness: 0.8,
-        comfort: 1.0,
-        energy: 0.5,
-        elegance: 0.3,
-        authenticity: 0.9,
+        noise_level: 0.5,
+        price_level: 0.5,
+        crowd_density: 1.0,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -1267,8 +582,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-20",
     name: "The Dead Rabbit",
     geo: {
-      lat: 40.703276,
-      lon: -74.011016,
+      lat: 40.719473,
+      lon: -73.985423,
     },
     images: [],
     metadata: {
@@ -1276,13 +591,11 @@ export const SAMPLE_VENUES = [
       addr: "30 Water St, New York, NY 10004, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["energy", "authenticity", "casualness"],
       axes: {
-        casualness: 0.8,
-        comfort: 0.8,
-        energy: 0.9,
-        elegance: 0.4,
-        authenticity: 0.9,
+        noise_level: 0.9,
+        price_level: 0.5,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -1298,8 +611,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-21",
     name: "Dear Irving on Hudson Rooftop Bar",
     geo: {
-      lat: 40.756118,
-      lon: -73.991687,
+      lat: 40.714923,
+      lon: -73.98302,
     },
     images: [],
     metadata: {
@@ -1307,13 +620,11 @@ export const SAMPLE_VENUES = [
       addr: "310 W 40th St, New York, NY 10018, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["energy", "elegance", "comfort"],
       axes: {
-        casualness: 0.5,
-        comfort: 0.8,
-        energy: 0.9,
-        elegance: 0.9,
-        authenticity: 0.0,
+        noise_level: 0.9,
+        price_level: 0.75,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -1329,8 +640,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-22",
     name: "Death & Co East Village",
     geo: {
-      lat: 40.725936,
-      lon: -73.984657,
+      lat: 40.687618,
+      lon: -74.002149,
     },
     images: [],
     metadata: {
@@ -1338,13 +649,11 @@ export const SAMPLE_VENUES = [
       addr: "433 E 6th St, New York, NY 10009, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["elegance", "comfort", "energy"],
       axes: {
-        casualness: 0.2,
-        comfort: 0.8,
-        energy: 0.8,
-        elegance: 0.9,
-        authenticity: 0.5,
+        noise_level: 0.8,
+        price_level: 0.75,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -1360,8 +669,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-23",
     name: "Dante NYC",
     geo: {
-      lat: 40.729801,
-      lon: -74.000655,
+      lat: 40.729623,
+      lon: -74.016603,
     },
     images: [],
     metadata: {
@@ -1369,13 +678,11 @@ export const SAMPLE_VENUES = [
       addr: "79-81 MacDougal St, New York, NY 10012, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["elegance", "comfort", "energy"],
       axes: {
-        casualness: 0.5,
-        comfort: 0.8,
-        energy: 0.8,
-        elegance: 0.9,
-        authenticity: 0.8,
+        noise_level: 0.8,
+        price_level: 0.75,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -1391,8 +698,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-24",
     name: "The Campbell",
     geo: {
-      lat: 40.752605,
-      lon: -73.977848,
+      lat: 40.752211,
+      lon: -73.987088,
     },
     images: [],
     metadata: {
@@ -1400,13 +707,11 @@ export const SAMPLE_VENUES = [
       addr: "15 Vanderbilt Ave, New York, NY 10017, USA",
     },
     llm_labels: {
-      vibe_tags: ["upscale"],
+      vibe_tags: ["comfort", "elegance", "authenticity"],
       axes: {
-        casualness: 0.4,
-        comfort: 0.9,
-        energy: 0.3,
-        elegance: 0.9,
-        authenticity: 0.8,
+        noise_level: 0.3,
+        price_level: 1.0,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -1422,8 +727,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-25",
     name: "Pocket Bar NYC",
     geo: {
-      lat: 40.763393,
-      lon: -73.992361,
+      lat: 40.692589,
+      lon: -74.036728,
     },
     images: [],
     metadata: {
@@ -1431,13 +736,11 @@ export const SAMPLE_VENUES = [
       addr: "455 W 48th St, New York, NY 10036, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["comfort", "casualness", "energy"],
       axes: {
-        casualness: 0.7,
-        comfort: 0.9,
-        energy: 0.7,
-        elegance: 0.5,
-        authenticity: 0.0,
+        noise_level: 0.7,
+        price_level: 0.5,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -1453,8 +756,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-26",
     name: "Old Town Bar",
     geo: {
-      lat: 40.737594,
-      lon: -73.989158,
+      lat: 40.724095,
+      lon: -74.025367,
     },
     images: [],
     metadata: {
@@ -1462,13 +765,11 @@ export const SAMPLE_VENUES = [
       addr: "45 E 18th St, New York, NY 10003, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["casualness", "comfort", "authenticity"],
       axes: {
-        casualness: 0.9,
-        comfort: 0.9,
-        energy: 0.8,
-        elegance: 0.3,
-        authenticity: 0.9,
+        noise_level: 0.8,
+        price_level: 0.5,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -1484,8 +785,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-27",
     name: "Hide Rooftop",
     geo: {
-      lat: 40.723226,
-      lon: -74.014587,
+      lat: 40.729482,
+      lon: -74.01974,
     },
     images: [],
     metadata: {
@@ -1493,13 +794,11 @@ export const SAMPLE_VENUES = [
       addr: "Artezen Hotel Lobby Entrance, 24 John St 20th Floor, New York, NY 10038, USA",
     },
     llm_labels: {
-      vibe_tags: ["upscale"],
+      vibe_tags: ["comfort", "elegance", "energy"],
       axes: {
-        casualness: 0.4,
-        comfort: 0.9,
-        energy: 0.7,
-        elegance: 0.9,
-        authenticity: 0.0,
+        noise_level: 0.7,
+        price_level: 0.5,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -1515,8 +814,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-28",
     name: "Rooftop Bars NYC",
     geo: {
-      lat: 43.096504,
-      lon: -73.78083,
+      lat: 40.744107,
+      lon: -74.04266,
     },
     images: [],
     metadata: {
@@ -1524,13 +823,11 @@ export const SAMPLE_VENUES = [
       addr: "1150 Broadway Entrance, New York, NY 10001, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["energy", "casualness", "elegance"],
       axes: {
-        casualness: 0.8,
-        comfort: 0.6,
-        energy: 0.9,
-        elegance: 0.8,
-        authenticity: 0.0,
+        noise_level: 0.9,
+        price_level: 0.5,
+        crowd_density: 0.6,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -1546,8 +843,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-29",
     name: "Slate",
     geo: {
-      lat: 40.741164,
-      lon: -73.993226,
+      lat: 40.676154,
+      lon: -74.015215,
     },
     images: [],
     metadata: {
@@ -1555,13 +852,11 @@ export const SAMPLE_VENUES = [
       addr: "54 W 21st St, New York, NY 10010, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["energy", "casualness", "comfort"],
       axes: {
-        casualness: 0.8,
-        comfort: 0.8,
-        energy: 1.0,
-        elegance: 0.5,
-        authenticity: 0.0,
+        noise_level: 1.0,
+        price_level: 0.5,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -1577,8 +872,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-0",
     name: "Lazy Bear",
     geo: {
-      lat: 37.760351,
-      lon: -122.419703,
+      lat: 37.77687,
+      lon: -122.424212,
     },
     images: [],
     metadata: {
@@ -1586,13 +881,11 @@ export const SAMPLE_VENUES = [
       addr: "3416 19th St, San Francisco, CA 94110, USA",
     },
     llm_labels: {
-      vibe_tags: ["upscale"],
+      vibe_tags: ["elegance", "comfort"],
       axes: {
-        casualness: 0.1,
-        comfort: 0.6,
-        energy: 0.4,
-        elegance: 1.0,
-        authenticity: 0.2,
+        noise_level: 0.4,
+        price_level: 1.0,
+        crowd_density: 0.6,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -1608,8 +901,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-1",
     name: "Waterbar Restaurant",
     geo: {
-      lat: 37.791073,
-      lon: -122.389922,
+      lat: 37.814806,
+      lon: -122.458786,
     },
     images: [],
     metadata: {
@@ -1617,13 +910,11 @@ export const SAMPLE_VENUES = [
       addr: "399 The Embarcadero, San Francisco, CA 94105, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["comfort", "casualness", "elegance"],
       axes: {
-        casualness: 0.6,
-        comfort: 0.7,
-        energy: 0.5,
-        elegance: 0.6,
-        authenticity: 0.3,
+        noise_level: 0.5,
+        price_level: 0.75,
+        crowd_density: 0.7,
       },
       rationales: ["Imported from venue database with 80% confidence"],
     },
@@ -1639,8 +930,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-2",
     name: "Rich Table",
     geo: {
-      lat: 37.774889,
-      lon: -122.422725,
+      lat: 37.779206,
+      lon: -122.393722,
     },
     images: [],
     metadata: {
@@ -1648,13 +939,11 @@ export const SAMPLE_VENUES = [
       addr: "199 Gough St, San Francisco, CA 94102, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["comfort", "elegance"],
       axes: {
-        casualness: 0.5,
-        comfort: 0.8,
-        energy: 0.4,
-        elegance: 0.7,
-        authenticity: 0.2,
+        noise_level: 0.4,
+        price_level: 0.75,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 80% confidence"],
     },
@@ -1670,8 +959,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-3",
     name: "Bottega",
     geo: {
-      lat: 37.754761,
-      lon: -122.421082,
+      lat: 37.776413,
+      lon: -122.423641,
     },
     images: [],
     metadata: {
@@ -1679,13 +968,11 @@ export const SAMPLE_VENUES = [
       addr: "1132 Valencia St, San Francisco, CA 94110, USA",
     },
     llm_labels: {
-      vibe_tags: ["hidden_gem"],
+      vibe_tags: ["authenticity", "comfort", "casualness"],
       axes: {
-        casualness: 0.7,
-        comfort: 0.9,
-        energy: 0.5,
-        elegance: 0.3,
-        authenticity: 1.0,
+        noise_level: 0.5,
+        price_level: 0.5,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -1701,8 +988,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-4",
     name: "Sotto Mare",
     geo: {
-      lat: 37.799707,
-      lon: -122.408322,
+      lat: 37.7852,
+      lon: -122.440623,
     },
     images: [],
     metadata: {
@@ -1710,13 +997,11 @@ export const SAMPLE_VENUES = [
       addr: "552 Green St, San Francisco, CA 94133, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["energy", "casualness", "comfort"],
       axes: {
-        casualness: 0.7,
-        comfort: 0.6,
-        energy: 0.8,
-        elegance: 0.4,
-        authenticity: 0.6,
+        noise_level: 0.8,
+        price_level: 0.5,
+        crowd_density: 0.6,
       },
       rationales: ["Imported from venue database with 70% confidence"],
     },
@@ -1730,10 +1015,10 @@ export const SAMPLE_VENUES = [
   },
   {
     venue_id: "csv-5",
-    name: "Brenda\'s French Soul Food",
+    name: "Brenda's French Soul Food",
     geo: {
-      lat: 37.782906,
-      lon: -122.418897,
+      lat: 37.80913,
+      lon: -122.384251,
     },
     images: [],
     metadata: {
@@ -1741,13 +1026,11 @@ export const SAMPLE_VENUES = [
       addr: "652 Polk St, San Francisco, CA 94102, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["authenticity", "comfort", "casualness"],
       axes: {
-        casualness: 0.8,
-        comfort: 0.9,
-        energy: 0.5,
-        elegance: 0.1,
-        authenticity: 1.0,
+        noise_level: 0.5,
+        price_level: 0.5,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -1763,8 +1046,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-6",
     name: "ROOFTOP 25",
     geo: {
-      lat: 37.778754,
-      lon: -122.394482,
+      lat: 37.739035,
+      lon: -122.385938,
     },
     images: [],
     metadata: {
@@ -1772,13 +1055,11 @@ export const SAMPLE_VENUES = [
       addr: "25 Lusk St, San Francisco, CA 94107, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["energy", "casualness", "comfort"],
       axes: {
-        casualness: 0.8,
-        comfort: 0.8,
-        energy: 0.9,
-        elegance: 0.3,
-        authenticity: 0.1,
+        noise_level: 0.9,
+        price_level: 0.75,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -1794,8 +1075,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-7",
     name: "Fog Harbor Fish House",
     geo: {
-      lat: 37.810119,
-      lon: -122.417717,
+      lat: 37.756023,
+      lon: -122.417953,
     },
     images: [],
     metadata: {
@@ -1803,13 +1084,11 @@ export const SAMPLE_VENUES = [
       addr: "39 Pier, San Francisco, CA 94133, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["comfort", "elegance", "energy"],
       axes: {
-        casualness: 0.4,
-        comfort: 0.9,
-        energy: 0.6,
-        elegance: 0.8,
-        authenticity: 0.3,
+        noise_level: 0.6,
+        price_level: 0.75,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -1825,8 +1104,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-8",
     name: "State Bird Provisions",
     geo: {
-      lat: 37.783706,
-      lon: -122.432948,
+      lat: 37.791067,
+      lon: -122.429903,
     },
     images: [],
     metadata: {
@@ -1834,13 +1113,11 @@ export const SAMPLE_VENUES = [
       addr: "1529 Fillmore St, San Francisco, CA 94115, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["comfort", "casualness", "authenticity"],
       axes: {
-        casualness: 0.7,
-        comfort: 0.8,
-        energy: 0.6,
-        elegance: 0.4,
-        authenticity: 0.7,
+        noise_level: 0.6,
+        price_level: 0.75,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 80% confidence"],
     },
@@ -1856,8 +1133,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-9",
     name: "Wayfare Tavern",
     geo: {
-      lat: 37.792142,
-      lon: -122.399912,
+      lat: 37.751895,
+      lon: -122.391016,
     },
     images: [],
     metadata: {
@@ -1865,13 +1142,11 @@ export const SAMPLE_VENUES = [
       addr: "201 Pine St, San Francisco, CA 94111, USA",
     },
     llm_labels: {
-      vibe_tags: ["upscale"],
+      vibe_tags: ["comfort", "elegance"],
       axes: {
-        casualness: 0.3,
-        comfort: 1.0,
-        energy: 0.5,
-        elegance: 0.9,
-        authenticity: 0.4,
+        noise_level: 0.5,
+        price_level: 0.75,
+        crowd_density: 1.0,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -1887,8 +1162,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-10",
     name: "Doppio Coffee & Brunch",
     geo: {
-      lat: 37.773834,
-      lon: -122.417894,
+      lat: 37.790836,
+      lon: -122.402408,
     },
     images: [],
     metadata: {
@@ -1896,13 +1171,11 @@ export const SAMPLE_VENUES = [
       addr: "1551 Mission St, San Francisco, CA 94103, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["comfort", "casualness", "energy"],
       axes: {
-        casualness: 0.9,
-        comfort: 1.0,
-        energy: 0.6,
-        elegance: 0.1,
-        authenticity: 0.2,
+        noise_level: 0.6,
+        price_level: 0.5,
+        crowd_density: 1.0,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -1918,8 +1191,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-11",
     name: "Caffe Trieste",
     geo: {
-      lat: 37.798673,
-      lon: -122.407296,
+      lat: 37.807914,
+      lon: -122.450436,
     },
     images: [],
     metadata: {
@@ -1927,13 +1200,11 @@ export const SAMPLE_VENUES = [
       addr: "601 Vallejo St., San Francisco, CA 94133, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["comfort", "authenticity", "casualness"],
       axes: {
-        casualness: 0.8,
-        comfort: 1.0,
-        energy: 0.6,
-        elegance: 0.3,
-        authenticity: 1.0,
+        noise_level: 0.6,
+        price_level: 0.25,
+        crowd_density: 1.0,
       },
       rationales: ["Imported from venue database with 100% confidence"],
     },
@@ -1949,8 +1220,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-12",
     name: "Scullery",
     geo: {
-      lat: 37.78642,
-      lon: -122.414547,
+      lat: 37.737201,
+      lon: -122.42385,
     },
     images: [],
     metadata: {
@@ -1958,13 +1229,11 @@ export const SAMPLE_VENUES = [
       addr: "687 Geary St, San Francisco, CA 94102, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["comfort", "casualness"],
       axes: {
-        casualness: 0.9,
-        comfort: 1.0,
-        energy: 0.3,
-        elegance: 0.1,
-        authenticity: 0.1,
+        noise_level: 0.3,
+        price_level: 0.25,
+        crowd_density: 1.0,
       },
       rationales: ["Imported from venue database with 100% confidence"],
     },
@@ -1980,8 +1249,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-13",
     name: "Caffe Greco",
     geo: {
-      lat: 37.798963,
-      lon: -122.408495,
+      lat: 37.777027,
+      lon: -122.425831,
     },
     images: [],
     metadata: {
@@ -1989,13 +1258,11 @@ export const SAMPLE_VENUES = [
       addr: "423 Columbus Ave, San Francisco, CA 94133, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["casualness", "comfort", "authenticity"],
       axes: {
-        casualness: 0.9,
-        comfort: 0.9,
-        energy: 0.7,
-        elegance: 0.3,
-        authenticity: 0.9,
+        noise_level: 0.7,
+        price_level: 0.5,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -2011,8 +1278,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-14",
     name: "The Mill",
     geo: {
-      lat: 37.776271,
-      lon: -122.438234,
+      lat: 37.738114,
+      lon: -122.390726,
     },
     images: [],
     metadata: {
@@ -2020,13 +1287,11 @@ export const SAMPLE_VENUES = [
       addr: "736 Divisadero St, San Francisco, CA 94117, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["comfort", "casualness", "energy"],
       axes: {
-        casualness: 0.8,
-        comfort: 0.9,
-        energy: 0.7,
-        elegance: 0.2,
-        authenticity: 0.1,
+        noise_level: 0.7,
+        price_level: 0.5,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -2042,8 +1307,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-15",
     name: "The Coffee Berry SF",
     geo: {
-      lat: 37.80144,
-      lon: -122.424955,
+      lat: 37.745021,
+      lon: -122.437337,
     },
     images: [],
     metadata: {
@@ -2051,13 +1316,11 @@ export const SAMPLE_VENUES = [
       addr: "1410 Lombard St, San Francisco, CA 94123, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["casualness", "comfort", "energy"],
       axes: {
-        casualness: 1.0,
-        comfort: 0.9,
-        energy: 0.6,
-        elegance: 0.1,
-        authenticity: 0.5,
+        noise_level: 0.6,
+        price_level: 0.5,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -2073,8 +1336,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-16",
     name: "Delah Coffee",
     geo: {
-      lat: 37.780985,
-      lon: -122.400262,
+      lat: 37.763697,
+      lon: -122.446998,
     },
     images: [],
     metadata: {
@@ -2082,13 +1345,11 @@ export const SAMPLE_VENUES = [
       addr: "370 4th St, San Francisco, CA 94107, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["energy", "authenticity", "casualness"],
       axes: {
-        casualness: 0.9,
-        comfort: 0.9,
-        energy: 1.0,
-        elegance: 0.2,
-        authenticity: 1.0,
+        noise_level: 1.0,
+        price_level: 0.5,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 100% confidence"],
     },
@@ -2104,8 +1365,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-17",
     name: "Flywheel Coffee Roasters",
     geo: {
-      lat: 37.769705,
-      lon: -122.453357,
+      lat: 37.803061,
+      lon: -122.412207,
     },
     images: [],
     metadata: {
@@ -2113,13 +1374,11 @@ export const SAMPLE_VENUES = [
       addr: "672 Stanyan St, San Francisco, CA 94117, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["casualness", "energy", "comfort"],
       axes: {
-        casualness: 0.9,
-        comfort: 0.7,
-        energy: 0.8,
-        elegance: 0.2,
-        authenticity: 0.6,
+        noise_level: 0.8,
+        price_level: 0.5,
+        crowd_density: 0.7,
       },
       rationales: ["Imported from venue database with 80% confidence"],
     },
@@ -2135,8 +1394,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-18",
     name: "Twisted St. Cafe",
     geo: {
-      lat: 37.799516,
-      lon: -122.439791,
+      lat: 37.814877,
+      lon: -122.448439,
     },
     images: [],
     metadata: {
@@ -2144,13 +1403,11 @@ export const SAMPLE_VENUES = [
       addr: "2320 Lombard St, San Francisco, CA 94123, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["casualness", "comfort"],
       axes: {
-        casualness: 1.0,
-        comfort: 1.0,
-        energy: 0.3,
-        elegance: 0.1,
-        authenticity: 0.2,
+        noise_level: 0.3,
+        price_level: 0.5,
+        crowd_density: 1.0,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -2166,8 +1423,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-19",
     name: "Cable Car CoffeeSF",
     geo: {
-      lat: 37.783979,
-      lon: -122.408302,
+      lat: 37.797564,
+      lon: -122.416499,
     },
     images: [],
     metadata: {
@@ -2175,13 +1432,11 @@ export const SAMPLE_VENUES = [
       addr: "902 Market St, San Francisco, CA 94102, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["casualness", "comfort", "energy"],
       axes: {
-        casualness: 1.0,
-        comfort: 0.8,
-        energy: 0.7,
-        elegance: 0.1,
-        authenticity: 0.6,
+        noise_level: 0.7,
+        price_level: 0.5,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -2197,8 +1452,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-20",
     name: "Alchemist Bar & Lounge",
     geo: {
-      lat: 37.779374,
-      lon: -122.39316,
+      lat: 37.764957,
+      lon: -122.411659,
     },
     images: [],
     metadata: {
@@ -2206,13 +1461,11 @@ export const SAMPLE_VENUES = [
       addr: "679 3rd St, San Francisco, CA 94107, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["energy", "comfort", "casualness"],
       axes: {
-        casualness: 0.6,
-        comfort: 0.7,
-        energy: 0.9,
-        elegance: 0.5,
-        authenticity: 0.6,
+        noise_level: 0.9,
+        price_level: 0.5,
+        crowd_density: 0.7,
       },
       rationales: ["Imported from venue database with 80% confidence"],
     },
@@ -2226,10 +1479,10 @@ export const SAMPLE_VENUES = [
   },
   {
     venue_id: "csv-21",
-    name: "Smuggler\'s Cove",
+    name: "Smuggler's Cove",
     geo: {
-      lat: 37.7794,
-      lon: -122.423343,
+      lat: 37.784543,
+      lon: -122.419446,
     },
     images: [],
     metadata: {
@@ -2237,13 +1490,11 @@ export const SAMPLE_VENUES = [
       addr: "650 Gough St, San Francisco, CA 94102, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["authenticity", "energy", "comfort"],
       axes: {
-        casualness: 0.7,
-        comfort: 0.8,
-        energy: 0.9,
-        elegance: 0.5,
-        authenticity: 1.0,
+        noise_level: 0.9,
+        price_level: 0.5,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -2259,8 +1510,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-22",
     name: "Pacific Cocktail Haven",
     geo: {
-      lat: 37.789335,
-      lon: -122.409527,
+      lat: 37.788146,
+      lon: -122.446369,
     },
     images: [],
     metadata: {
@@ -2268,13 +1519,11 @@ export const SAMPLE_VENUES = [
       addr: "550 Sutter St, San Francisco, CA 94108, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["energy", "comfort", "elegance"],
       axes: {
-        casualness: 0.6,
-        comfort: 0.8,
-        energy: 1.0,
-        elegance: 0.7,
-        authenticity: 0.3,
+        noise_level: 1.0,
+        price_level: 0.5,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -2290,8 +1539,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-23",
     name: "Blackbird",
     geo: {
-      lat: 37.767185,
-      lon: -122.429577,
+      lat: 37.738897,
+      lon: -122.386333,
     },
     images: [],
     metadata: {
@@ -2299,13 +1548,11 @@ export const SAMPLE_VENUES = [
       addr: "2124 Market St, San Francisco, CA 94114, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["comfort", "casualness", "energy"],
       axes: {
-        casualness: 0.7,
-        comfort: 0.8,
-        energy: 0.7,
-        elegance: 0.6,
-        authenticity: 0.2,
+        noise_level: 0.7,
+        price_level: 0.5,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 80% confidence"],
     },
@@ -2321,8 +1568,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-24",
     name: "Tunnel Top Lounge and Bar",
     geo: {
-      lat: 37.790241,
-      lon: -122.407291,
+      lat: 37.810307,
+      lon: -122.418351,
     },
     images: [],
     metadata: {
@@ -2330,13 +1577,11 @@ export const SAMPLE_VENUES = [
       addr: "601 Bush St, San Francisco, CA 94108, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["comfort", "energy", "authenticity"],
       axes: {
-        casualness: 0.7,
-        comfort: 1.0,
-        energy: 0.9,
-        elegance: 0.5,
-        authenticity: 0.9,
+        noise_level: 0.9,
+        price_level: 0.5,
+        crowd_density: 1.0,
       },
       rationales: ["Imported from venue database with 100% confidence"],
     },
@@ -2350,10 +1595,10 @@ export const SAMPLE_VENUES = [
   },
   {
     venue_id: "csv-25",
-    name: "The Devil\'s Acre",
+    name: "The Devil's Acre",
     geo: {
-      lat: 37.797481,
-      lon: -122.405956,
+      lat: 37.746532,
+      lon: -122.450015,
     },
     images: [],
     metadata: {
@@ -2361,13 +1606,11 @@ export const SAMPLE_VENUES = [
       addr: "256 Columbus Ave, San Francisco, CA 94133, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["comfort", "energy", "elegance"],
       axes: {
-        casualness: 0.5,
-        comfort: 0.9,
-        energy: 0.9,
-        elegance: 0.8,
-        authenticity: 0.2,
+        noise_level: 0.9,
+        price_level: 0.5,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -2383,22 +1626,20 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-26",
     name: "Cityscape",
     geo: {
-      lat: 37.785734,
-      lon: -122.410437,
+      lat: 37.797232,
+      lon: -122.430187,
     },
     images: [],
     metadata: {
       category: "Restaurant",
-      addr: "333 O\'Farrell St, San Francisco, CA 94102, USA",
+      addr: "333 O'Farrell St, San Francisco, CA 94102, USA",
     },
     llm_labels: {
-      vibe_tags: ["upscale"],
+      vibe_tags: ["comfort", "elegance"],
       axes: {
-        casualness: 0.4,
-        comfort: 1.0,
-        energy: 0.2,
-        elegance: 1.0,
-        authenticity: 0.2,
+        noise_level: 0.2,
+        price_level: 0.75,
+        crowd_density: 1.0,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -2414,8 +1655,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-27",
     name: "Local Edition",
     geo: {
-      lat: 37.787575,
-      lon: -122.403201,
+      lat: 37.810651,
+      lon: -122.439483,
     },
     images: [],
     metadata: {
@@ -2423,13 +1664,11 @@ export const SAMPLE_VENUES = [
       addr: "691 Market St, San Francisco, CA 94105, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["energy", "comfort", "casualness"],
       axes: {
-        casualness: 0.7,
-        comfort: 0.8,
-        energy: 0.9,
-        elegance: 0.7,
-        authenticity: 0.7,
+        noise_level: 0.9,
+        price_level: 0.5,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -2445,8 +1684,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-28",
     name: "Last Rites",
     geo: {
-      lat: 37.767813,
-      lon: -122.429452,
+      lat: 37.764928,
+      lon: -122.442454,
     },
     images: [],
     metadata: {
@@ -2454,13 +1693,11 @@ export const SAMPLE_VENUES = [
       addr: "718 14th St, San Francisco, CA 94114, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["energy", "authenticity", "elegance"],
       axes: {
-        casualness: 0.6,
-        comfort: 0.2,
-        energy: 0.9,
-        elegance: 0.7,
-        authenticity: 0.9,
+        noise_level: 0.9,
+        price_level: 0.5,
+        crowd_density: 0.2,
       },
       rationales: ["Imported from venue database with 70% confidence"],
     },
@@ -2476,8 +1713,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-29",
     name: "Comstock Saloon",
     geo: {
-      lat: 37.796964,
-      lon: -122.405643,
+      lat: 37.739502,
+      lon: -122.396941,
     },
     images: [],
     metadata: {
@@ -2485,13 +1722,11 @@ export const SAMPLE_VENUES = [
       addr: "155 Columbus Ave, San Francisco, CA 94133, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["authenticity", "comfort", "energy"],
       axes: {
-        casualness: 0.7,
-        comfort: 0.9,
-        energy: 0.9,
-        elegance: 0.6,
-        authenticity: 1.0,
+        noise_level: 0.9,
+        price_level: 0.5,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 100% confidence"],
     },
@@ -2507,8 +1742,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-0",
     name: "Girl & The Goat",
     geo: {
-      lat: 41.884175,
-      lon: -87.647889,
+      lat: 41.853764,
+      lon: -87.646524,
     },
     images: [],
     metadata: {
@@ -2516,13 +1751,11 @@ export const SAMPLE_VENUES = [
       addr: "809 W Randolph St, Chicago, IL 60607, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["energy", "comfort", "elegance"],
       axes: {
-        casualness: 0.3,
-        comfort: 0.7,
-        energy: 0.8,
-        elegance: 0.6,
-        authenticity: 0.2,
+        noise_level: 0.8,
+        price_level: 0.75,
+        crowd_density: 0.7,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -2538,8 +1771,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-1",
     name: "Alla Vita",
     geo: {
-      lat: 41.884693,
-      lon: -87.642319,
+      lat: 41.876115,
+      lon: -87.650028,
     },
     images: [],
     metadata: {
@@ -2547,13 +1780,11 @@ export const SAMPLE_VENUES = [
       addr: "564 W Randolph St, Chicago, IL 60661, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["elegance", "comfort", "energy"],
       axes: {
-        casualness: 0.2,
-        comfort: 0.7,
-        energy: 0.6,
-        elegance: 0.8,
-        authenticity: 0.4,
+        noise_level: 0.6,
+        price_level: 0.5,
+        crowd_density: 0.7,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -2569,8 +1800,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-2",
     name: "Aba",
     geo: {
-      lat: 40.735724,
-      lon: -74.014448,
+      lat: 41.914779,
+      lon: -87.643317,
     },
     images: [],
     metadata: {
@@ -2578,13 +1809,11 @@ export const SAMPLE_VENUES = [
       addr: "302 N Green St 3rd Floor, Chicago, IL 60607, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["energy", "elegance", "comfort"],
       axes: {
-        casualness: 0.3,
-        comfort: 0.7,
-        energy: 0.8,
-        elegance: 0.8,
-        authenticity: 0.6,
+        noise_level: 0.8,
+        price_level: 0.75,
+        crowd_density: 0.7,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -2600,8 +1829,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-3",
     name: "Alinea",
     geo: {
-      lat: 41.913437,
-      lon: -87.648199,
+      lat: 41.843168,
+      lon: -87.65164,
     },
     images: [],
     metadata: {
@@ -2609,13 +1838,11 @@ export const SAMPLE_VENUES = [
       addr: "1723 N Halsted St, Chicago, IL 60614, USA",
     },
     llm_labels: {
-      vibe_tags: ["upscale"],
+      vibe_tags: ["elegance", "energy"],
       axes: {
-        casualness: 0.0,
-        comfort: 0.5,
-        energy: 0.6,
-        elegance: 1.0,
-        authenticity: 0.1,
+        noise_level: 0.6,
+        price_level: 1.0,
+        crowd_density: 0.5,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -2631,8 +1858,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-4",
     name: "River Roast",
     geo: {
-      lat: 41.887892,
-      lon: -87.632395,
+      lat: 41.849705,
+      lon: -87.59142,
     },
     images: [],
     metadata: {
@@ -2640,13 +1867,11 @@ export const SAMPLE_VENUES = [
       addr: "315 N LaSalle St, Chicago, IL 60654, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["comfort", "elegance", "energy"],
       axes: {
-        casualness: 0.2,
-        comfort: 0.8,
-        energy: 0.6,
-        elegance: 0.7,
-        authenticity: 0.2,
+        noise_level: 0.6,
+        price_level: 0.5,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -2662,8 +1887,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-5",
     name: "Boka",
     geo: {
-      lat: 41.913639,
-      lon: -87.648202,
+      lat: 41.861317,
+      lon: -87.663033,
     },
     images: [],
     metadata: {
@@ -2671,13 +1896,11 @@ export const SAMPLE_VENUES = [
       addr: "1729 N Halsted St, Chicago, IL 60614, USA",
     },
     llm_labels: {
-      vibe_tags: ["upscale"],
+      vibe_tags: ["elegance", "comfort"],
       axes: {
-        casualness: 0.1,
-        comfort: 0.7,
-        energy: 0.5,
-        elegance: 0.9,
-        authenticity: 0.1,
+        noise_level: 0.5,
+        price_level: 1.0,
+        crowd_density: 0.7,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -2693,8 +1916,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-6",
     name: "Carnivale Chicago",
     geo: {
-      lat: 41.887106,
-      lon: -87.646069,
+      lat: 41.846137,
+      lon: -87.628388,
     },
     images: [],
     metadata: {
@@ -2702,13 +1925,11 @@ export const SAMPLE_VENUES = [
       addr: "702 W Fulton St, Chicago, IL 60661, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["energy", "comfort", "elegance"],
       axes: {
-        casualness: 0.4,
-        comfort: 0.7,
-        energy: 0.9,
-        elegance: 0.6,
-        authenticity: 0.3,
+        noise_level: 0.9,
+        price_level: 0.5,
+        crowd_density: 0.7,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -2724,8 +1945,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-7",
     name: "The Whale",
     geo: {
-      lat: 41.925566,
-      lon: -87.701097,
+      lat: 41.838727,
+      lon: -87.640227,
     },
     images: [],
     metadata: {
@@ -2733,13 +1954,11 @@ export const SAMPLE_VENUES = [
       addr: "2427 N Milwaukee Ave, Chicago, IL 60647, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["energy", "comfort", "casualness"],
       axes: {
-        casualness: 0.6,
-        comfort: 0.7,
-        energy: 0.8,
-        elegance: 0.4,
-        authenticity: 0.2,
+        noise_level: 0.8,
+        price_level: 0.75,
+        crowd_density: 0.7,
       },
       rationales: ["Imported from venue database with 80% confidence"],
     },
@@ -2755,8 +1974,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-8",
     name: "Quartino Ristorante",
     geo: {
-      lat: 41.893435,
-      lon: -87.628306,
+      lat: 41.862001,
+      lon: -87.605645,
     },
     images: [],
     metadata: {
@@ -2764,13 +1983,11 @@ export const SAMPLE_VENUES = [
       addr: "626 N State St, Chicago, IL 60654, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["energy", "comfort", "authenticity"],
       axes: {
-        casualness: 0.5,
-        comfort: 0.7,
-        energy: 0.8,
-        elegance: 0.5,
-        authenticity: 0.7,
+        noise_level: 0.8,
+        price_level: 0.5,
+        crowd_density: 0.7,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -2786,8 +2003,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-9",
     name: "OLIO E PIÙ",
     geo: {
-      lat: 41.890204,
-      lon: -87.629501,
+      lat: 41.868437,
+      lon: -87.656895,
     },
     images: [],
     metadata: {
@@ -2795,13 +2012,11 @@ export const SAMPLE_VENUES = [
       addr: "445 N Dearborn St, Chicago, IL 60654, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["comfort", "energy", "elegance"],
       axes: {
-        casualness: 0.3,
-        comfort: 0.8,
-        energy: 0.8,
-        elegance: 0.7,
-        authenticity: 0.6,
+        noise_level: 0.8,
+        price_level: 0.5,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -2817,8 +2032,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-10",
     name: "The Wormhole Coffee",
     geo: {
-      lat: 41.908328,
-      lon: -87.674689,
+      lat: 41.847155,
+      lon: -87.597253,
     },
     images: [],
     metadata: {
@@ -2826,13 +2041,11 @@ export const SAMPLE_VENUES = [
       addr: "1462 N Milwaukee Ave, Chicago, IL 60622, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["casualness", "energy", "comfort"],
       axes: {
-        casualness: 0.8,
-        comfort: 0.6,
-        energy: 0.7,
-        elegance: 0.1,
-        authenticity: 0.3,
+        noise_level: 0.7,
+        price_level: 0.25,
+        crowd_density: 0.6,
       },
       rationales: ["Imported from venue database with 80% confidence"],
     },
@@ -2848,8 +2061,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-11",
     name: "TARY",
     geo: {
-      lat: 41.890531,
-      lon: -87.631675,
+      lat: 41.900019,
+      lon: -87.666481,
     },
     images: [],
     metadata: {
@@ -2857,13 +2070,11 @@ export const SAMPLE_VENUES = [
       addr: "111 W Illinois St, Chicago, IL 60654, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["authenticity", "comfort", "elegance"],
       axes: {
-        casualness: 0.5,
-        comfort: 0.8,
-        energy: 0.4,
-        elegance: 0.6,
-        authenticity: 0.9,
+        noise_level: 0.4,
+        price_level: 0.5,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -2879,8 +2090,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-12",
     name: "Broadway Cafe",
     geo: {
-      lat: 41.879591,
-      lon: -87.626627,
+      lat: 41.894889,
+      lon: -87.60747,
     },
     images: [],
     metadata: {
@@ -2888,13 +2099,11 @@ export const SAMPLE_VENUES = [
       addr: "22 E Adams St, Chicago, IL 60603, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["comfort", "casualness"],
       axes: {
-        casualness: 0.7,
-        comfort: 0.8,
-        energy: 0.4,
-        elegance: 0.2,
-        authenticity: 0.1,
+        noise_level: 0.4,
+        price_level: 0.25,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 80% confidence"],
     },
@@ -2910,8 +2119,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-13",
     name: "Goddess and the Baker, 33 S Wabash-Millennium Park",
     geo: {
-      lat: 41.881408,
-      lon: -87.625945,
+      lat: 41.864909,
+      lon: -87.614476,
     },
     images: [],
     metadata: {
@@ -2919,13 +2128,11 @@ export const SAMPLE_VENUES = [
       addr: "33 S Wabash Ave, Chicago, IL 60603, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["casualness", "energy"],
       axes: {
-        casualness: 0.8,
-        comfort: 0.5,
-        energy: 0.8,
-        elegance: 0.3,
-        authenticity: 0.1,
+        noise_level: 0.8,
+        price_level: 0.5,
+        crowd_density: 0.5,
       },
       rationales: ["Imported from venue database with 80% confidence"],
     },
@@ -2941,8 +2148,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-14",
     name: "Prequel Cafe",
     geo: {
-      lat: 41.895785,
-      lon: -87.676808,
+      lat: 41.843114,
+      lon: -87.619794,
     },
     images: [],
     metadata: {
@@ -2950,13 +2157,11 @@ export const SAMPLE_VENUES = [
       addr: "1957 W Chicago Ave, Chicago, IL 60622, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["comfort", "casualness"],
       axes: {
-        casualness: 0.7,
-        comfort: 0.8,
-        energy: 0.5,
-        elegance: 0.4,
-        authenticity: 0.1,
+        noise_level: 0.5,
+        price_level: 0.25,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -2972,8 +2177,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-15",
     name: "Sawada Coffee",
     geo: {
-      lat: 41.883689,
-      lon: -87.648694,
+      lat: 41.846811,
+      lon: -87.608018,
     },
     images: [],
     metadata: {
@@ -2981,13 +2186,11 @@ export const SAMPLE_VENUES = [
       addr: "112 N Green St, Chicago, IL 60607, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["casualness", "comfort", "energy"],
       axes: {
-        casualness: 0.7,
-        comfort: 0.7,
-        energy: 0.7,
-        elegance: 0.3,
-        authenticity: 0.2,
+        noise_level: 0.7,
+        price_level: 0.5,
+        crowd_density: 0.7,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -3003,8 +2206,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-16",
     name: "Hexe Coffee Co.",
     geo: {
-      lat: 41.932499,
-      lon: -87.679167,
+      lat: 41.869697,
+      lon: -87.623891,
     },
     images: [],
     metadata: {
@@ -3012,13 +2215,11 @@ export const SAMPLE_VENUES = [
       addr: "2000 W Diversey Pkwy, Chicago, IL 60614, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["comfort", "casualness", "energy"],
       axes: {
-        casualness: 0.8,
-        comfort: 0.9,
-        energy: 0.6,
-        elegance: 0.2,
-        authenticity: 0.1,
+        noise_level: 0.6,
+        price_level: 0.5,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -3034,8 +2235,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-17",
     name: "Gold Coast Cafe",
     geo: {
-      lat: 41.896463,
-      lon: -87.631591,
+      lat: 41.910828,
+      lon: -87.620146,
     },
     images: [],
     metadata: {
@@ -3043,13 +2244,11 @@ export const SAMPLE_VENUES = [
       addr: "754 N Clark St, Chicago, IL 60654, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["casualness", "comfort"],
       axes: {
-        casualness: 0.8,
-        comfort: 0.6,
-        energy: 0.5,
-        elegance: 0.3,
-        authenticity: 0.4,
+        noise_level: 0.5,
+        price_level: 0.5,
+        crowd_density: 0.6,
       },
       rationales: ["Imported from venue database with 80% confidence"],
     },
@@ -3065,8 +2264,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-18",
     name: "Cold Moon Cafe",
     geo: {
-      lat: 40.723613,
-      lon: -73.985536,
+      lat: 41.8954,
+      lon: -87.597058,
     },
     images: [],
     metadata: {
@@ -3074,13 +2273,11 @@ export const SAMPLE_VENUES = [
       addr: "Pearson Entrance ( Near to the Water tower Parking entrance, 845 Michigan Ave Ground Level , Suite 1005, Chicago, IL 60611, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["casualness"],
       axes: {
-        casualness: 0.7,
-        comfort: 0.3,
-        energy: 0.2,
-        elegance: 0.1,
-        authenticity: 0.1,
+        noise_level: 0.2,
+        price_level: 0.25,
+        crowd_density: 0.3,
       },
       rationales: ["Imported from venue database with 70% confidence"],
     },
@@ -3096,8 +2293,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-19",
     name: "Sip of Hope Coffee",
     geo: {
-      lat: 41.924427,
-      lon: -87.703913,
+      lat: 41.867929,
+      lon: -87.642707,
     },
     images: [],
     metadata: {
@@ -3105,13 +2302,11 @@ export const SAMPLE_VENUES = [
       addr: "3039 W Fullerton Ave, Chicago, IL 60647, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["comfort", "casualness"],
       axes: {
-        casualness: 0.7,
-        comfort: 0.9,
-        energy: 0.4,
-        elegance: 0.2,
-        authenticity: 0.1,
+        noise_level: 0.4,
+        price_level: 0.25,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -3127,8 +2322,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-20",
     name: "Three Dots and a Dash",
     geo: {
-      lat: 41.889792,
-      lon: -87.630701,
+      lat: 41.863554,
+      lon: -87.619512,
     },
     images: [],
     metadata: {
@@ -3136,13 +2331,11 @@ export const SAMPLE_VENUES = [
       addr: "435 N Clark St, Chicago, IL 60654, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["energy", "elegance", "comfort"],
       axes: {
-        casualness: 0.4,
-        comfort: 0.6,
-        energy: 0.9,
-        elegance: 0.7,
-        authenticity: 0.5,
+        noise_level: 0.9,
+        price_level: 0.75,
+        crowd_density: 0.6,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -3158,8 +2351,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-21",
     name: "Lazy Bird",
     geo: {
-      lat: 41.885885,
-      lon: -87.649137,
+      lat: 41.853665,
+      lon: -87.613371,
     },
     images: [],
     metadata: {
@@ -3167,13 +2360,11 @@ export const SAMPLE_VENUES = [
       addr: "200 N Green St, Chicago, IL 60607, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["elegance", "comfort"],
       axes: {
-        casualness: 0.3,
-        comfort: 0.7,
-        energy: 0.5,
-        elegance: 0.8,
-        authenticity: 0.2,
+        noise_level: 0.5,
+        price_level: 0.5,
+        crowd_density: 0.7,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -3189,8 +2380,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-22",
     name: "Long Room Chicago",
     geo: {
-      lat: 40.708767,
-      lon: -73.992206,
+      lat: 41.871647,
+      lon: -87.607729,
     },
     images: [],
     metadata: {
@@ -3198,13 +2389,11 @@ export const SAMPLE_VENUES = [
       addr: "1612 W Irving Park Rd Ste 1, Chicago, IL 60613, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["energy", "comfort", "casualness"],
       axes: {
-        casualness: 0.6,
-        comfort: 0.7,
-        energy: 0.8,
-        elegance: 0.4,
-        authenticity: 0.2,
+        noise_level: 0.8,
+        price_level: 0.5,
+        crowd_density: 0.7,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -3220,8 +2409,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-23",
     name: "Theory",
     geo: {
-      lat: 41.889914,
-      lon: -87.628519,
+      lat: 41.910765,
+      lon: -87.608826,
     },
     images: [],
     metadata: {
@@ -3229,13 +2418,11 @@ export const SAMPLE_VENUES = [
       addr: "9 W Hubbard St, Chicago, IL 60654, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["casualness", "energy", "comfort"],
       axes: {
-        casualness: 0.9,
-        comfort: 0.6,
-        energy: 0.9,
-        elegance: 0.2,
-        authenticity: 0.1,
+        noise_level: 0.9,
+        price_level: 0.5,
+        crowd_density: 0.6,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -3251,8 +2438,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-24",
     name: "The Green Door Tavern",
     geo: {
-      lat: 41.894615,
-      lon: -87.637402,
+      lat: 41.854385,
+      lon: -87.616352,
     },
     images: [],
     metadata: {
@@ -3260,13 +2447,11 @@ export const SAMPLE_VENUES = [
       addr: "678 N Orleans St, Chicago, IL 60654, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["casualness", "comfort", "energy"],
       axes: {
-        casualness: 0.7,
-        comfort: 0.7,
-        energy: 0.6,
-        elegance: 0.4,
-        authenticity: 0.6,
+        noise_level: 0.6,
+        price_level: 0.5,
+        crowd_density: 0.7,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -3280,10 +2465,10 @@ export const SAMPLE_VENUES = [
   },
   {
     venue_id: "csv-25",
-    name: "Cindy\'s Rooftop",
+    name: "Cindy's Rooftop",
     geo: {
-      lat: 41.881657,
-      lon: -87.62498,
+      lat: 41.854304,
+      lon: -87.640302,
     },
     images: [],
     metadata: {
@@ -3291,13 +2476,11 @@ export const SAMPLE_VENUES = [
       addr: "12 S Michigan Ave, Chicago, IL 60603, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["energy", "elegance", "comfort"],
       axes: {
-        casualness: 0.3,
-        comfort: 0.7,
-        energy: 0.8,
-        elegance: 0.8,
-        authenticity: 0.1,
+        noise_level: 0.8,
+        price_level: 0.75,
+        crowd_density: 0.7,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -3313,8 +2496,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-26",
     name: "Matchbox Bar",
     geo: {
-      lat: 41.895657,
-      lon: -87.654901,
+      lat: 41.898916,
+      lon: -87.63271,
     },
     images: [],
     metadata: {
@@ -3322,13 +2505,11 @@ export const SAMPLE_VENUES = [
       addr: "770 N Milwaukee Ave, Chicago, IL 60642, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["casualness", "comfort", "energy"],
       axes: {
-        casualness: 0.7,
-        comfort: 0.7,
-        energy: 0.6,
-        elegance: 0.3,
-        authenticity: 0.2,
+        noise_level: 0.6,
+        price_level: 0.5,
+        crowd_density: 0.7,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -3344,8 +2525,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-27",
     name: "ROOF on theWit",
     geo: {
-      lat: 40.737509,
-      lon: -74.019737,
+      lat: 41.917635,
+      lon: -87.651779,
     },
     images: [],
     metadata: {
@@ -3353,13 +2534,11 @@ export const SAMPLE_VENUES = [
       addr: "201 N State St 27th Floor, Chicago, IL 60601, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["energy", "elegance", "comfort"],
       axes: {
-        casualness: 0.4,
-        comfort: 0.6,
-        energy: 0.9,
-        elegance: 0.7,
-        authenticity: 0.1,
+        noise_level: 0.9,
+        price_level: 0.75,
+        crowd_density: 0.6,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -3373,10 +2552,10 @@ export const SAMPLE_VENUES = [
   },
   {
     venue_id: "csv-28",
-    name: "Gus\' Sip & Dip",
+    name: "Gus' Sip & Dip",
     geo: {
-      lat: 40.696417,
-      lon: -73.987777,
+      lat: 41.851888,
+      lon: -87.600643,
     },
     images: [],
     metadata: {
@@ -3384,13 +2563,11 @@ export const SAMPLE_VENUES = [
       addr: "51 W Hubbard St Suite 100, Chicago, IL 60654, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["energy", "comfort", "casualness"],
       axes: {
-        casualness: 0.6,
-        comfort: 0.7,
-        energy: 0.8,
-        elegance: 0.5,
-        authenticity: 0.2,
+        noise_level: 0.8,
+        price_level: 0.5,
+        crowd_density: 0.7,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -3406,8 +2583,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-29",
     name: "The Meadowlark",
     geo: {
-      lat: 41.921767,
-      lon: -87.697785,
+      lat: 41.887942,
+      lon: -87.664115,
     },
     images: [],
     metadata: {
@@ -3415,13 +2592,11 @@ export const SAMPLE_VENUES = [
       addr: "2812 W Palmer St, Chicago, IL 60647, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["elegance", "comfort", "energy"],
       axes: {
-        casualness: 0.3,
-        comfort: 0.7,
-        energy: 0.6,
-        elegance: 0.8,
-        authenticity: 0.2,
+        noise_level: 0.6,
+        price_level: 0.5,
+        crowd_density: 0.7,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -3437,8 +2612,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-0",
     name: "Bottega Louie",
     geo: {
-      lat: 34.047143,
-      lon: -118.256605,
+      lat: 34.065151,
+      lon: -118.291625,
     },
     images: [],
     metadata: {
@@ -3446,13 +2621,11 @@ export const SAMPLE_VENUES = [
       addr: "700 S Grand Ave, Los Angeles, CA 90017, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["energy", "elegance", "casualness"],
       axes: {
-        casualness: 0.6,
-        comfort: 0.2,
-        energy: 0.9,
-        elegance: 0.7,
-        authenticity: 0.3,
+        noise_level: 0.9,
+        price_level: 0.75,
+        crowd_density: 0.2,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -3468,8 +2641,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-1",
     name: "Holbox",
     geo: {
-      lat: 40.707746,
-      lon: -74.028694,
+      lat: 34.042092,
+      lon: -118.289087,
     },
     images: [],
     metadata: {
@@ -3477,13 +2650,11 @@ export const SAMPLE_VENUES = [
       addr: "3655 S Grand Ave c9, Los Angeles, CA 90007, USA",
     },
     llm_labels: {
-      vibe_tags: ["hidden_gem"],
+      vibe_tags: ["authenticity", "casualness", "energy"],
       axes: {
-        casualness: 0.7,
-        comfort: 0.4,
-        energy: 0.7,
-        elegance: 0.5,
-        authenticity: 0.9,
+        noise_level: 0.7,
+        price_level: 0.5,
+        crowd_density: 0.4,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -3499,8 +2670,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-2",
     name: "Girl & the Goat Los Angeles",
     geo: {
-      lat: 34.041753,
-      lon: -118.232887,
+      lat: 34.006256,
+      lon: -118.274178,
     },
     images: [],
     metadata: {
@@ -3508,13 +2679,11 @@ export const SAMPLE_VENUES = [
       addr: "555-3 Mateo St, Los Angeles, CA 90013, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["comfort", "elegance", "energy"],
       axes: {
-        casualness: 0.4,
-        comfort: 0.8,
-        energy: 0.6,
-        elegance: 0.8,
-        authenticity: 0.3,
+        noise_level: 0.6,
+        price_level: 0.75,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 85% confidence"],
     },
@@ -3530,8 +2699,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-3",
     name: "Redbird",
     geo: {
-      lat: 34.050568,
-      lon: -118.244045,
+      lat: 34.0359,
+      lon: -118.247722,
     },
     images: [],
     metadata: {
@@ -3539,13 +2708,11 @@ export const SAMPLE_VENUES = [
       addr: "114 E 2nd St, Los Angeles, CA 90012, USA",
     },
     llm_labels: {
-      vibe_tags: ["upscale"],
+      vibe_tags: ["comfort", "elegance"],
       axes: {
-        casualness: 0.3,
-        comfort: 0.9,
-        energy: 0.5,
-        elegance: 0.9,
-        authenticity: 0.1,
+        noise_level: 0.5,
+        price_level: 0.75,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -3561,8 +2728,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-4",
     name: "Maccheroni Republic",
     geo: {
-      lat: 34.050029,
-      lon: -118.248544,
+      lat: 34.081029,
+      lon: -118.20174,
     },
     images: [],
     metadata: {
@@ -3570,13 +2737,11 @@ export const SAMPLE_VENUES = [
       addr: "332 S Broadway, Los Angeles, CA 90013, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["authenticity", "comfort", "casualness"],
       axes: {
-        casualness: 0.7,
-        comfort: 0.8,
-        energy: 0.6,
-        elegance: 0.6,
-        authenticity: 0.9,
+        noise_level: 0.6,
+        price_level: 0.5,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -3592,8 +2757,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-5",
     name: "71Above",
     geo: {
-      lat: 40.717191,
-      lon: -74.022101,
+      lat: 34.060981,
+      lon: -118.275902,
     },
     images: [],
     metadata: {
@@ -3601,13 +2766,11 @@ export const SAMPLE_VENUES = [
       addr: "633 W 5th St 71st floor, Los Angeles, CA 90071, USA",
     },
     llm_labels: {
-      vibe_tags: ["upscale"],
+      vibe_tags: ["elegance", "comfort"],
       axes: {
-        casualness: 0.1,
-        comfort: 0.8,
-        energy: 0.5,
-        elegance: 1.0,
-        authenticity: 0.1,
+        noise_level: 0.5,
+        price_level: 1.0,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -3623,8 +2786,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-6",
     name: "Manuela",
     geo: {
-      lat: 34.046032,
-      lon: -118.234923,
+      lat: 34.092838,
+      lon: -118.224377,
     },
     images: [],
     metadata: {
@@ -3632,13 +2795,11 @@ export const SAMPLE_VENUES = [
       addr: "907 E 3rd St, Los Angeles, CA 90013, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["comfort", "elegance", "energy"],
       axes: {
-        casualness: 0.5,
-        comfort: 1.0,
-        energy: 0.6,
-        elegance: 0.7,
-        authenticity: 0.1,
+        noise_level: 0.6,
+        price_level: 0.75,
+        crowd_density: 1.0,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -3654,8 +2815,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-7",
     name: "Bestia",
     geo: {
-      lat: 34.033738,
-      lon: -118.229309,
+      lat: 34.077971,
+      lon: -118.201557,
     },
     images: [],
     metadata: {
@@ -3663,13 +2824,11 @@ export const SAMPLE_VENUES = [
       addr: "2121 E 7th Pl, Los Angeles, CA 90021, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["energy", "elegance", "authenticity"],
       axes: {
-        casualness: 0.4,
-        comfort: 0.3,
-        energy: 0.9,
-        elegance: 0.8,
-        authenticity: 0.6,
+        noise_level: 0.9,
+        price_level: 0.75,
+        crowd_density: 0.3,
       },
       rationales: ["Imported from venue database with 80% confidence"],
     },
@@ -3685,8 +2844,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-8",
     name: "Chi Spacca",
     geo: {
-      lat: 34.083374,
-      lon: -118.338811,
+      lat: 34.068792,
+      lon: -118.217438,
     },
     images: [],
     metadata: {
@@ -3694,13 +2853,11 @@ export const SAMPLE_VENUES = [
       addr: "6610 Melrose Ave, Los Angeles, CA 90038, USA",
     },
     llm_labels: {
-      vibe_tags: ["upscale"],
+      vibe_tags: ["comfort", "elegance"],
       axes: {
-        casualness: 0.2,
-        comfort: 0.9,
-        energy: 0.4,
-        elegance: 0.9,
-        authenticity: 0.4,
+        noise_level: 0.4,
+        price_level: 1.0,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -3716,8 +2873,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-9",
     name: "République Café Bakery & République Restaurant",
     geo: {
-      lat: 34.064158,
-      lon: -118.343766,
+      lat: 34.002395,
+      lon: -118.249846,
     },
     images: [],
     metadata: {
@@ -3725,13 +2882,11 @@ export const SAMPLE_VENUES = [
       addr: "624 S La Brea Ave, Los Angeles, CA 90036, USA",
     },
     llm_labels: {
-      vibe_tags: ["upscale"],
+      vibe_tags: ["elegance", "comfort", "energy"],
       axes: {
-        casualness: 0.6,
-        comfort: 0.8,
-        energy: 0.7,
-        elegance: 0.9,
-        authenticity: 0.3,
+        noise_level: 0.7,
+        price_level: 0.75,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -3747,8 +2902,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-10",
     name: "Urth Caffe",
     geo: {
-      lat: 34.04194,
-      lon: -118.235469,
+      lat: 34.014739,
+      lon: -118.199088,
     },
     images: [],
     metadata: {
@@ -3756,13 +2911,11 @@ export const SAMPLE_VENUES = [
       addr: "459 S Hewitt St, Los Angeles, CA 90013, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["comfort", "casualness", "energy"],
       axes: {
-        casualness: 0.8,
-        comfort: 0.9,
-        energy: 0.6,
-        elegance: 0.6,
-        authenticity: 0.5,
+        noise_level: 0.6,
+        price_level: 0.5,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -3778,8 +2931,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-11",
     name: "Fleur Café",
     geo: {
-      lat: 40.710023,
-      lon: -73.991156,
+      lat: 34.046646,
+      lon: -118.214012,
     },
     images: [],
     metadata: {
@@ -3787,13 +2940,11 @@ export const SAMPLE_VENUES = [
       addr: "1300 W Olympic Blvd #102a, Los Angeles, CA 90015, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["casualness", "comfort", "authenticity"],
       axes: {
-        casualness: 0.9,
-        comfort: 0.8,
-        energy: 0.5,
-        elegance: 0.4,
-        authenticity: 0.7,
+        noise_level: 0.5,
+        price_level: 0.25,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -3809,8 +2960,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-12",
     name: "Jurassic Magic",
     geo: {
-      lat: 34.041386,
-      lon: -118.34839,
+      lat: 34.093373,
+      lon: -118.244619,
     },
     images: [],
     metadata: {
@@ -3818,13 +2969,11 @@ export const SAMPLE_VENUES = [
       addr: "1865 S Mansfield Ave, Los Angeles, CA 90019, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["comfort", "casualness", "energy"],
       axes: {
-        casualness: 0.8,
-        comfort: 0.9,
-        energy: 0.8,
-        elegance: 0.5,
-        authenticity: 0.6,
+        noise_level: 0.8,
+        price_level: 0.25,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -3840,8 +2989,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-13",
     name: "ilCaffè",
     geo: {
-      lat: 34.043038,
-      lon: -118.255521,
+      lat: 34.07859,
+      lon: -118.228987,
     },
     images: [],
     metadata: {
@@ -3849,13 +2998,11 @@ export const SAMPLE_VENUES = [
       addr: "855 S Broadway, Los Angeles, CA 90014, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["casualness", "comfort"],
       axes: {
-        casualness: 0.9,
-        comfort: 0.8,
-        energy: 0.5,
-        elegance: 0.4,
-        authenticity: 0.1,
+        noise_level: 0.5,
+        price_level: 0.5,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 85% confidence"],
     },
@@ -3871,8 +3018,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-14",
     name: "Alchemist Coffee Project",
     geo: {
-      lat: 40.694774,
-      lon: -74.018972,
+      lat: 34.016149,
+      lon: -118.269645,
     },
     images: [],
     metadata: {
@@ -3880,13 +3027,11 @@ export const SAMPLE_VENUES = [
       addr: "698 S Vermont Ave Ste 103, Los Angeles, CA 90005, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["casualness", "comfort"],
       axes: {
-        casualness: 0.9,
-        comfort: 0.9,
-        energy: 0.5,
-        elegance: 0.4,
-        authenticity: 0.1,
+        noise_level: 0.5,
+        price_level: 0.5,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -3902,8 +3047,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-15",
     name: "De La Tierra Café",
     geo: {
-      lat: 34.092114,
-      lon: -118.291577,
+      lat: 34.077667,
+      lon: -118.26421,
     },
     images: [],
     metadata: {
@@ -3911,13 +3056,11 @@ export const SAMPLE_VENUES = [
       addr: "1144 N Vermont Ave, Los Angeles, CA 90029, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["comfort", "casualness", "authenticity"],
       axes: {
-        casualness: 0.9,
-        comfort: 1.0,
-        energy: 0.5,
-        elegance: 0.5,
-        authenticity: 0.9,
+        noise_level: 0.5,
+        price_level: 0.5,
+        crowd_density: 1.0,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -3933,8 +3076,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-16",
     name: "Yeems Coffee",
     geo: {
-      lat: 40.72128,
-      lon: -74.026236,
+      lat: 34.069159,
+      lon: -118.284172,
     },
     images: [],
     metadata: {
@@ -3942,13 +3085,11 @@ export const SAMPLE_VENUES = [
       addr: "3033 W 6th St #107, Los Angeles, CA 90020, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["casualness", "energy"],
       axes: {
-        casualness: 0.9,
-        comfort: 0.4,
-        energy: 0.6,
-        elegance: 0.1,
-        authenticity: 0.1,
+        noise_level: 0.6,
+        price_level: 0.5,
+        crowd_density: 0.4,
       },
       rationales: ["Imported from venue database with 85% confidence"],
     },
@@ -3964,8 +3105,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-17",
     name: "Cafe Dulce (Little Tokyo)",
     geo: {
-      lat: 34.048847,
-      lon: -118.240448,
+      lat: 34.006254,
+      lon: -118.2081,
     },
     images: [],
     metadata: {
@@ -3973,13 +3114,11 @@ export const SAMPLE_VENUES = [
       addr: "134 Japanese Village Plaza Mall, Los Angeles, CA 90012, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["casualness", "comfort", "energy"],
       axes: {
-        casualness: 0.9,
-        comfort: 0.7,
-        energy: 0.6,
-        elegance: 0.3,
-        authenticity: 0.6,
+        noise_level: 0.6,
+        price_level: 0.5,
+        crowd_density: 0.7,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -3993,10 +3132,10 @@ export const SAMPLE_VENUES = [
   },
   {
     venue_id: "csv-18",
-    name: "Dalian\'s Café",
+    name: "Dalian's Café",
     geo: {
-      lat: 34.049649,
-      lon: -118.254298,
+      lat: 34.017431,
+      lon: -118.259856,
     },
     images: [],
     metadata: {
@@ -4004,13 +3143,11 @@ export const SAMPLE_VENUES = [
       addr: "530 S Grand Ave, Los Angeles, CA 90071, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["comfort", "casualness", "elegance"],
       axes: {
-        casualness: 0.9,
-        comfort: 1.0,
-        energy: 0.5,
-        elegance: 0.6,
-        authenticity: 0.3,
+        noise_level: 0.5,
+        price_level: 0.5,
+        crowd_density: 1.0,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -4026,8 +3163,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-19",
     name: "Cafe Calle",
     geo: {
-      lat: 34.01345,
-      lon: -118.256412,
+      lat: 34.096352,
+      lon: -118.2239,
     },
     images: [],
     metadata: {
@@ -4035,13 +3172,11 @@ export const SAMPLE_VENUES = [
       addr: "3310 S Central Ave, Los Angeles, CA 90011, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["comfort", "casualness", "authenticity"],
       axes: {
-        casualness: 0.9,
-        comfort: 1.0,
-        energy: 0.5,
-        elegance: 0.4,
-        authenticity: 0.7,
+        noise_level: 0.5,
+        price_level: 0.5,
+        crowd_density: 1.0,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -4057,8 +3192,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-20",
     name: "Library Bar",
     geo: {
-      lat: 40.711135,
-      lon: -74.015503,
+      lat: 34.048869,
+      lon: -118.262705,
     },
     images: [],
     metadata: {
@@ -4066,13 +3201,11 @@ export const SAMPLE_VENUES = [
       addr: "630 W 6th St suite 116 a, Los Angeles, CA 90017, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["comfort", "elegance"],
       axes: {
-        casualness: 0.4,
-        comfort: 1.0,
-        energy: 0.4,
-        elegance: 0.8,
-        authenticity: 0.3,
+        noise_level: 0.4,
+        price_level: 0.5,
+        crowd_density: 1.0,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -4088,8 +3221,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-21",
     name: "Perch",
     geo: {
-      lat: 34.049461,
-      lon: -118.251013,
+      lat: 34.017116,
+      lon: -118.22891,
     },
     images: [],
     metadata: {
@@ -4097,13 +3230,11 @@ export const SAMPLE_VENUES = [
       addr: "448 S Hill St, Los Angeles, CA 90013, USA",
     },
     llm_labels: {
-      vibe_tags: ["upscale"],
+      vibe_tags: ["elegance", "comfort", "energy"],
       axes: {
-        casualness: 0.3,
-        comfort: 0.8,
-        energy: 0.7,
-        elegance: 1.0,
-        authenticity: 0.7,
+        noise_level: 0.7,
+        price_level: 0.75,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -4119,8 +3250,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-22",
     name: "Frolic Room",
     geo: {
-      lat: 34.101708,
-      lon: -118.326018,
+      lat: 34.006388,
+      lon: -118.280618,
     },
     images: [],
     metadata: {
@@ -4128,13 +3259,11 @@ export const SAMPLE_VENUES = [
       addr: "6245 Hollywood Blvd, Los Angeles, CA 90028, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["casualness", "energy", "authenticity"],
       axes: {
-        casualness: 0.9,
-        comfort: 0.6,
-        energy: 0.8,
-        elegance: 0.1,
-        authenticity: 0.7,
+        noise_level: 0.8,
+        price_level: 0.25,
+        crowd_density: 0.6,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -4150,8 +3279,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-23",
     name: "Death & Co Los Angeles",
     geo: {
-      lat: 34.045805,
-      lon: -118.235348,
+      lat: 34.039329,
+      lon: -118.21105,
     },
     images: [],
     metadata: {
@@ -4159,13 +3288,11 @@ export const SAMPLE_VENUES = [
       addr: "818 E 3rd St, Los Angeles, CA 90013, USA",
     },
     llm_labels: {
-      vibe_tags: ["upscale"],
+      vibe_tags: ["elegance", "comfort"],
       axes: {
-        casualness: 0.1,
-        comfort: 0.9,
-        energy: 0.4,
-        elegance: 1.0,
-        authenticity: 0.5,
+        noise_level: 0.4,
+        price_level: 0.5,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -4181,8 +3308,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-24",
     name: "Everson Royce Bar",
     geo: {
-      lat: 34.034457,
-      lon: -118.23258,
+      lat: 34.083044,
+      lon: -118.2053,
     },
     images: [],
     metadata: {
@@ -4190,13 +3317,11 @@ export const SAMPLE_VENUES = [
       addr: "1936 E 7th St, Los Angeles, CA 90021, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["casualness", "comfort", "energy"],
       axes: {
-        casualness: 0.8,
-        comfort: 0.8,
-        energy: 0.7,
-        elegance: 0.4,
-        authenticity: 0.1,
+        noise_level: 0.7,
+        price_level: 0.5,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -4212,8 +3337,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-25",
     name: "Broken Shaker at Freehand Los Angeles",
     geo: {
-      lat: 34.044873,
-      lon: -118.256759,
+      lat: 34.043542,
+      lon: -118.219103,
     },
     images: [],
     metadata: {
@@ -4221,13 +3346,11 @@ export const SAMPLE_VENUES = [
       addr: "416 W 8th St, Los Angeles, CA 90014, USA",
     },
     llm_labels: {
-      vibe_tags: ["upscale"],
+      vibe_tags: ["casualness", "comfort", "elegance"],
       axes: {
-        casualness: 0.8,
-        comfort: 0.8,
-        energy: 0.7,
-        elegance: 0.8,
-        authenticity: 0.1,
+        noise_level: 0.7,
+        price_level: 0.5,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -4243,8 +3366,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-26",
     name: "Seven Grand",
     geo: {
-      lat: 40.692321,
-      lon: -74.002734,
+      lat: 34.011242,
+      lon: -118.237168,
     },
     images: [],
     metadata: {
@@ -4252,13 +3375,11 @@ export const SAMPLE_VENUES = [
       addr: "515 W 7th St 2nd floor, Los Angeles, CA 90014, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["comfort", "casualness", "energy"],
       axes: {
-        casualness: 0.8,
-        comfort: 0.9,
-        energy: 0.7,
-        elegance: 0.6,
-        authenticity: 0.7,
+        noise_level: 0.7,
+        price_level: 0.5,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -4274,8 +3395,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-27",
     name: "Treehouse",
     geo: {
-      lat: 34.059522,
-      lon: -118.237929,
+      lat: 34.008953,
+      lon: -118.205521,
     },
     images: [],
     metadata: {
@@ -4283,13 +3404,11 @@ export const SAMPLE_VENUES = [
       addr: "686 N Spring St, Los Angeles, CA 90012, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["energy", "elegance"],
       axes: {
-        casualness: 0.3,
-        comfort: 0.1,
-        energy: 1.0,
-        elegance: 0.6,
-        authenticity: 0.1,
+        noise_level: 1.0,
+        price_level: 0.5,
+        crowd_density: 0.1,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -4305,8 +3424,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-28",
     name: "The Escondite",
     geo: {
-      lat: 34.046106,
-      lon: -118.242205,
+      lat: 34.022852,
+      lon: -118.25469,
     },
     images: [],
     metadata: {
@@ -4314,13 +3433,11 @@ export const SAMPLE_VENUES = [
       addr: "410 Boyd St, Los Angeles, CA 90013, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["comfort", "authenticity", "casualness"],
       axes: {
-        casualness: 0.8,
-        comfort: 0.9,
-        energy: 0.7,
-        elegance: 0.7,
-        authenticity: 0.9,
+        noise_level: 0.7,
+        price_level: 0.5,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 85% confidence"],
     },
@@ -4336,8 +3453,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-29",
     name: "Tiki-Ti",
     geo: {
-      lat: 34.09748,
-      lon: -118.285763,
+      lat: 34.011333,
+      lon: -118.209033,
     },
     images: [],
     metadata: {
@@ -4345,13 +3462,11 @@ export const SAMPLE_VENUES = [
       addr: "4427 Sunset Blvd, Los Angeles, CA 90027, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["authenticity", "energy", "casualness"],
       axes: {
-        casualness: 0.7,
-        comfort: 0.6,
-        energy: 0.9,
-        elegance: 0.6,
-        authenticity: 1.0,
+        noise_level: 0.9,
+        price_level: 0.5,
+        crowd_density: 0.6,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -4367,8 +3482,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-0",
     name: "Crazy About You",
     geo: {
-      lat: 40.708197,
-      lon: -73.98922,
+      lat: 40.705435,
+      lon: -73.979152,
     },
     images: [],
     metadata: {
@@ -4376,13 +3491,11 @@ export const SAMPLE_VENUES = [
       addr: "1155 Brickell Bay Dr PH101, Miami, FL 33131, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["comfort", "elegance", "casualness"],
       axes: {
-        casualness: 0.6,
-        comfort: 0.9,
-        energy: 0.5,
-        elegance: 0.8,
-        authenticity: 0.1,
+        noise_level: 0.5,
+        price_level: 0.5,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -4398,8 +3511,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-1",
     name: "Dolores But You Can Call Me Lolita",
     geo: {
-      lat: 25.764285,
-      lon: -80.193562,
+      lat: 40.712525,
+      lon: -73.998668,
     },
     images: [],
     metadata: {
@@ -4407,13 +3520,11 @@ export const SAMPLE_VENUES = [
       addr: "1000 S Miami Ave, Miami, FL 33130, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["comfort", "authenticity", "elegance"],
       axes: {
-        casualness: 0.5,
-        comfort: 0.9,
-        energy: 0.6,
-        elegance: 0.7,
-        authenticity: 0.8,
+        noise_level: 0.6,
+        price_level: 0.5,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -4429,8 +3540,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-2",
     name: "Giselle Miami",
     geo: {
-      lat: 25.784832,
-      lon: -80.193771,
+      lat: 40.684868,
+      lon: -74.03115,
     },
     images: [],
     metadata: {
@@ -4438,13 +3549,11 @@ export const SAMPLE_VENUES = [
       addr: "15 NE 11th St, Miami, FL 33132, USA",
     },
     llm_labels: {
-      vibe_tags: ["upscale"],
+      vibe_tags: ["comfort", "elegance", "energy"],
       axes: {
-        casualness: 0.2,
-        comfort: 0.9,
-        energy: 0.6,
-        elegance: 0.9,
-        authenticity: 0.1,
+        noise_level: 0.6,
+        price_level: 0.5,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -4460,8 +3569,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-3",
     name: "Naked Farmer",
     geo: {
-      lat: 40.731939,
-      lon: -74.020725,
+      lat: 40.743422,
+      lon: -74.02956,
     },
     images: [],
     metadata: {
@@ -4469,13 +3578,11 @@ export const SAMPLE_VENUES = [
       addr: "200 S Biscayne Blvd Suite 145, Miami, FL 33131, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["casualness", "comfort"],
       axes: {
-        casualness: 0.9,
-        comfort: 0.9,
-        energy: 0.3,
-        elegance: 0.1,
-        authenticity: 0.1,
+        noise_level: 0.3,
+        price_level: 0.5,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -4491,8 +3598,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-4",
     name: "Rusty Pelican Miami",
     geo: {
-      lat: 40.731834,
-      lon: -74.014031,
+      lat: 40.743254,
+      lon: -74.018849,
     },
     images: [],
     metadata: {
@@ -4500,13 +3607,11 @@ export const SAMPLE_VENUES = [
       addr: "3201 Rickenbacker Cwy, Key Biscayne, FL 33149, USA",
     },
     llm_labels: {
-      vibe_tags: ["upscale"],
+      vibe_tags: ["elegance", "comfort"],
       axes: {
-        casualness: 0.5,
-        comfort: 0.8,
-        energy: 0.5,
-        elegance: 0.9,
-        authenticity: 0.1,
+        noise_level: 0.5,
+        price_level: 0.75,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -4522,8 +3627,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-5",
     name: "Komodo Miami",
     geo: {
-      lat: 25.76558,
-      lon: -80.190289,
+      lat: 40.698662,
+      lon: -74.034527,
     },
     images: [],
     metadata: {
@@ -4531,13 +3636,11 @@ export const SAMPLE_VENUES = [
       addr: "801 Brickell Ave, Miami, FL 33131, USA",
     },
     llm_labels: {
-      vibe_tags: ["upscale"],
+      vibe_tags: ["elegance", "comfort", "authenticity"],
       axes: {
-        casualness: 0.4,
-        comfort: 0.8,
-        energy: 0.5,
-        elegance: 0.9,
-        authenticity: 0.6,
+        noise_level: 0.5,
+        price_level: 1.0,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -4553,8 +3656,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-6",
     name: "MILA",
     geo: {
-      lat: 40.696186,
-      lon: -74.006522,
+      lat: 40.686217,
+      lon: -74.006835,
     },
     images: [],
     metadata: {
@@ -4562,13 +3665,11 @@ export const SAMPLE_VENUES = [
       addr: "1636 Meridian Ave Rooftop, Miami Beach, FL 33139, USA",
     },
     llm_labels: {
-      vibe_tags: ["upscale"],
+      vibe_tags: ["elegance", "comfort", "energy"],
       axes: {
-        casualness: 0.2,
-        comfort: 0.8,
-        energy: 0.6,
-        elegance: 1.0,
-        authenticity: 0.6,
+        noise_level: 0.6,
+        price_level: 1.0,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -4584,8 +3685,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-7",
     name: "CASA NEOS",
     geo: {
-      lat: 25.77372,
-      lon: -80.200605,
+      lat: 40.689225,
+      lon: -74.017035,
     },
     images: [],
     metadata: {
@@ -4593,13 +3694,11 @@ export const SAMPLE_VENUES = [
       addr: "40 SW North River Dr, Miami, FL 33128, USA",
     },
     llm_labels: {
-      vibe_tags: ["upscale"],
+      vibe_tags: ["elegance", "comfort", "energy"],
       axes: {
-        casualness: 0.4,
-        comfort: 0.8,
-        energy: 0.7,
-        elegance: 0.9,
-        authenticity: 0.1,
+        noise_level: 0.7,
+        price_level: 0.5,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 80% confidence"],
     },
@@ -4615,8 +3714,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-8",
     name: "Fiore Caffe Miami",
     geo: {
-      lat: 25.77331,
-      lon: -80.189847,
+      lat: 40.731959,
+      lon: -74.044979,
     },
     images: [],
     metadata: {
@@ -4624,13 +3723,11 @@ export const SAMPLE_VENUES = [
       addr: "228 SE 1st St, Miami, FL 33131, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["comfort", "casualness"],
       axes: {
-        casualness: 0.8,
-        comfort: 0.9,
-        energy: 0.4,
-        elegance: 0.3,
-        authenticity: 0.1,
+        noise_level: 0.4,
+        price_level: 0.5,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -4646,8 +3743,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-9",
     name: "Sexy Fish Miami",
     geo: {
-      lat: 25.764353,
-      lon: -80.193051,
+      lat: 40.702636,
+      lon: -73.985762,
     },
     images: [],
     metadata: {
@@ -4655,13 +3752,11 @@ export const SAMPLE_VENUES = [
       addr: "1001 S Miami Ave, Miami, FL 33130, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["elegance", "energy", "comfort"],
       axes: {
-        casualness: 0.2,
-        comfort: 0.6,
-        energy: 0.9,
-        elegance: 1.0,
-        authenticity: 0.5,
+        noise_level: 0.9,
+        price_level: 1.0,
+        crowd_density: 0.6,
       },
       rationales: ["Imported from venue database with 80% confidence"],
     },
@@ -4677,8 +3772,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-10",
     name: "Café Bastille Downtown Miami",
     geo: {
-      lat: 25.773294,
-      lon: -80.189676,
+      lat: 40.67413,
+      lon: -74.026036,
     },
     images: [],
     metadata: {
@@ -4686,13 +3781,11 @@ export const SAMPLE_VENUES = [
       addr: "248 SE 1st St, Miami, FL 33131, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["comfort", "casualness", "energy"],
       axes: {
-        casualness: 0.8,
-        comfort: 1.0,
-        energy: 0.6,
-        elegance: 0.4,
-        authenticity: 0.5,
+        noise_level: 0.6,
+        price_level: 0.5,
+        crowd_density: 1.0,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -4708,8 +3801,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-11",
     name: "maman",
     geo: {
-      lat: 40.698799,
-      lon: -73.993738,
+      lat: 40.690399,
+      lon: -73.986381,
     },
     images: [],
     metadata: {
@@ -4717,13 +3810,11 @@ export const SAMPLE_VENUES = [
       addr: "98 Southeast 8th Street, 830 Brickell Plaza, Miami, FL 33131, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["comfort", "casualness"],
       axes: {
-        casualness: 0.9,
-        comfort: 1.0,
-        energy: 0.3,
-        elegance: 0.4,
-        authenticity: 0.1,
+        noise_level: 0.3,
+        price_level: 0.5,
+        crowd_density: 1.0,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -4739,8 +3830,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-12",
     name: "Magdalena Coffee & Houseplants",
     geo: {
-      lat: 40.735544,
-      lon: -73.989669,
+      lat: 40.74919,
+      lon: -73.979871,
     },
     images: [],
     metadata: {
@@ -4748,13 +3839,11 @@ export const SAMPLE_VENUES = [
       addr: "321 NE 26th St CU-04, Miami, FL 33137, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["casualness", "comfort", "authenticity"],
       axes: {
-        casualness: 0.9,
-        comfort: 0.9,
-        energy: 0.5,
-        elegance: 0.4,
-        authenticity: 0.8,
+        noise_level: 0.5,
+        price_level: 0.5,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -4770,8 +3859,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-13",
     name: "Bistro Café",
     geo: {
-      lat: 25.787914,
-      lon: -80.19249,
+      lat: 40.722841,
+      lon: -74.013105,
     },
     images: [],
     metadata: {
@@ -4779,13 +3868,11 @@ export const SAMPLE_VENUES = [
       addr: "1352 NE 1st Ave, Miami, FL 33132, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["comfort", "casualness", "energy"],
       axes: {
-        casualness: 0.8,
-        comfort: 1.0,
-        energy: 0.6,
-        elegance: 0.4,
-        authenticity: 0.1,
+        noise_level: 0.6,
+        price_level: 0.5,
+        crowd_density: 1.0,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -4801,8 +3888,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-14",
     name: "Vanilla",
     geo: {
-      lat: 25.773207,
-      lon: -80.190075,
+      lat: 40.703759,
+      lon: -74.032045,
     },
     images: [],
     metadata: {
@@ -4810,13 +3897,11 @@ export const SAMPLE_VENUES = [
       addr: "117 SE 2nd Ave, Miami, FL 33131, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["comfort", "casualness", "authenticity"],
       axes: {
-        casualness: 0.8,
-        comfort: 1.0,
-        energy: 0.3,
-        elegance: 0.3,
-        authenticity: 0.8,
+        noise_level: 0.3,
+        price_level: 0.5,
+        crowd_density: 1.0,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -4832,8 +3917,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-15",
     name: "La Colada Gourmet “THE HOUSE OF CUBAN COFFEE”",
     geo: {
-      lat: 25.765475,
-      lon: -80.219954,
+      lat: 40.746614,
+      lon: -74.038457,
     },
     images: [],
     metadata: {
@@ -4841,13 +3926,11 @@ export const SAMPLE_VENUES = [
       addr: "1518 SW 8th St, Miami, FL 33135, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["authenticity", "casualness", "comfort"],
       axes: {
-        casualness: 0.9,
-        comfort: 0.6,
-        energy: 0.3,
-        elegance: 0.2,
-        authenticity: 1.0,
+        noise_level: 0.3,
+        price_level: 0.5,
+        crowd_density: 0.6,
       },
       rationales: ["Imported from venue database with 80% confidence"],
     },
@@ -4863,8 +3946,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-16",
     name: "Sagrado Cafe",
     geo: {
-      lat: 40.718231,
-      lon: -73.990881,
+      lat: 40.72149,
+      lon: -73.98181,
     },
     images: [],
     metadata: {
@@ -4872,13 +3955,11 @@ export const SAMPLE_VENUES = [
       addr: "900 Biscayne Blvd r102, Miami, FL 33132, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["comfort", "authenticity", "casualness"],
       axes: {
-        casualness: 0.8,
-        comfort: 0.9,
-        energy: 0.4,
-        elegance: 0.6,
-        authenticity: 0.9,
+        noise_level: 0.4,
+        price_level: 0.5,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -4894,8 +3975,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-17",
     name: "Miam Cafe Biscayne",
     geo: {
-      lat: 25.784645,
-      lon: -80.190109,
+      lat: 40.719886,
+      lon: -73.978294,
     },
     images: [],
     metadata: {
@@ -4903,13 +3984,11 @@ export const SAMPLE_VENUES = [
       addr: "1040 Biscayne Blvd, Miami, FL 33132, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["comfort", "casualness", "energy"],
       axes: {
-        casualness: 0.9,
-        comfort: 1.0,
-        energy: 0.6,
-        elegance: 0.3,
-        authenticity: 0.4,
+        noise_level: 0.6,
+        price_level: 0.5,
+        crowd_density: 1.0,
       },
       rationales: ["Imported from venue database with 80% confidence"],
     },
@@ -4925,8 +4004,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-18",
     name: "{petite} maman",
     geo: {
-      lat: 25.812263,
-      lon: -80.192616,
+      lat: 40.691141,
+      lon: -73.987866,
     },
     images: [],
     metadata: {
@@ -4934,13 +4013,11 @@ export const SAMPLE_VENUES = [
       addr: "140 NE 39th St #136, Miami, FL 33137, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["casualness", "comfort"],
       axes: {
-        casualness: 1.0,
-        comfort: 0.9,
-        energy: 0.3,
-        elegance: 0.5,
-        authenticity: 0.1,
+        noise_level: 0.3,
+        price_level: 0.5,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -4956,8 +4033,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-19",
     name: "Rosa Sky",
     geo: {
-      lat: 40.700212,
-      lon: -73.988776,
+      lat: 40.692659,
+      lon: -73.978441,
     },
     images: [],
     metadata: {
@@ -4965,13 +4042,11 @@ export const SAMPLE_VENUES = [
       addr: "115 SW 8th St 22nd Floor, Miami, FL 33130, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["comfort", "energy", "elegance"],
       axes: {
-        casualness: 0.6,
-        comfort: 0.9,
-        energy: 0.9,
-        elegance: 0.8,
-        authenticity: 0.1,
+        noise_level: 0.9,
+        price_level: 0.5,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -4987,8 +4062,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-20",
     name: "Lola bar",
     geo: {
-      lat: 40.709043,
-      lon: -73.993708,
+      lat: 40.70679,
+      lon: -73.986333,
     },
     images: [],
     metadata: {
@@ -4996,13 +4071,11 @@ export const SAMPLE_VENUES = [
       addr: "401 Biscayne Blvd S118, Miami, FL 33132, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["energy", "casualness", "comfort"],
       axes: {
-        casualness: 0.7,
-        comfort: 0.7,
-        energy: 1.0,
-        elegance: 0.6,
-        authenticity: 0.6,
+        noise_level: 1.0,
+        price_level: 0.5,
+        crowd_density: 0.7,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -5018,8 +4091,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-21",
     name: "Blackbird Ordinary",
     geo: {
-      lat: 25.76672,
-      lon: -80.195162,
+      lat: 40.700627,
+      lon: -73.999347,
     },
     images: [],
     metadata: {
@@ -5027,13 +4100,11 @@ export const SAMPLE_VENUES = [
       addr: "729 SW 1st Ave, Miami, FL 33130, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["energy", "casualness"],
       axes: {
-        casualness: 0.8,
-        comfort: 0.3,
-        energy: 1.0,
-        elegance: 0.4,
-        authenticity: 0.1,
+        noise_level: 1.0,
+        price_level: 0.5,
+        crowd_density: 0.3,
       },
       rationales: ["Imported from venue database with 60% confidence"],
     },
@@ -5049,8 +4120,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-22",
     name: "Tipsy Flamingo Cocktail Bar",
     geo: {
-      lat: 40.717547,
-      lon: -74.024142,
+      lat: 40.720394,
+      lon: -74.035027,
     },
     images: [],
     metadata: {
@@ -5058,13 +4129,11 @@ export const SAMPLE_VENUES = [
       addr: "40 NE 1st Ave #101, Miami, FL 33132, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["comfort", "energy", "elegance"],
       axes: {
-        casualness: 0.6,
-        comfort: 0.9,
-        energy: 0.9,
-        elegance: 0.7,
-        authenticity: 0.1,
+        noise_level: 0.9,
+        price_level: 0.5,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -5080,8 +4149,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-23",
     name: "Black Market Miami",
     geo: {
-      lat: 25.773243,
-      lon: -80.190444,
+      lat: 40.717731,
+      lon: -74.035248,
     },
     images: [],
     metadata: {
@@ -5089,13 +4158,11 @@ export const SAMPLE_VENUES = [
       addr: "168 SE 1st St, Miami, FL 33131, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["casualness", "comfort", "energy"],
       axes: {
-        casualness: 1.0,
-        comfort: 0.9,
-        energy: 0.6,
-        elegance: 0.2,
-        authenticity: 0.1,
+        noise_level: 0.6,
+        price_level: 0.5,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -5111,8 +4178,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-24",
     name: "Mama Tried",
     geo: {
-      lat: 25.775339,
-      lon: -80.190082,
+      lat: 40.734317,
+      lon: -73.966654,
     },
     images: [],
     metadata: {
@@ -5120,13 +4187,11 @@ export const SAMPLE_VENUES = [
       addr: "207 NE 1st St, Miami, FL 33132, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["energy", "casualness", "comfort"],
       axes: {
-        casualness: 0.8,
-        comfort: 0.8,
-        energy: 1.0,
-        elegance: 0.2,
-        authenticity: 0.1,
+        noise_level: 1.0,
+        price_level: 0.5,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -5142,8 +4207,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-25",
     name: "Over Under",
     geo: {
-      lat: 25.774296,
-      lon: -80.191088,
+      lat: 40.751284,
+      lon: -74.009716,
     },
     images: [],
     metadata: {
@@ -5151,13 +4216,11 @@ export const SAMPLE_VENUES = [
       addr: "151 E Flagler St, Miami, FL 33131, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["casualness", "energy"],
       axes: {
-        casualness: 1.0,
-        comfort: 0.5,
-        energy: 0.8,
-        elegance: 0.1,
-        authenticity: 0.1,
+        noise_level: 0.8,
+        price_level: 0.5,
+        crowd_density: 0.5,
       },
       rationales: ["Imported from venue database with 70% confidence"],
     },
@@ -5173,8 +4236,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-26",
     name: "Pier 5",
     geo: {
-      lat: 40.712024,
-      lon: -74.000323,
+      lat: 40.711558,
+      lon: -73.996916,
     },
     images: [],
     metadata: {
@@ -5182,13 +4245,11 @@ export const SAMPLE_VENUES = [
       addr: "401 Biscayne Blvd Unit M100, Miami, FL 33132, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["casualness", "energy", "comfort"],
       axes: {
-        casualness: 1.0,
-        comfort: 0.8,
-        energy: 1.0,
-        elegance: 0.5,
-        authenticity: 0.4,
+        noise_level: 1.0,
+        price_level: 0.5,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -5204,8 +4265,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-27",
     name: "Lost Boy Dry Goods",
     geo: {
-      lat: 25.7743,
-      lon: -80.191004,
+      lat: 40.746675,
+      lon: -74.007375,
     },
     images: [],
     metadata: {
@@ -5213,13 +4274,11 @@ export const SAMPLE_VENUES = [
       addr: "157 E Flagler St, Miami, FL 33131, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["casualness", "comfort", "energy"],
       axes: {
-        casualness: 1.0,
-        comfort: 0.8,
-        energy: 0.7,
-        elegance: 0.2,
-        authenticity: 0.1,
+        noise_level: 0.7,
+        price_level: 0.5,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -5235,8 +4294,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-0",
     name: "Caroline",
     geo: {
-      lat: 40.68918,
-      lon: -74.023922,
+      lat: 40.675008,
+      lon: -74.034675,
     },
     images: [],
     metadata: {
@@ -5244,13 +4303,11 @@ export const SAMPLE_VENUES = [
       addr: "621 Congress Ave. Suite 101, Austin, TX 78701, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["comfort", "elegance", "energy"],
       axes: {
-        casualness: 0.4,
-        comfort: 0.9,
-        energy: 0.6,
-        elegance: 0.7,
-        authenticity: 0.2,
+        noise_level: 0.6,
+        price_level: 0.5,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 85% confidence"],
     },
@@ -5266,8 +4323,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-1",
     name: "Corner Restaurant",
     geo: {
-      lat: 30.264386,
-      lon: -97.743402,
+      lat: 40.684718,
+      lon: -74.037203,
     },
     images: [],
     metadata: {
@@ -5275,13 +4332,11 @@ export const SAMPLE_VENUES = [
       addr: "110 E 2nd St, Austin, TX 78701, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["comfort", "energy", "casualness"],
       axes: {
-        casualness: 0.6,
-        comfort: 0.9,
-        energy: 0.7,
-        elegance: 0.5,
-        authenticity: 0.2,
+        noise_level: 0.7,
+        price_level: 0.5,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -5297,8 +4352,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-2",
     name: "Sour Duck Market",
     geo: {
-      lat: 30.279943,
-      lon: -97.721578,
+      lat: 40.733833,
+      lon: -74.010271,
     },
     images: [],
     metadata: {
@@ -5306,13 +4361,11 @@ export const SAMPLE_VENUES = [
       addr: "1814 E Martin Luther King Jr Blvd, Austin, TX 78702, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["casualness", "comfort", "energy"],
       axes: {
-        casualness: 0.9,
-        comfort: 0.7,
-        energy: 0.7,
-        elegance: 0.3,
-        authenticity: 0.2,
+        noise_level: 0.7,
+        price_level: 0.5,
+        crowd_density: 0.7,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -5328,8 +4381,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-3",
     name: "Corinne Austin",
     geo: {
-      lat: 30.262915,
-      lon: -97.741848,
+      lat: 40.716376,
+      lon: -74.013073,
     },
     images: [],
     metadata: {
@@ -5337,13 +4390,11 @@ export const SAMPLE_VENUES = [
       addr: "304 E Cesar Chavez St, Austin, TX 78701, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["comfort", "elegance"],
       axes: {
-        casualness: 0.4,
-        comfort: 0.9,
-        energy: 0.4,
-        elegance: 0.7,
-        authenticity: 0.3,
+        noise_level: 0.4,
+        price_level: 0.5,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -5359,8 +4410,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-4",
     name: "Acre 41",
     geo: {
-      lat: 30.282477,
-      lon: -97.742861,
+      lat: 40.697286,
+      lon: -74.025632,
     },
     images: [],
     metadata: {
@@ -5368,13 +4419,11 @@ export const SAMPLE_VENUES = [
       addr: "1901 San Antonio St, Austin, TX 78705, USA",
     },
     llm_labels: {
-      vibe_tags: ["upscale"],
+      vibe_tags: ["elegance", "comfort"],
       axes: {
-        casualness: 0.1,
-        comfort: 0.8,
-        energy: 0.3,
-        elegance: 0.9,
-        authenticity: 0.1,
+        noise_level: 0.3,
+        price_level: 0.5,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -5388,10 +4437,10 @@ export const SAMPLE_VENUES = [
   },
   {
     venue_id: "csv-5",
-    name: "Geraldine\'s",
+    name: "Geraldine's",
     geo: {
-      lat: 30.259907,
-      lon: -97.739052,
+      lat: 40.710637,
+      lon: -74.043586,
     },
     images: [],
     metadata: {
@@ -5399,13 +4448,11 @@ export const SAMPLE_VENUES = [
       addr: "605 Davis St, Austin, TX 78701, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["comfort", "elegance", "energy"],
       axes: {
-        casualness: 0.3,
-        comfort: 0.8,
-        energy: 0.6,
-        elegance: 0.7,
-        authenticity: 0.3,
+        noise_level: 0.6,
+        price_level: 0.75,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -5421,8 +4468,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-6",
     name: "Zanzibar",
     geo: {
-      lat: 30.262915,
-      lon: -97.741848,
+      lat: 40.716376,
+      lon: -74.013073,
     },
     images: [],
     metadata: {
@@ -5430,13 +4477,11 @@ export const SAMPLE_VENUES = [
       addr: "304 E Cesar Chavez St, Austin, TX 78701, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["comfort", "energy", "casualness"],
       axes: {
-        casualness: 0.6,
-        comfort: 0.9,
-        energy: 0.8,
-        elegance: 0.6,
-        authenticity: 0.4,
+        noise_level: 0.8,
+        price_level: 0.5,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -5452,8 +4497,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-7",
     name: "Aba Austin",
     geo: {
-      lat: 40.721014,
-      lon: -73.994543,
+      lat: 40.725942,
+      lon: -73.987668,
     },
     images: [],
     metadata: {
@@ -5461,13 +4506,11 @@ export const SAMPLE_VENUES = [
       addr: "1011 S Congress Ave Bldg 2 Suite 180, Austin, TX 78704, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["comfort", "authenticity", "energy"],
       axes: {
-        casualness: 0.5,
-        comfort: 0.9,
-        energy: 0.7,
-        elegance: 0.7,
-        authenticity: 0.8,
+        noise_level: 0.7,
+        price_level: 0.75,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -5483,8 +4526,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-8",
     name: "Ember Kitchen",
     geo: {
-      lat: 40.731437,
-      lon: -73.994365,
+      lat: 40.74262,
+      lon: -73.987384,
     },
     images: [],
     metadata: {
@@ -5492,13 +4535,11 @@ export const SAMPLE_VENUES = [
       addr: "800 W Cesar Chavez St Ste PP110, Austin, TX 78701, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["comfort", "elegance"],
       axes: {
-        casualness: 0.2,
-        comfort: 0.8,
-        energy: 0.3,
-        elegance: 0.8,
-        authenticity: 0.3,
+        noise_level: 0.3,
+        price_level: 0.5,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -5514,8 +4555,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-9",
     name: "Hestia",
     geo: {
-      lat: 30.2669,
-      lon: -97.750177,
+      lat: 40.748334,
+      lon: -73.99013,
     },
     images: [],
     metadata: {
@@ -5523,13 +4564,11 @@ export const SAMPLE_VENUES = [
       addr: "607 W 3rd St #105, Austin, TX 78701, USA",
     },
     llm_labels: {
-      vibe_tags: ["upscale"],
+      vibe_tags: ["elegance", "comfort"],
       axes: {
-        casualness: 0.1,
-        comfort: 0.9,
-        energy: 0.3,
-        elegance: 1.0,
-        authenticity: 0.2,
+        noise_level: 0.3,
+        price_level: 1.0,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 98% confidence"],
     },
@@ -5545,8 +4584,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-10",
     name: "Terrible Love",
     geo: {
-      lat: 30.304085,
-      lon: -97.735971,
+      lat: 40.742635,
+      lon: -74.011533,
     },
     images: [],
     metadata: {
@@ -5554,13 +4593,11 @@ export const SAMPLE_VENUES = [
       addr: "3908 Avenue B, Austin, TX 78751, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["comfort", "casualness", "authenticity"],
       axes: {
-        casualness: 0.8,
-        comfort: 0.9,
-        energy: 0.5,
-        elegance: 0.4,
-        authenticity: 0.6,
+        noise_level: 0.5,
+        price_level: 0.5,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -5576,8 +4613,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-11",
     name: "Flora Coffee & Culture",
     geo: {
-      lat: 40.733042,
-      lon: -74.001615,
+      lat: 40.745188,
+      lon: -73.998984,
     },
     images: [],
     metadata: {
@@ -5585,13 +4622,11 @@ export const SAMPLE_VENUES = [
       addr: "3300 W Anderson Ln. Suite 300, Austin, TX 78757, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["comfort", "casualness", "elegance"],
       axes: {
-        casualness: 0.7,
-        comfort: 0.9,
-        energy: 0.3,
-        elegance: 0.6,
-        authenticity: 0.6,
+        noise_level: 0.3,
+        price_level: 0.5,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -5607,8 +4642,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-12",
     name: "Magnolia Cafe",
     geo: {
-      lat: 30.244482,
-      lon: -97.751942,
+      lat: 40.684181,
+      lon: -74.010547,
     },
     images: [],
     metadata: {
@@ -5616,13 +4651,11 @@ export const SAMPLE_VENUES = [
       addr: "1920 S Congress Ave, Austin, TX 78704, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["casualness", "comfort", "authenticity"],
       axes: {
-        casualness: 0.8,
-        comfort: 0.8,
-        energy: 0.6,
-        elegance: 0.3,
-        authenticity: 0.7,
+        noise_level: 0.6,
+        price_level: 0.5,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -5638,8 +4671,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-13",
     name: "Desnudo Coffee: East Austin",
     geo: {
-      lat: 30.263088,
-      lon: -97.713714,
+      lat: 40.707637,
+      lon: -74.034238,
     },
     images: [],
     metadata: {
@@ -5647,13 +4680,11 @@ export const SAMPLE_VENUES = [
       addr: "2505 Webberville Rd, Austin, TX 78702, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["casualness", "energy", "comfort"],
       axes: {
-        casualness: 0.9,
-        comfort: 0.8,
-        energy: 0.9,
-        elegance: 0.3,
-        authenticity: 0.6,
+        noise_level: 0.9,
+        price_level: 0.5,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -5669,8 +4700,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-14",
     name: "Prana Café",
     geo: {
-      lat: 30.263026,
-      lon: -97.724425,
+      lat: 40.701491,
+      lon: -74.000123,
     },
     images: [],
     metadata: {
@@ -5678,13 +4709,11 @@ export const SAMPLE_VENUES = [
       addr: "1623 E 7th St, Austin, TX 78702, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["comfort", "casualness", "authenticity"],
       axes: {
-        casualness: 0.7,
-        comfort: 0.9,
-        energy: 0.2,
-        elegance: 0.5,
-        authenticity: 0.7,
+        noise_level: 0.2,
+        price_level: 0.5,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -5700,8 +4729,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-15",
     name: "Haraz Coffee House",
     geo: {
-      lat: 40.72261,
-      lon: -73.99768,
+      lat: 40.728496,
+      lon: -73.992689,
     },
     images: [],
     metadata: {
@@ -5709,13 +4738,11 @@ export const SAMPLE_VENUES = [
       addr: "500 W Martin Luther King Jr Blvd Suite A, Austin, TX 78701, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["comfort", "authenticity", "energy"],
       axes: {
-        casualness: 0.5,
-        comfort: 0.9,
-        energy: 0.6,
-        elegance: 0.6,
-        authenticity: 0.9,
+        noise_level: 0.6,
+        price_level: 0.5,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -5729,10 +4756,10 @@ export const SAMPLE_VENUES = [
   },
   {
     venue_id: "csv-16",
-    name: "Mozart\'s Coffee Roasters",
+    name: "Mozart's Coffee Roasters",
     geo: {
-      lat: 30.295233,
-      lon: -97.784381,
+      lat: 40.739307,
+      lon: -73.968902,
     },
     images: [],
     metadata: {
@@ -5740,13 +4767,11 @@ export const SAMPLE_VENUES = [
       addr: "3825 Lake Austin Blvd, Austin, TX 78703, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["comfort", "casualness", "authenticity"],
       axes: {
-        casualness: 0.8,
-        comfort: 0.9,
-        energy: 0.6,
-        elegance: 0.6,
-        authenticity: 0.7,
+        noise_level: 0.6,
+        price_level: 0.5,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -5762,8 +4787,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-17",
     name: "Better Half Coffee & Cocktails",
     geo: {
-      lat: 30.271379,
-      lon: -97.75839,
+      lat: 40.718839,
+      lon: -74.026137,
     },
     images: [],
     metadata: {
@@ -5771,13 +4796,11 @@ export const SAMPLE_VENUES = [
       addr: "406 Walsh St, Austin, TX 78703, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["comfort", "casualness", "energy"],
       axes: {
-        casualness: 0.7,
-        comfort: 0.9,
-        energy: 0.6,
-        elegance: 0.6,
-        authenticity: 0.2,
+        noise_level: 0.6,
+        price_level: 0.5,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -5793,8 +4816,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-18",
     name: "Neighbor Coffee & Friends - Burnet",
     geo: {
-      lat: 30.321172,
-      lon: -97.739533,
+      lat: 40.709735,
+      lon: -73.994325,
     },
     images: [],
     metadata: {
@@ -5802,13 +4825,11 @@ export const SAMPLE_VENUES = [
       addr: "5000 Burnet Rd, Austin, TX 78756, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["casualness", "comfort", "energy"],
       axes: {
-        casualness: 0.9,
-        comfort: 0.8,
-        energy: 0.6,
-        elegance: 0.4,
-        authenticity: 0.6,
+        noise_level: 0.6,
+        price_level: 0.5,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -5824,8 +4845,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-19",
     name: "Noble Joe Coffee Co.",
     geo: {
-      lat: 40.709145,
-      lon: -74.022605,
+      lat: 40.706951,
+      lon: -74.032567,
     },
     images: [],
     metadata: {
@@ -5833,13 +4854,11 @@ export const SAMPLE_VENUES = [
       addr: "Southshore Eatery Food Truck Park, 1620 E Riverside Dr, Austin, TX 78741, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["casualness", "comfort", "energy"],
       axes: {
-        casualness: 0.9,
-        comfort: 0.8,
-        energy: 0.7,
-        elegance: 0.4,
-        authenticity: 0.7,
+        noise_level: 0.7,
+        price_level: 0.25,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -5855,8 +4874,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-20",
     name: "Edge Rooftop",
     geo: {
-      lat: 30.264386,
-      lon: -97.743402,
+      lat: 40.684718,
+      lon: -74.037203,
     },
     images: [],
     metadata: {
@@ -5864,13 +4883,11 @@ export const SAMPLE_VENUES = [
       addr: "110 E 2nd St, Austin, TX 78701, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["comfort", "energy", "elegance"],
       axes: {
-        casualness: 0.5,
-        comfort: 0.9,
-        energy: 0.8,
-        elegance: 0.8,
-        authenticity: 0.2,
+        noise_level: 0.8,
+        price_level: 0.5,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -5886,8 +4903,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-21",
     name: "The Dead Rabbit, Austin",
     geo: {
-      lat: 30.267869,
-      lon: -97.741062,
+      lat: 40.686783,
+      lon: -74.032104,
     },
     images: [],
     metadata: {
@@ -5895,13 +4912,11 @@ export const SAMPLE_VENUES = [
       addr: "204 E 6th St, Austin, TX 78701, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["authenticity", "casualness", "energy"],
       axes: {
-        casualness: 0.8,
-        comfort: 0.7,
-        energy: 0.8,
-        elegance: 0.6,
-        authenticity: 0.9,
+        noise_level: 0.8,
+        price_level: 0.5,
+        crowd_density: 0.7,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -5917,8 +4932,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-22",
     name: "The Roosevelt Room",
     geo: {
-      lat: 30.267692,
-      lon: -97.746239,
+      lat: 40.748373,
+      lon: -74.004941,
     },
     images: [],
     metadata: {
@@ -5926,13 +4941,11 @@ export const SAMPLE_VENUES = [
       addr: "307 W 5th St, Austin, TX 78701, USA",
     },
     llm_labels: {
-      vibe_tags: ["upscale"],
+      vibe_tags: ["elegance", "authenticity", "comfort"],
       axes: {
-        casualness: 0.2,
-        comfort: 0.8,
-        energy: 0.6,
-        elegance: 0.9,
-        authenticity: 0.9,
+        noise_level: 0.6,
+        price_level: 0.75,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 98% confidence"],
     },
@@ -5948,8 +4961,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-23",
     name: "Midnight Cowboy",
     geo: {
-      lat: 30.267071,
-      lon: -97.739956,
+      lat: 40.690114,
+      lon: -74.021232,
     },
     images: [],
     metadata: {
@@ -5957,13 +4970,11 @@ export const SAMPLE_VENUES = [
       addr: "313 E 6th St, Austin, TX 78701, USA",
     },
     llm_labels: {
-      vibe_tags: ["upscale"],
+      vibe_tags: ["elegance", "authenticity", "comfort"],
       axes: {
-        casualness: 0.1,
-        comfort: 0.8,
-        energy: 0.6,
-        elegance: 0.9,
-        authenticity: 0.9,
+        noise_level: 0.6,
+        price_level: 0.5,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 98% confidence"],
     },
@@ -5979,8 +4990,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-24",
     name: "Speakeasy",
     geo: {
-      lat: 30.266841,
-      lon: -97.743733,
+      lat: 40.724544,
+      lon: -74.01839,
     },
     images: [],
     metadata: {
@@ -5988,13 +4999,11 @@ export const SAMPLE_VENUES = [
       addr: "412 Congress Ave. D, Austin, TX 78701, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["energy", "casualness", "comfort"],
       axes: {
-        casualness: 0.8,
-        comfort: 0.6,
-        energy: 0.9,
-        elegance: 0.4,
-        authenticity: 0.3,
+        noise_level: 0.9,
+        price_level: 0.5,
+        crowd_density: 0.6,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -6010,8 +5019,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-25",
     name: "Azul Rooftop",
     geo: {
-      lat: 30.266639,
-      lon: -97.74033,
+      lat: 40.689286,
+      lon: -74.007018,
     },
     images: [],
     metadata: {
@@ -6019,13 +5028,11 @@ export const SAMPLE_VENUES = [
       addr: "310 E 5th St., Austin, TX 78701, USA",
     },
     llm_labels: {
-      vibe_tags: ["upscale"],
+      vibe_tags: ["comfort", "elegance", "energy"],
       axes: {
-        casualness: 0.5,
-        comfort: 0.8,
-        energy: 0.7,
-        elegance: 0.8,
-        authenticity: 0.2,
+        noise_level: 0.7,
+        price_level: 0.5,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -6041,8 +5048,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-26",
     name: "Whisler’s",
     geo: {
-      lat: 30.262031,
-      lon: -97.722583,
+      lat: 40.721282,
+      lon: -74.006939,
     },
     images: [],
     metadata: {
@@ -6050,13 +5057,11 @@ export const SAMPLE_VENUES = [
       addr: "1816 E 6th St, Austin, TX 78702, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["comfort", "energy", "authenticity"],
       axes: {
-        casualness: 0.6,
-        comfort: 0.8,
-        energy: 0.8,
-        elegance: 0.7,
-        authenticity: 0.8,
+        noise_level: 0.8,
+        price_level: 0.5,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -6072,8 +5077,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-27",
     name: "Mean Eyed Cat",
     geo: {
-      lat: 30.273928,
-      lon: -97.763755,
+      lat: 40.697245,
+      lon: -74.030369,
     },
     images: [],
     metadata: {
@@ -6081,13 +5086,11 @@ export const SAMPLE_VENUES = [
       addr: "1621 W 5th St, Austin, TX 78703, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["casualness", "comfort", "authenticity"],
       axes: {
-        casualness: 0.9,
-        comfort: 0.9,
-        energy: 0.7,
-        elegance: 0.2,
-        authenticity: 0.9,
+        noise_level: 0.7,
+        price_level: 0.25,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 98% confidence"],
     },
@@ -6103,8 +5106,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-28",
     name: "Nickel City",
     geo: {
-      lat: 30.268566,
-      lon: -97.728106,
+      lat: 40.738997,
+      lon: -73.986864,
     },
     images: [],
     metadata: {
@@ -6112,13 +5115,11 @@ export const SAMPLE_VENUES = [
       addr: "1133 E 11th St, Austin, TX 78702, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["casualness", "authenticity", "comfort"],
       axes: {
-        casualness: 0.9,
-        comfort: 0.8,
-        energy: 0.6,
-        elegance: 0.1,
-        authenticity: 0.9,
+        noise_level: 0.6,
+        price_level: 0.25,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 98% confidence"],
     },
@@ -6134,8 +5135,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-0",
     name: "Six Seven Restaurant",
     geo: {
-      lat: 40.733672,
-      lon: -73.983455,
+      lat: 47.631247,
+      lon: -122.305046,
     },
     images: [],
     metadata: {
@@ -6143,13 +5144,11 @@ export const SAMPLE_VENUES = [
       addr: "2411 Alaskan Wy Pier 67, Seattle, WA 98121, USA",
     },
     llm_labels: {
-      vibe_tags: ["upscale"],
+      vibe_tags: ["elegance", "comfort", "energy"],
       axes: {
-        casualness: 0.4,
-        comfort: 0.8,
-        energy: 0.6,
-        elegance: 0.9,
-        authenticity: 0.3,
+        noise_level: 0.6,
+        price_level: 0.75,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -6165,8 +5164,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-1",
     name: "The Pink Door",
     geo: {
-      lat: 47.610388,
-      lon: -122.342531,
+      lat: 47.616239,
+      lon: -122.347458,
     },
     images: [],
     metadata: {
@@ -6174,13 +5173,11 @@ export const SAMPLE_VENUES = [
       addr: "1919 Post Alley, Seattle, WA 98101, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["energy", "comfort", "elegance"],
       axes: {
-        casualness: 0.5,
-        comfort: 0.8,
-        energy: 0.9,
-        elegance: 0.8,
-        authenticity: 0.7,
+        noise_level: 0.9,
+        price_level: 0.75,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -6196,8 +5193,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-2",
     name: "Canlis",
     geo: {
-      lat: 47.643053,
-      lon: -122.346736,
+      lat: 47.595328,
+      lon: -122.302187,
     },
     images: [],
     metadata: {
@@ -6205,13 +5202,11 @@ export const SAMPLE_VENUES = [
       addr: "2576 Aurora Ave N, Seattle, WA 98109, USA",
     },
     llm_labels: {
-      vibe_tags: ["upscale"],
+      vibe_tags: ["elegance", "comfort"],
       axes: {
-        casualness: 0.1,
-        comfort: 0.7,
-        energy: 0.4,
-        elegance: 1.0,
-        authenticity: 0.2,
+        noise_level: 0.4,
+        price_level: 1.0,
+        crowd_density: 0.7,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -6227,8 +5222,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-3",
     name: "Alder & Ash",
     geo: {
-      lat: 47.611338,
-      lon: -122.333459,
+      lat: 47.580701,
+      lon: -122.351844,
     },
     images: [],
     metadata: {
@@ -6236,13 +5231,11 @@ export const SAMPLE_VENUES = [
       addr: "629 Pike St, Seattle, WA 98101, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["comfort", "elegance", "casualness"],
       axes: {
-        casualness: 0.6,
-        comfort: 0.8,
-        energy: 0.5,
-        elegance: 0.7,
-        authenticity: 0.2,
+        noise_level: 0.5,
+        price_level: 0.5,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 80% confidence"],
     },
@@ -6258,8 +5251,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-4",
     name: "Lola",
     geo: {
-      lat: 47.614982,
-      lon: -122.343288,
+      lat: 47.600002,
+      lon: -122.310952,
     },
     images: [],
     metadata: {
@@ -6267,13 +5260,11 @@ export const SAMPLE_VENUES = [
       addr: "2000 B 4th Ave, Seattle, WA 98121, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["comfort", "energy", "authenticity"],
       axes: {
-        casualness: 0.6,
-        comfort: 0.9,
-        energy: 0.7,
-        elegance: 0.6,
-        authenticity: 0.7,
+        noise_level: 0.7,
+        price_level: 0.75,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -6289,8 +5280,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-5",
     name: "Shaker + Spear",
     geo: {
-      lat: 47.612054,
-      lon: -122.34169,
+      lat: 47.590602,
+      lon: -122.330995,
     },
     images: [],
     metadata: {
@@ -6298,13 +5289,11 @@ export const SAMPLE_VENUES = [
       addr: "2000 2nd Ave, Seattle, WA 98121, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["energy", "elegance", "comfort"],
       axes: {
-        casualness: 0.5,
-        comfort: 0.6,
-        energy: 0.8,
-        elegance: 0.7,
-        authenticity: 0.4,
+        noise_level: 0.8,
+        price_level: 0.5,
+        crowd_density: 0.6,
       },
       rationales: ["Imported from venue database with 80% confidence"],
     },
@@ -6318,10 +5307,10 @@ export const SAMPLE_VENUES = [
   },
   {
     venue_id: "csv-6",
-    name: "Elliott\'s Oyster House",
+    name: "Elliott's Oyster House",
     geo: {
-      lat: 40.735439,
-      lon: -74.02079,
+      lat: 47.633367,
+      lon: -122.349849,
     },
     images: [],
     metadata: {
@@ -6329,13 +5318,11 @@ export const SAMPLE_VENUES = [
       addr: "1201 Alaskan Wy Ste 100, Seattle, WA 98101, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["comfort", "casualness", "energy"],
       axes: {
-        casualness: 0.7,
-        comfort: 0.8,
-        energy: 0.7,
-        elegance: 0.7,
-        authenticity: 0.7,
+        noise_level: 0.7,
+        price_level: 0.75,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -6351,8 +5338,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-7",
     name: "The 5 Point Cafe",
     geo: {
-      lat: 47.618129,
-      lon: -122.347334,
+      lat: 47.607493,
+      lon: -122.360879,
     },
     images: [],
     metadata: {
@@ -6360,13 +5347,11 @@ export const SAMPLE_VENUES = [
       addr: "415 Cedar St, Seattle, WA 98121, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["casualness", "comfort", "energy"],
       axes: {
-        casualness: 0.9,
-        comfort: 0.8,
-        energy: 0.7,
-        elegance: 0.2,
-        authenticity: 0.7,
+        noise_level: 0.7,
+        price_level: 0.25,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -6382,8 +5367,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-8",
     name: "13 Coins Seattle",
     geo: {
-      lat: 47.597886,
-      lon: -122.330989,
+      lat: 47.60124,
+      lon: -122.337402,
     },
     images: [],
     metadata: {
@@ -6391,13 +5376,11 @@ export const SAMPLE_VENUES = [
       addr: "255 S King St, Seattle, WA 98104, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["casualness", "comfort", "energy"],
       axes: {
-        casualness: 0.8,
-        comfort: 0.7,
-        energy: 0.6,
-        elegance: 0.4,
-        authenticity: 0.3,
+        noise_level: 0.6,
+        price_level: 0.5,
+        crowd_density: 0.7,
       },
       rationales: ["Imported from venue database with 80% confidence"],
     },
@@ -6413,8 +5396,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-9",
     name: "The Crab Pot Seattle",
     geo: {
-      lat: 40.726042,
-      lon: -73.999116,
+      lat: 47.62209,
+      lon: -122.323839,
     },
     images: [],
     metadata: {
@@ -6422,13 +5405,11 @@ export const SAMPLE_VENUES = [
       addr: "1301 Alaskan Way Pier 57, 1305 Alaskan Wy, Seattle, WA 98101, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["casualness", "comfort", "energy"],
       axes: {
-        casualness: 0.9,
-        comfort: 0.8,
-        energy: 0.7,
-        elegance: 0.3,
-        authenticity: 0.6,
+        noise_level: 0.7,
+        price_level: 0.75,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -6444,8 +5425,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-10",
     name: "Piedmont Café",
     geo: {
-      lat: 40.694781,
-      lon: -74.004146,
+      lat: 47.584577,
+      lon: -122.329875,
     },
     images: [],
     metadata: {
@@ -6453,13 +5434,11 @@ export const SAMPLE_VENUES = [
       addr: "1215 Seneca St Suite 100, Seattle, WA 98101, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["comfort", "elegance", "casualness"],
       axes: {
-        casualness: 0.7,
-        comfort: 1.0,
-        energy: 0.3,
-        elegance: 0.8,
-        authenticity: 0.5,
+        noise_level: 0.3,
+        price_level: 0.5,
+        crowd_density: 1.0,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -6475,8 +5454,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-11",
     name: "Storyville Coffee Pike Place",
     geo: {
-      lat: 40.702263,
-      lon: -73.984094,
+      lat: 47.593556,
+      lon: -122.305812,
     },
     images: [],
     metadata: {
@@ -6484,13 +5463,11 @@ export const SAMPLE_VENUES = [
       addr: "94 Pike St Top floor Suite 34, Seattle, WA 98101, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["comfort", "casualness", "elegance"],
       axes: {
-        casualness: 0.8,
-        comfort: 1.0,
-        energy: 0.3,
-        elegance: 0.6,
-        authenticity: 0.4,
+        noise_level: 0.3,
+        price_level: 0.25,
+        crowd_density: 1.0,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -6506,8 +5483,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-12",
     name: "Day Made Kaffe Bar",
     geo: {
-      lat: 47.597748,
-      lon: -122.333939,
+      lat: 47.633132,
+      lon: -122.342795,
     },
     images: [],
     metadata: {
@@ -6515,13 +5492,11 @@ export const SAMPLE_VENUES = [
       addr: "524 1st Ave S, Seattle, WA 98104, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["comfort", "elegance", "authenticity"],
       axes: {
-        casualness: 0.4,
-        comfort: 0.9,
-        energy: 0.4,
-        elegance: 0.8,
-        authenticity: 0.8,
+        noise_level: 0.4,
+        price_level: 0.5,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -6537,8 +5512,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-13",
     name: "Bacco Cafe",
     geo: {
-      lat: 47.609897,
-      lon: -122.341318,
+      lat: 47.590694,
+      lon: -122.340291,
     },
     images: [],
     metadata: {
@@ -6546,13 +5521,11 @@ export const SAMPLE_VENUES = [
       addr: "86 Pine St, Seattle, WA 98101, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["casualness", "comfort", "energy"],
       axes: {
-        casualness: 0.8,
-        comfort: 0.8,
-        energy: 0.6,
-        elegance: 0.5,
-        authenticity: 0.5,
+        noise_level: 0.6,
+        price_level: 0.5,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 80% confidence"],
     },
@@ -6568,8 +5541,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-14",
     name: "Ghost Alley Espresso",
     geo: {
-      lat: 47.608431,
-      lon: -122.340575,
+      lat: 47.63578,
+      lon: -122.311547,
     },
     images: [],
     metadata: {
@@ -6577,13 +5550,11 @@ export const SAMPLE_VENUES = [
       addr: "1499 Post Alley, Seattle, WA 98101, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["casualness", "comfort", "energy"],
       axes: {
-        casualness: 0.9,
-        comfort: 0.7,
-        energy: 0.7,
-        elegance: 0.3,
-        authenticity: 0.6,
+        noise_level: 0.7,
+        price_level: 0.5,
+        crowd_density: 0.7,
       },
       rationales: ["Imported from venue database with 80% confidence"],
     },
@@ -6599,8 +5570,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-15",
     name: "CU URBAN MARKET & CAFE",
     geo: {
-      lat: 47.605783,
-      lon: -122.337534,
+      lat: 47.59729,
+      lon: -122.308544,
     },
     images: [],
     metadata: {
@@ -6608,13 +5579,11 @@ export const SAMPLE_VENUES = [
       addr: "1117 1st Ave, Seattle, WA 98101, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["casualness", "comfort", "authenticity"],
       axes: {
-        casualness: 0.9,
-        comfort: 0.9,
-        energy: 0.3,
-        elegance: 0.3,
-        authenticity: 0.7,
+        noise_level: 0.3,
+        price_level: 0.5,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -6630,8 +5599,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-16",
     name: "Victrola Coffee Roasters",
     geo: {
-      lat: 47.610122,
-      lon: -122.340543,
+      lat: 47.606373,
+      lon: -122.330068,
     },
     images: [],
     metadata: {
@@ -6639,13 +5608,11 @@ export const SAMPLE_VENUES = [
       addr: "108 Pine St, Seattle, WA 98101, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["comfort", "authenticity", "casualness"],
       axes: {
-        casualness: 0.7,
-        comfort: 0.8,
-        energy: 0.6,
-        elegance: 0.6,
-        authenticity: 0.8,
+        noise_level: 0.6,
+        price_level: 0.5,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 80% confidence"],
     },
@@ -6661,8 +5628,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-17",
     name: "URL Coffee",
     geo: {
-      lat: 47.606948,
-      lon: -122.320528,
+      lat: 47.58852,
+      lon: -122.335171,
     },
     images: [],
     metadata: {
@@ -6670,13 +5637,11 @@ export const SAMPLE_VENUES = [
       addr: "524 Broadway, Seattle, WA 98122, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["comfort", "casualness", "elegance"],
       axes: {
-        casualness: 0.7,
-        comfort: 0.8,
-        energy: 0.4,
-        elegance: 0.7,
-        authenticity: 0.5,
+        noise_level: 0.4,
+        price_level: 0.25,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 80% confidence"],
     },
@@ -6692,8 +5657,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-18",
     name: "Moore Coffee Shop",
     geo: {
-      lat: 47.611651,
-      lon: -122.34125,
+      lat: 47.623392,
+      lon: -122.343653,
     },
     images: [],
     metadata: {
@@ -6701,13 +5666,11 @@ export const SAMPLE_VENUES = [
       addr: "1930 2nd Ave, Seattle, WA 98101, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["comfort", "elegance", "casualness"],
       axes: {
-        casualness: 0.7,
-        comfort: 1.0,
-        energy: 0.5,
-        elegance: 0.8,
-        authenticity: 0.7,
+        noise_level: 0.5,
+        price_level: 0.25,
+        crowd_density: 1.0,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -6723,8 +5686,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-19",
     name: "Drip Drip coffeehouse",
     geo: {
-      lat: 47.605966,
-      lon: -122.313156,
+      lat: 47.627696,
+      lon: -122.323269,
     },
     images: [],
     metadata: {
@@ -6732,13 +5695,11 @@ export const SAMPLE_VENUES = [
       addr: "355 15th Ave, Seattle, WA 98122, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["authenticity", "casualness", "comfort"],
       axes: {
-        casualness: 0.8,
-        comfort: 0.8,
-        energy: 0.6,
-        elegance: 0.7,
-        authenticity: 0.9,
+        noise_level: 0.6,
+        price_level: 0.25,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -6754,8 +5715,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-20",
     name: "The Hideout",
     geo: {
-      lat: 47.609437,
-      lon: -122.325446,
+      lat: 47.588982,
+      lon: -122.319055,
     },
     images: [],
     metadata: {
@@ -6763,13 +5724,11 @@ export const SAMPLE_VENUES = [
       addr: "1005 Boren Ave, Seattle, WA 98104, USA",
     },
     llm_labels: {
-      vibe_tags: ["upscale"],
+      vibe_tags: ["elegance", "comfort", "energy"],
       axes: {
-        casualness: 0.6,
-        comfort: 0.8,
-        energy: 0.7,
-        elegance: 0.9,
-        authenticity: 0.4,
+        noise_level: 0.7,
+        price_level: 0.5,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -6785,8 +5744,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-21",
     name: "Some Random Bar",
     geo: {
-      lat: 47.615503,
-      lon: -122.349765,
+      lat: 47.616262,
+      lon: -122.337455,
     },
     images: [],
     metadata: {
@@ -6794,13 +5753,11 @@ export const SAMPLE_VENUES = [
       addr: "2604 1st Ave, Seattle, WA 98121, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["casualness", "comfort", "energy"],
       axes: {
-        casualness: 0.9,
-        comfort: 0.9,
-        energy: 0.6,
-        elegance: 0.3,
-        authenticity: 0.2,
+        noise_level: 0.6,
+        price_level: 0.5,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -6816,8 +5773,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-22",
     name: "Jupiter Bar",
     geo: {
-      lat: 40.731862,
-      lon: -73.990603,
+      lat: 47.629074,
+      lon: -122.313624,
     },
     images: [],
     metadata: {
@@ -6825,13 +5782,11 @@ export const SAMPLE_VENUES = [
       addr: "2126 2nd Ave Suite A, Seattle, WA 98121, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["casualness", "energy", "comfort"],
       axes: {
-        casualness: 0.9,
-        comfort: 0.8,
-        energy: 0.9,
-        elegance: 0.3,
-        authenticity: 0.2,
+        noise_level: 0.9,
+        price_level: 0.25,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -6847,8 +5802,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-23",
     name: "Radiator Whiskey",
     geo: {
-      lat: 47.608922,
-      lon: -122.340396,
+      lat: 47.631516,
+      lon: -122.330291,
     },
     images: [],
     metadata: {
@@ -6856,13 +5811,11 @@ export const SAMPLE_VENUES = [
       addr: "94 Pike St #30, Seattle, WA 98101, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["comfort", "energy", "casualness"],
       axes: {
-        casualness: 0.7,
-        comfort: 0.8,
-        energy: 0.8,
-        elegance: 0.7,
-        authenticity: 0.6,
+        noise_level: 0.8,
+        price_level: 0.5,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -6878,8 +5831,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-24",
     name: "Mini Bar Seattle",
     geo: {
-      lat: 47.648484,
-      lon: -122.343193,
+      lat: 47.629724,
+      lon: -122.307394,
     },
     images: [],
     metadata: {
@@ -6887,13 +5840,11 @@ export const SAMPLE_VENUES = [
       addr: "1100 N Northlake Way, Seattle, WA 98103, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["comfort", "authenticity", "casualness"],
       axes: {
-        casualness: 0.7,
-        comfort: 1.0,
-        energy: 0.4,
-        elegance: 0.7,
-        authenticity: 0.9,
+        noise_level: 0.4,
+        price_level: 0.5,
+        crowd_density: 1.0,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -6909,8 +5860,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-25",
     name: "Diller Room",
     geo: {
-      lat: 47.606807,
-      lon: -122.33789,
+      lat: 47.612742,
+      lon: -122.348435,
     },
     images: [],
     metadata: {
@@ -6918,13 +5869,11 @@ export const SAMPLE_VENUES = [
       addr: "1224 1st Ave, Seattle, WA 98101, USA",
     },
     llm_labels: {
-      vibe_tags: ["upscale"],
+      vibe_tags: ["comfort", "elegance", "authenticity"],
       axes: {
-        casualness: 0.3,
-        comfort: 0.9,
-        energy: 0.4,
-        elegance: 0.9,
-        authenticity: 0.8,
+        noise_level: 0.4,
+        price_level: 0.5,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -6940,8 +5889,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-26",
     name: "Black Cat Bar",
     geo: {
-      lat: 47.612572,
-      lon: -122.344842,
+      lat: 47.625022,
+      lon: -122.303679,
     },
     images: [],
     metadata: {
@@ -6949,13 +5898,11 @@ export const SAMPLE_VENUES = [
       addr: "2132 1st Ave, Seattle, WA 98121, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["casualness", "energy", "comfort"],
       axes: {
-        casualness: 0.9,
-        comfort: 0.8,
-        energy: 0.9,
-        elegance: 0.2,
-        authenticity: 0.6,
+        noise_level: 0.9,
+        price_level: 0.5,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -6971,8 +5918,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-27",
     name: "Bad Bishop",
     geo: {
-      lat: 47.602766,
-      lon: -122.334248,
+      lat: 47.632891,
+      lon: -122.325924,
     },
     images: [],
     metadata: {
@@ -6980,13 +5927,11 @@ export const SAMPLE_VENUES = [
       addr: "704 1st Ave, Seattle, WA 98104, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["comfort", "casualness", "elegance"],
       axes: {
-        casualness: 0.7,
-        comfort: 0.8,
-        energy: 0.6,
-        elegance: 0.7,
-        authenticity: 0.7,
+        noise_level: 0.6,
+        price_level: 0.5,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 80% confidence"],
     },
@@ -7002,8 +5947,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-28",
     name: "Inside Passage",
     geo: {
-      lat: 47.613752,
-      lon: -122.328681,
+      lat: 47.603191,
+      lon: -122.331648,
     },
     images: [],
     metadata: {
@@ -7011,13 +5956,11 @@ export const SAMPLE_VENUES = [
       addr: "1108 Pike St, Seattle, WA 98101, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["energy", "elegance", "authenticity"],
       axes: {
-        casualness: 0.6,
-        comfort: 0.8,
-        energy: 0.9,
-        elegance: 0.9,
-        authenticity: 0.9,
+        noise_level: 0.9,
+        price_level: 0.5,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -7033,8 +5976,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-29",
     name: "The Lookout",
     geo: {
-      lat: 47.626792,
-      lon: -122.326871,
+      lat: 47.579007,
+      lon: -122.322744,
     },
     images: [],
     metadata: {
@@ -7042,13 +5985,11 @@ export const SAMPLE_VENUES = [
       addr: "757 Bellevue Ave E, Seattle, WA 98102, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["casualness", "comfort", "elegance"],
       axes: {
-        casualness: 0.8,
-        comfort: 0.7,
-        energy: 0.6,
-        elegance: 0.7,
-        authenticity: 0.2,
+        noise_level: 0.6,
+        price_level: 0.25,
+        crowd_density: 0.7,
       },
       rationales: ["Imported from venue database with 80% confidence"],
     },
@@ -7064,8 +6005,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-0",
     name: "Buttermilk & Bourbon",
     geo: {
-      lat: 42.351275,
-      lon: -71.078622,
+      lat: 42.340473,
+      lon: -71.06815,
     },
     images: [],
     metadata: {
@@ -7073,13 +6014,11 @@ export const SAMPLE_VENUES = [
       addr: "160 Commonwealth Ave, Boston, MA 02116, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["authenticity", "energy", "comfort"],
       axes: {
-        casualness: 0.6,
-        comfort: 0.7,
-        energy: 0.8,
-        elegance: 0.4,
-        authenticity: 0.9,
+        noise_level: 0.8,
+        price_level: 0.75,
+        crowd_density: 0.7,
       },
       rationales: ["Imported from venue database with 85% confidence"],
     },
@@ -7095,8 +6034,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-1",
     name: "The Salty Pig",
     geo: {
-      lat: 42.346641,
-      lon: -71.075888,
+      lat: 42.376469,
+      lon: -71.068186,
     },
     images: [],
     metadata: {
@@ -7104,13 +6043,11 @@ export const SAMPLE_VENUES = [
       addr: "130 Dartmouth St, Boston, MA 02116, USA",
     },
     llm_labels: {
-      vibe_tags: ["hidden_gem"],
+      vibe_tags: ["comfort", "authenticity", "casualness"],
       axes: {
-        casualness: 0.7,
-        comfort: 0.8,
-        energy: 0.7,
-        elegance: 0.5,
-        authenticity: 0.8,
+        noise_level: 0.7,
+        price_level: 0.5,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -7126,8 +6063,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-2",
     name: "MIDA",
     geo: {
-      lat: 42.340163,
-      lon: -71.078549,
+      lat: 42.365157,
+      lon: -71.075131,
     },
     images: [],
     metadata: {
@@ -7135,13 +6072,11 @@ export const SAMPLE_VENUES = [
       addr: "782 Tremont St, Boston, MA 02118, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["comfort", "authenticity", "elegance"],
       axes: {
-        casualness: 0.4,
-        comfort: 0.8,
-        energy: 0.6,
-        elegance: 0.7,
-        authenticity: 0.8,
+        noise_level: 0.6,
+        price_level: 0.5,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -7157,8 +6092,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-3",
     name: "Estella Restaurant",
     geo: {
-      lat: 42.354867,
-      lon: -71.061852,
+      lat: 42.342061,
+      lon: -71.040567,
     },
     images: [],
     metadata: {
@@ -7166,13 +6101,11 @@ export const SAMPLE_VENUES = [
       addr: "49 Temple Pl, Boston, MA 02111, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["comfort", "elegance"],
       axes: {
-        casualness: 0.5,
-        comfort: 0.8,
-        energy: 0.5,
-        elegance: 0.7,
-        authenticity: 0.3,
+        noise_level: 0.5,
+        price_level: 0.5,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 70% confidence"],
     },
@@ -7188,8 +6121,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-4",
     name: "1928 Beacon Hill",
     geo: {
-      lat: 42.358085,
-      lon: -71.069732,
+      lat: 42.364182,
+      lon: -71.079069,
     },
     images: [],
     metadata: {
@@ -7197,13 +6130,11 @@ export const SAMPLE_VENUES = [
       addr: "97 Mt Vernon St, Boston, MA 02108, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["elegance", "comfort", "energy"],
       axes: {
-        casualness: 0.4,
-        comfort: 0.6,
-        energy: 0.6,
-        elegance: 0.8,
-        authenticity: 0.1,
+        noise_level: 0.6,
+        price_level: 0.5,
+        crowd_density: 0.6,
       },
       rationales: ["Imported from venue database with 60% confidence"],
     },
@@ -7219,8 +6150,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-5",
     name: "Grana at The Langham, Boston",
     geo: {
-      lat: 42.356458,
-      lon: -71.054316,
+      lat: 42.372102,
+      lon: -71.047856,
     },
     images: [],
     metadata: {
@@ -7228,13 +6159,11 @@ export const SAMPLE_VENUES = [
       addr: "250 Franklin St, Boston, MA 02110, USA",
     },
     llm_labels: {
-      vibe_tags: ["upscale"],
+      vibe_tags: ["comfort", "elegance", "energy"],
       axes: {
-        casualness: 0.4,
-        comfort: 0.9,
-        energy: 0.6,
-        elegance: 0.9,
-        authenticity: 0.2,
+        noise_level: 0.6,
+        price_level: 0.5,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -7250,8 +6179,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-6",
     name: "Mooo.... Beacon Hill",
     geo: {
-      lat: 42.358379,
-      lon: -71.061956,
+      lat: 42.378164,
+      lon: -71.080332,
     },
     images: [],
     metadata: {
@@ -7259,13 +6188,11 @@ export const SAMPLE_VENUES = [
       addr: "15 Beacon St, Boston, MA 02108, USA",
     },
     llm_labels: {
-      vibe_tags: ["upscale"],
+      vibe_tags: ["comfort", "elegance", "energy"],
       axes: {
-        casualness: 0.3,
-        comfort: 0.95,
-        energy: 0.6,
-        elegance: 0.9,
-        authenticity: 0.1,
+        noise_level: 0.6,
+        price_level: 1.0,
+        crowd_density: 0.95,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -7281,8 +6208,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-7",
     name: "Boston Sail Loft",
     geo: {
-      lat: 42.362456,
-      lon: -71.050509,
+      lat: 42.383944,
+      lon: -71.080856,
     },
     images: [],
     metadata: {
@@ -7290,13 +6217,11 @@ export const SAMPLE_VENUES = [
       addr: "80 Atlantic Ave, Boston, MA 02110, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["casualness", "authenticity", "energy"],
       axes: {
-        casualness: 0.9,
-        comfort: 0.7,
-        energy: 0.8,
-        elegance: 0.2,
-        authenticity: 0.9,
+        noise_level: 0.8,
+        price_level: 0.5,
+        crowd_density: 0.7,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -7310,10 +6235,10 @@ export const SAMPLE_VENUES = [
   },
   {
     venue_id: "csv-8",
-    name: "Yvonne\'s",
+    name: "Yvonne's",
     geo: {
-      lat: 42.355427,
-      lon: -71.061372,
+      lat: 42.347091,
+      lon: -71.0683,
     },
     images: [],
     metadata: {
@@ -7321,13 +6246,11 @@ export const SAMPLE_VENUES = [
       addr: "2 Winter Pl, Boston, MA 02108, USA",
     },
     llm_labels: {
-      vibe_tags: ["upscale"],
+      vibe_tags: ["comfort", "elegance", "energy"],
       axes: {
-        casualness: 0.4,
-        comfort: 0.9,
-        energy: 0.7,
-        elegance: 0.9,
-        authenticity: 0.3,
+        noise_level: 0.7,
+        price_level: 0.75,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -7343,8 +6266,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-9",
     name: "Saltie Girl",
     geo: {
-      lat: 42.35122,
-      lon: -71.077589,
+      lat: 42.376318,
+      lon: -71.06872,
     },
     images: [],
     metadata: {
@@ -7352,13 +6275,11 @@ export const SAMPLE_VENUES = [
       addr: "279 Dartmouth St, Boston, MA 02116, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["energy", "authenticity", "comfort"],
       axes: {
-        casualness: 0.5,
-        comfort: 0.7,
-        energy: 0.85,
-        elegance: 0.7,
-        authenticity: 0.8,
+        noise_level: 0.85,
+        price_level: 0.75,
+        crowd_density: 0.7,
       },
       rationales: ["Imported from venue database with 75% confidence"],
     },
@@ -7374,8 +6295,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-10",
     name: "Phin Coffee House",
     geo: {
-      lat: 42.35378,
-      lon: -71.056451,
+      lat: 42.372985,
+      lon: -71.052795,
     },
     images: [],
     metadata: {
@@ -7383,13 +6304,11 @@ export const SAMPLE_VENUES = [
       addr: "10 High St, Boston, MA 02110, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["casualness", "energy", "comfort"],
       axes: {
-        casualness: 0.9,
-        comfort: 0.7,
-        energy: 0.8,
-        elegance: 0.2,
-        authenticity: 0.2,
+        noise_level: 0.8,
+        price_level: 0.5,
+        crowd_density: 0.7,
       },
       rationales: ["Imported from venue database with 85% confidence"],
     },
@@ -7405,8 +6324,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-11",
     name: "Madhouse Cafe",
     geo: {
-      lat: 42.324301,
-      lon: -71.07548,
+      lat: 42.352425,
+      lon: -71.048969,
     },
     images: [],
     metadata: {
@@ -7414,13 +6333,11 @@ export const SAMPLE_VENUES = [
       addr: "24 Blue Hill Ave, Boston, MA 02119, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["casualness", "comfort", "energy"],
       axes: {
-        casualness: 0.9,
-        comfort: 0.85,
-        energy: 0.6,
-        elegance: 0.1,
-        authenticity: 0.3,
+        noise_level: 0.6,
+        price_level: 0.25,
+        crowd_density: 0.85,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -7436,8 +6353,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-12",
     name: "Sip of Joy Café & Bakery",
     geo: {
-      lat: 42.342034,
-      lon: -71.075752,
+      lat: 42.357396,
+      lon: -71.049591,
     },
     images: [],
     metadata: {
@@ -7445,13 +6362,11 @@ export const SAMPLE_VENUES = [
       addr: "661 Tremont St, Boston, MA 02118, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["comfort", "casualness", "authenticity"],
       axes: {
-        casualness: 0.9,
-        comfort: 0.95,
-        energy: 0.3,
-        elegance: 0.1,
-        authenticity: 0.9,
+        noise_level: 0.3,
+        price_level: 0.75,
+        crowd_density: 0.95,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -7467,8 +6382,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-13",
     name: "Cafe Bonjour",
     geo: {
-      lat: 42.354831,
-      lon: -71.061782,
+      lat: 42.337347,
+      lon: -71.052889,
     },
     images: [],
     metadata: {
@@ -7476,13 +6391,11 @@ export const SAMPLE_VENUES = [
       addr: "55 Temple Pl, Boston, MA 02111, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["casualness", "energy"],
       axes: {
-        casualness: 0.9,
-        comfort: 0.5,
-        energy: 0.9,
-        elegance: 0.1,
-        authenticity: 0.1,
+        noise_level: 0.9,
+        price_level: 0.5,
+        crowd_density: 0.5,
       },
       rationales: ["Imported from venue database with 60% confidence"],
     },
@@ -7498,8 +6411,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-14",
     name: "Gracenote Coffee Boston",
     geo: {
-      lat: 42.351579,
-      lon: -71.058129,
+      lat: 42.373138,
+      lon: -71.071612,
     },
     images: [],
     metadata: {
@@ -7507,13 +6420,11 @@ export const SAMPLE_VENUES = [
       addr: "108 Lincoln St, Boston, MA 02111, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["casualness", "comfort", "authenticity"],
       axes: {
-        casualness: 0.9,
-        comfort: 0.9,
-        energy: 0.6,
-        elegance: 0.3,
-        authenticity: 0.7,
+        noise_level: 0.6,
+        price_level: 0.25,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -7529,8 +6440,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-15",
     name: "Greystone Cafe, Bakery, and Provisions",
     geo: {
-      lat: 42.34527,
-      lon: -71.074571,
+      lat: 42.373584,
+      lon: -71.078197,
     },
     images: [],
     metadata: {
@@ -7538,13 +6449,11 @@ export const SAMPLE_VENUES = [
       addr: "123 Appleton St, Boston, MA 02116, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["casualness", "comfort", "energy"],
       axes: {
-        casualness: 0.9,
-        comfort: 0.9,
-        energy: 0.8,
-        elegance: 0.1,
-        authenticity: 0.3,
+        noise_level: 0.8,
+        price_level: 0.5,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -7560,8 +6469,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-16",
     name: "Heidi’s House of Coffee",
     geo: {
-      lat: 42.338477,
-      lon: -71.107067,
+      lat: 42.38084,
+      lon: -71.077165,
     },
     images: [],
     metadata: {
@@ -7569,13 +6478,11 @@ export const SAMPLE_VENUES = [
       addr: "350 Longwood Ave, Boston, MA 02215, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["comfort", "casualness", "authenticity"],
       axes: {
-        casualness: 0.95,
-        comfort: 1.0,
-        energy: 0.4,
-        elegance: 0.1,
-        authenticity: 0.6,
+        noise_level: 0.4,
+        price_level: 0.5,
+        crowd_density: 1.0,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -7591,8 +6498,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-17",
     name: "Central Perk Coffee Co",
     geo: {
-      lat: 42.350275,
-      lon: -71.080856,
+      lat: 42.340527,
+      lon: -71.076294,
     },
     images: [],
     metadata: {
@@ -7600,13 +6507,11 @@ export const SAMPLE_VENUES = [
       addr: "205 Newbury St, Boston, MA 02116, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["comfort", "casualness", "authenticity"],
       axes: {
-        casualness: 0.9,
-        comfort: 0.95,
-        energy: 0.6,
-        elegance: 0.1,
-        authenticity: 0.8,
+        noise_level: 0.6,
+        price_level: 0.5,
+        crowd_density: 0.95,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -7622,8 +6527,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-18",
     name: "Koko Coffee",
     geo: {
-      lat: 42.35938,
-      lon: -71.051298,
+      lat: 42.362808,
+      lon: -71.077628,
     },
     images: [],
     metadata: {
@@ -7631,13 +6536,11 @@ export const SAMPLE_VENUES = [
       addr: "255 State St, Boston, MA 02109, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["casualness", "comfort"],
       axes: {
-        casualness: 0.9,
-        comfort: 0.8,
-        energy: 0.5,
-        elegance: 0.4,
-        authenticity: 0.5,
+        noise_level: 0.5,
+        price_level: 0.25,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 85% confidence"],
     },
@@ -7653,8 +6556,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-19",
     name: "Trident Booksellers & Cafe",
     geo: {
-      lat: 42.348243,
-      lon: -71.08661,
+      lat: 42.374302,
+      lon: -71.081527,
     },
     images: [],
     metadata: {
@@ -7662,13 +6565,11 @@ export const SAMPLE_VENUES = [
       addr: "338 Newbury St, Boston, MA 02115, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["casualness", "comfort", "energy"],
       axes: {
-        casualness: 0.95,
-        comfort: 0.95,
-        energy: 0.7,
-        elegance: 0.2,
-        authenticity: 0.3,
+        noise_level: 0.7,
+        price_level: 0.5,
+        crowd_density: 0.95,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -7684,8 +6585,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-20",
     name: "The Tam",
     geo: {
-      lat: 42.351371,
-      lon: -71.064714,
+      lat: 42.34302,
+      lon: -71.043234,
     },
     images: [],
     metadata: {
@@ -7693,13 +6594,11 @@ export const SAMPLE_VENUES = [
       addr: "222 Tremont St, Boston, MA 02116, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["casualness", "authenticity", "comfort"],
       axes: {
-        casualness: 1.0,
-        comfort: 0.8,
-        energy: 0.7,
-        elegance: 0.0,
-        authenticity: 0.9,
+        noise_level: 0.7,
+        price_level: 0.25,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -7715,8 +6614,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-21",
     name: "Extra Dirty Cocktail Club",
     geo: {
-      lat: 42.363558,
-      lon: -71.051389,
+      lat: 42.370844,
+      lon: -71.049544,
     },
     images: [],
     metadata: {
@@ -7724,13 +6623,11 @@ export const SAMPLE_VENUES = [
       addr: "326b Commercial St, Boston, MA 02109, USA",
     },
     llm_labels: {
-      vibe_tags: ["upscale"],
+      vibe_tags: ["elegance", "comfort", "authenticity"],
       axes: {
-        casualness: 0.3,
-        comfort: 0.9,
-        energy: 0.7,
-        elegance: 0.95,
-        authenticity: 0.8,
+        noise_level: 0.7,
+        price_level: 0.5,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -7755,13 +6652,11 @@ export const SAMPLE_VENUES = [
       addr: "800 Boylston St Floor 51, Boston, MA 02199, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["comfort", "elegance", "energy"],
       axes: {
-        casualness: 0.4,
-        comfort: 0.95,
-        energy: 0.8,
-        elegance: 0.9,
-        authenticity: 0.4,
+        noise_level: 0.8,
+        price_level: 0.5,
+        crowd_density: 0.95,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -7786,13 +6681,11 @@ export const SAMPLE_VENUES = [
       addr: "129 Columbus Ave First Floor, Boston, MA 02116, USA",
     },
     llm_labels: {
-      vibe_tags: ["upscale"],
+      vibe_tags: ["comfort", "authenticity", "elegance"],
       axes: {
-        casualness: 0.5,
-        comfort: 0.9,
-        energy: 0.7,
-        elegance: 0.8,
-        authenticity: 0.9,
+        noise_level: 0.7,
+        price_level: 0.5,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -7808,8 +6701,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-24",
     name: "Carrie Nation Cocktail Club",
     geo: {
-      lat: 42.35848,
-      lon: -71.061813,
+      lat: 42.347133,
+      lon: -71.053118,
     },
     images: [],
     metadata: {
@@ -7817,13 +6710,11 @@ export const SAMPLE_VENUES = [
       addr: "11 Beacon St, Boston, MA 02108, USA",
     },
     llm_labels: {
-      vibe_tags: ["upscale"],
+      vibe_tags: ["elegance", "energy", "authenticity"],
       axes: {
-        casualness: 0.4,
-        comfort: 0.5,
-        energy: 0.7,
-        elegance: 0.8,
-        authenticity: 0.7,
+        noise_level: 0.7,
+        price_level: 0.75,
+        crowd_density: 0.5,
       },
       rationales: ["Imported from venue database with 60% confidence"],
     },
@@ -7837,10 +6728,10 @@ export const SAMPLE_VENUES = [
   },
   {
     venue_id: "csv-25",
-    name: "Lucky\'s Lounge",
+    name: "Lucky's Lounge",
     geo: {
-      lat: 42.35004,
-      lon: -71.048478,
+      lat: 42.361197,
+      lon: -71.063104,
     },
     images: [],
     metadata: {
@@ -7848,13 +6739,11 @@ export const SAMPLE_VENUES = [
       addr: "355 Congress St, Boston, MA 02210, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["casualness", "comfort", "energy"],
       axes: {
-        casualness: 0.9,
-        comfort: 0.9,
-        energy: 0.9,
-        elegance: 0.2,
-        authenticity: 0.8,
+        noise_level: 0.9,
+        price_level: 0.5,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -7870,8 +6759,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-26",
     name: "89 Charles",
     geo: {
-      lat: 42.358592,
-      lon: -71.070509,
+      lat: 42.35378,
+      lon: -71.052243,
     },
     images: [],
     metadata: {
@@ -7879,13 +6768,11 @@ export const SAMPLE_VENUES = [
       addr: "89 Charles St, Boston, MA 02114, USA",
     },
     llm_labels: {
-      vibe_tags: ["upscale"],
+      vibe_tags: ["comfort", "elegance", "authenticity"],
       axes: {
-        casualness: 0.6,
-        comfort: 0.95,
-        energy: 0.7,
-        elegance: 0.9,
-        authenticity: 0.8,
+        noise_level: 0.7,
+        price_level: 0.5,
+        crowd_density: 0.95,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -7901,8 +6788,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-27",
     name: "Cheers",
     geo: {
-      lat: 42.355953,
-      lon: -71.071258,
+      lat: 42.357389,
+      lon: -71.066441,
     },
     images: [],
     metadata: {
@@ -7910,13 +6797,11 @@ export const SAMPLE_VENUES = [
       addr: "84 Beacon St, Boston, MA 02108, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["authenticity", "casualness", "energy"],
       axes: {
-        casualness: 0.9,
-        comfort: 0.6,
-        energy: 0.8,
-        elegance: 0.1,
-        authenticity: 1.0,
+        noise_level: 0.8,
+        price_level: 0.5,
+        crowd_density: 0.6,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -7932,8 +6817,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-28",
     name: "The Greatest Bar",
     geo: {
-      lat: 42.364564,
-      lon: -71.061422,
+      lat: 42.355611,
+      lon: -71.076191,
     },
     images: [],
     metadata: {
@@ -7941,13 +6826,11 @@ export const SAMPLE_VENUES = [
       addr: "262 Friend St, Boston, MA 02114, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["casualness", "energy", "authenticity"],
       axes: {
-        casualness: 0.9,
-        comfort: 0.8,
-        energy: 0.9,
-        elegance: 0.1,
-        authenticity: 0.9,
+        noise_level: 0.9,
+        price_level: 0.5,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -7963,8 +6846,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-29",
     name: "Spy Bar",
     geo: {
-      lat: 42.345885,
-      lon: -71.070854,
+      lat: 42.372851,
+      lon: -71.064705,
     },
     images: [],
     metadata: {
@@ -7972,13 +6855,11 @@ export const SAMPLE_VENUES = [
       addr: "40 Berkeley St, Boston, MA 02116, USA",
     },
     llm_labels: {
-      vibe_tags: ["upscale"],
+      vibe_tags: ["comfort", "elegance", "authenticity"],
       axes: {
-        casualness: 0.5,
-        comfort: 0.95,
-        energy: 0.7,
-        elegance: 0.85,
-        authenticity: 0.8,
+        noise_level: 0.7,
+        price_level: 0.5,
+        crowd_density: 0.95,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -7994,8 +6875,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-0",
     name: "Corinne Denver",
     geo: {
-      lat: 39.743887,
-      lon: -104.994031,
+      lat: 39.722871,
+      lon: -105.012594,
     },
     images: [],
     metadata: {
@@ -8003,13 +6884,11 @@ export const SAMPLE_VENUES = [
       addr: "1455 California St, Denver, CO 80202, USA",
     },
     llm_labels: {
-      vibe_tags: ["upscale"],
+      vibe_tags: ["comfort", "elegance"],
       axes: {
-        casualness: 0.2,
-        comfort: 0.9,
-        energy: 0.2,
-        elegance: 0.9,
-        authenticity: 0.1,
+        noise_level: 0.2,
+        price_level: 0.5,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -8025,8 +6904,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-1",
     name: "Wildflower",
     geo: {
-      lat: 39.76762,
-      lon: -105.003836,
+      lat: 39.759539,
+      lon: -105.002384,
     },
     images: [],
     metadata: {
@@ -8034,13 +6913,11 @@ export const SAMPLE_VENUES = [
       addr: "3638 Navajo St, Denver, CO 80211, USA",
     },
     llm_labels: {
-      vibe_tags: ["upscale"],
+      vibe_tags: ["elegance", "comfort"],
       axes: {
-        casualness: 0.1,
-        comfort: 0.7,
-        energy: 0.2,
-        elegance: 1.0,
-        authenticity: 0.1,
+        noise_level: 0.2,
+        price_level: 0.75,
+        crowd_density: 0.7,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -8065,13 +6942,11 @@ export const SAMPLE_VENUES = [
       addr: "1701 Wynkoop St #155, Denver, CO 80202, USA",
     },
     llm_labels: {
-      vibe_tags: ["upscale"],
+      vibe_tags: ["elegance", "comfort"],
       axes: {
-        casualness: 0.4,
-        comfort: 0.8,
-        energy: 0.5,
-        elegance: 0.9,
-        authenticity: 0.1,
+        noise_level: 0.5,
+        price_level: 0.75,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -8087,8 +6962,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-3",
     name: "Ocean Prime",
     geo: {
-      lat: 39.748291,
-      lon: -104.999041,
+      lat: 39.746755,
+      lon: -104.981886,
     },
     images: [],
     metadata: {
@@ -8096,13 +6971,11 @@ export const SAMPLE_VENUES = [
       addr: "1465 Larimer St, Denver, CO 80202, USA",
     },
     llm_labels: {
-      vibe_tags: ["upscale"],
+      vibe_tags: ["elegance", "comfort"],
       axes: {
-        casualness: 0.1,
-        comfort: 0.9,
-        energy: 0.3,
-        elegance: 1.0,
-        authenticity: 0.1,
+        noise_level: 0.3,
+        price_level: 0.75,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -8118,8 +6991,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-4",
     name: "Salt Water Social",
     geo: {
-      lat: 39.720102,
-      lon: -104.957228,
+      lat: 39.735161,
+      lon: -104.993493,
     },
     images: [],
     metadata: {
@@ -8127,13 +7000,11 @@ export const SAMPLE_VENUES = [
       addr: "201 Columbine St, Denver, CO 80206, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["comfort", "elegance", "energy"],
       axes: {
-        casualness: 0.2,
-        comfort: 0.9,
-        energy: 0.8,
-        elegance: 0.9,
-        authenticity: 0.6,
+        noise_level: 0.8,
+        price_level: 0.5,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -8149,8 +7020,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-5",
     name: "The Velvet Cellar",
     geo: {
-      lat: 39.750978,
-      lon: -105.001854,
+      lat: 39.737985,
+      lon: -104.989365,
     },
     images: [],
     metadata: {
@@ -8158,13 +7029,11 @@ export const SAMPLE_VENUES = [
       addr: "1500 Wynkoop St #101, Denver, CO 80202, USA",
     },
     llm_labels: {
-      vibe_tags: ["upscale"],
+      vibe_tags: ["elegance", "comfort", "energy"],
       axes: {
-        casualness: 0.2,
-        comfort: 0.8,
-        energy: 0.6,
-        elegance: 0.9,
-        authenticity: 0.2,
+        noise_level: 0.6,
+        price_level: 0.5,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -8180,8 +7049,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-6",
     name: "Guard and Grace",
     geo: {
-      lat: 39.747448,
-      lon: -104.989894,
+      lat: 39.735998,
+      lon: -104.983568,
     },
     images: [],
     metadata: {
@@ -8189,13 +7058,11 @@ export const SAMPLE_VENUES = [
       addr: "1801 California St, Denver, CO 80202, USA",
     },
     llm_labels: {
-      vibe_tags: ["upscale"],
+      vibe_tags: ["elegance", "comfort"],
       axes: {
-        casualness: 0.1,
-        comfort: 0.9,
-        energy: 0.5,
-        elegance: 1.0,
-        authenticity: 0.1,
+        noise_level: 0.5,
+        price_level: 0.75,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -8211,8 +7078,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-7",
     name: "Stout Street Social",
     geo: {
-      lat: 39.744061,
-      lon: -104.995136,
+      lat: 39.761222,
+      lon: -104.984137,
     },
     images: [],
     metadata: {
@@ -8220,13 +7087,11 @@ export const SAMPLE_VENUES = [
       addr: "1400 Stout St, Denver, CO 80202, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["casualness", "comfort", "energy"],
       axes: {
-        casualness: 0.9,
-        comfort: 0.8,
-        energy: 0.6,
-        elegance: 0.2,
-        authenticity: 0.5,
+        noise_level: 0.6,
+        price_level: 0.5,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -8242,8 +7107,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-8",
     name: "Alma Fonda Fina",
     geo: {
-      lat: 39.758103,
-      lon: -105.011658,
+      lat: 39.736686,
+      lon: -104.998878,
     },
     images: [],
     metadata: {
@@ -8251,13 +7116,11 @@ export const SAMPLE_VENUES = [
       addr: "2556 15th St, Denver, CO 80211, USA",
     },
     llm_labels: {
-      vibe_tags: ["upscale"],
+      vibe_tags: ["comfort", "elegance", "authenticity"],
       axes: {
-        casualness: 0.4,
-        comfort: 0.9,
-        energy: 0.6,
-        elegance: 0.9,
-        authenticity: 0.8,
+        noise_level: 0.6,
+        price_level: 0.5,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -8273,8 +7136,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-9",
     name: "ChoLon - Downtown",
     geo: {
-      lat: 39.750534,
-      lon: -104.999501,
+      lat: 39.721633,
+      lon: -104.972002,
     },
     images: [],
     metadata: {
@@ -8282,13 +7145,11 @@ export const SAMPLE_VENUES = [
       addr: "1555 Blake St #101, Denver, CO 80202, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["comfort", "elegance", "authenticity"],
       axes: {
-        casualness: 0.6,
-        comfort: 0.8,
-        energy: 0.5,
-        elegance: 0.7,
-        authenticity: 0.7,
+        noise_level: 0.5,
+        price_level: 0.75,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -8304,8 +7165,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-10",
     name: "Crema Coffee House",
     geo: {
-      lat: 39.761109,
-      lon: -104.981732,
+      lat: 39.744715,
+      lon: -104.968738,
     },
     images: [],
     metadata: {
@@ -8313,13 +7174,11 @@ export const SAMPLE_VENUES = [
       addr: "2862 Larimer St, Denver, CO 80205, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["casualness", "comfort", "authenticity"],
       axes: {
-        casualness: 0.9,
-        comfort: 0.9,
-        energy: 0.7,
-        elegance: 0.1,
-        authenticity: 0.9,
+        noise_level: 0.7,
+        price_level: 0.25,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -8335,8 +7194,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-11",
     name: "Whittier Cafe",
     geo: {
-      lat: 39.753043,
-      lon: -104.966782,
+      lat: 39.755598,
+      lon: -105.006121,
     },
     images: [],
     metadata: {
@@ -8344,13 +7203,11 @@ export const SAMPLE_VENUES = [
       addr: "1710 E 25th Ave, Denver, CO 80205, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["comfort", "authenticity", "casualness"],
       axes: {
-        casualness: 0.9,
-        comfort: 1.0,
-        energy: 0.6,
-        elegance: 0.1,
-        authenticity: 1.0,
+        noise_level: 0.6,
+        price_level: 0.25,
+        crowd_density: 1.0,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -8366,8 +7223,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-12",
     name: "Little Owl Coffee",
     geo: {
-      lat: 39.750528,
-      lon: -104.999723,
+      lat: 39.75031,
+      lon: -105.007987,
     },
     images: [],
     metadata: {
@@ -8375,13 +7232,11 @@ export const SAMPLE_VENUES = [
       addr: "1555 Blake St, Denver, CO 80202, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["casualness", "comfort", "authenticity"],
       axes: {
-        casualness: 0.9,
-        comfort: 0.9,
-        energy: 0.5,
-        elegance: 0.1,
-        authenticity: 0.8,
+        noise_level: 0.5,
+        price_level: 0.5,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -8397,8 +7252,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-13",
     name: "The Weathervane Cafe",
     geo: {
-      lat: 39.743451,
-      lon: -104.96653,
+      lat: 39.725164,
+      lon: -105.003645,
     },
     images: [],
     metadata: {
@@ -8406,13 +7261,11 @@ export const SAMPLE_VENUES = [
       addr: "1725 E 17th Ave, Denver, CO 80218, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["comfort", "casualness", "authenticity"],
       axes: {
-        casualness: 0.9,
-        comfort: 1.0,
-        energy: 0.6,
-        elegance: 0.1,
-        authenticity: 0.9,
+        noise_level: 0.6,
+        price_level: 0.25,
+        crowd_density: 1.0,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -8428,8 +7281,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-14",
     name: "Café Miriam- City Park",
     geo: {
-      lat: 39.748288,
-      lon: -104.960687,
+      lat: 39.750445,
+      lon: -104.975936,
     },
     images: [],
     metadata: {
@@ -8437,13 +7290,11 @@ export const SAMPLE_VENUES = [
       addr: "2217 E 21st Ave, Denver, CO 80205, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["comfort", "casualness", "authenticity"],
       axes: {
-        casualness: 0.9,
-        comfort: 1.0,
-        energy: 0.5,
-        elegance: 0.2,
-        authenticity: 0.9,
+        noise_level: 0.5,
+        price_level: 0.5,
+        crowd_density: 1.0,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -8459,8 +7310,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-15",
     name: "Migas Coffee",
     geo: {
-      lat: 39.758854,
-      lon: -104.986188,
+      lat: 39.745049,
+      lon: -105.002694,
     },
     images: [],
     metadata: {
@@ -8468,13 +7319,11 @@ export const SAMPLE_VENUES = [
       addr: "2590 Walnut St, Denver, CO 80205, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["comfort", "casualness", "authenticity"],
       axes: {
-        casualness: 0.9,
-        comfort: 1.0,
-        energy: 0.5,
-        elegance: 0.1,
-        authenticity: 0.9,
+        noise_level: 0.5,
+        price_level: 0.5,
+        crowd_density: 1.0,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -8490,8 +7339,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-16",
     name: "Coffeegraph",
     geo: {
-      lat: 39.769573,
-      lon: -105.031427,
+      lat: 39.720798,
+      lon: -105.004663,
     },
     images: [],
     metadata: {
@@ -8499,13 +7348,11 @@ export const SAMPLE_VENUES = [
       addr: "3800 Julian St, Denver, CO 80211, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["authenticity", "comfort", "casualness"],
       axes: {
-        casualness: 0.8,
-        comfort: 0.9,
-        energy: 0.6,
-        elegance: 0.4,
-        authenticity: 1.0,
+        noise_level: 0.6,
+        price_level: 0.5,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -8521,8 +7368,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-17",
     name: "Scr3am & Sugar Coffee Co.",
     geo: {
-      lat: 39.680754,
-      lon: -104.988455,
+      lat: 39.757493,
+      lon: -104.966857,
     },
     images: [],
     metadata: {
@@ -8530,13 +7377,11 @@ export const SAMPLE_VENUES = [
       addr: "1974 S Acoma St, Denver, CO 80223, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["authenticity", "casualness", "comfort"],
       axes: {
-        casualness: 0.9,
-        comfort: 0.7,
-        energy: 0.6,
-        elegance: 0.1,
-        authenticity: 1.0,
+        noise_level: 0.6,
+        price_level: 0.5,
+        crowd_density: 0.7,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -8552,8 +7397,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-18",
     name: "Side Pony Coffee & Cocktails",
     geo: {
-      lat: 39.740527,
-      lon: -105.046526,
+      lat: 39.74361,
+      lon: -104.97547,
     },
     images: [],
     metadata: {
@@ -8561,13 +7406,11 @@ export const SAMPLE_VENUES = [
       addr: "4635 W Colfax Ave #100, Denver, CO 80204, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["comfort", "casualness", "energy"],
       axes: {
-        casualness: 0.9,
-        comfort: 1.0,
-        energy: 0.7,
-        elegance: 0.4,
-        authenticity: 0.6,
+        noise_level: 0.7,
+        price_level: 0.5,
+        crowd_density: 1.0,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -8592,13 +7435,11 @@ export const SAMPLE_VENUES = [
       addr: "2539 Bruce Randolph Ave, Denver, CO 80205, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["comfort", "authenticity", "casualness"],
       axes: {
-        casualness: 0.9,
-        comfort: 1.0,
-        energy: 0.6,
-        elegance: 0.1,
-        authenticity: 1.0,
+        noise_level: 0.6,
+        price_level: 0.5,
+        crowd_density: 1.0,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -8614,8 +7455,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-20",
     name: "Death & Co Denver",
     geo: {
-      lat: 39.75728,
-      lon: -104.986399,
+      lat: 39.714901,
+      lon: -104.998651,
     },
     images: [],
     metadata: {
@@ -8623,13 +7464,11 @@ export const SAMPLE_VENUES = [
       addr: "1280 25th St, Denver, CO 80205, USA",
     },
     llm_labels: {
-      vibe_tags: ["upscale"],
+      vibe_tags: ["elegance", "comfort", "authenticity"],
       axes: {
-        casualness: 0.2,
-        comfort: 0.8,
-        energy: 0.7,
-        elegance: 1.0,
-        authenticity: 0.8,
+        noise_level: 0.7,
+        price_level: 0.5,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -8645,8 +7484,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-21",
     name: "54thirty Rooftop",
     geo: {
-      lat: 39.744234,
-      lon: -104.99394,
+      lat: 39.726484,
+      lon: -104.971767,
     },
     images: [],
     metadata: {
@@ -8654,13 +7493,11 @@ export const SAMPLE_VENUES = [
       addr: "1475 California St, Denver, CO 80202, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["comfort", "energy", "elegance"],
       axes: {
-        casualness: 0.6,
-        comfort: 0.8,
-        energy: 0.8,
-        elegance: 0.7,
-        authenticity: 0.2,
+        noise_level: 0.8,
+        price_level: 0.75,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 70% confidence"],
     },
@@ -8676,8 +7513,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-22",
     name: "Union Lodge No.1",
     geo: {
-      lat: 39.74637,
-      lon: -104.994684,
+      lat: 39.723274,
+      lon: -104.980423,
     },
     images: [],
     metadata: {
@@ -8685,13 +7522,11 @@ export const SAMPLE_VENUES = [
       addr: "1543 Champa St, Denver, CO 80202, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["comfort", "elegance", "authenticity"],
       axes: {
-        casualness: 0.5,
-        comfort: 0.9,
-        energy: 0.8,
-        elegance: 0.9,
-        authenticity: 0.9,
+        noise_level: 0.8,
+        price_level: 0.75,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -8707,8 +7542,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-23",
     name: "Sidecar Lounge Denver",
     geo: {
-      lat: 39.753448,
-      lon: -104.991467,
+      lat: 39.727627,
+      lon: -104.993142,
     },
     images: [],
     metadata: {
@@ -8716,13 +7551,11 @@ export const SAMPLE_VENUES = [
       addr: "2048 Larimer St, Denver, CO 80205, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["casualness", "energy", "authenticity"],
       axes: {
-        casualness: 0.9,
-        comfort: 0.0,
-        energy: 0.8,
-        elegance: 0.1,
-        authenticity: 0.6,
+        noise_level: 0.8,
+        price_level: 0.25,
+        crowd_density: 0.0,
       },
       rationales: ["Imported from venue database with 20% confidence"],
     },
@@ -8736,7 +7569,7 @@ export const SAMPLE_VENUES = [
   },
   {
     venue_id: "csv-24",
-    name: "Tom\'s Watch Bar - Coors Field",
+    name: "Tom's Watch Bar - Coors Field",
     geo: {
       lat: 39.726903,
       lon: -104.994223,
@@ -8747,13 +7580,11 @@ export const SAMPLE_VENUES = [
       addr: "1601 19th St Unit 100, Denver, CO 80202, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["casualness", "energy", "comfort"],
       axes: {
-        casualness: 0.9,
-        comfort: 0.6,
-        energy: 0.8,
-        elegance: 0.2,
-        authenticity: 0.5,
+        noise_level: 0.8,
+        price_level: 0.5,
+        crowd_density: 0.6,
       },
       rationales: ["Imported from venue database with 70% confidence"],
     },
@@ -8778,13 +7609,11 @@ export const SAMPLE_VENUES = [
       addr: "1660 Wynkoop St Suite 100, Denver, CO 80202, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["comfort", "casualness", "elegance"],
       axes: {
-        casualness: 0.8,
-        comfort: 0.9,
-        energy: 0.5,
-        elegance: 0.7,
-        authenticity: 0.7,
+        noise_level: 0.5,
+        price_level: 0.5,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -8800,8 +7629,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-26",
     name: "Mockingbird",
     geo: {
-      lat: 39.760267,
-      lon: -104.983676,
+      lat: 39.739473,
+      lon: -104.968306,
     },
     images: [],
     metadata: {
@@ -8809,13 +7638,11 @@ export const SAMPLE_VENUES = [
       addr: "2737 Larimer St, Denver, CO 80205, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["energy", "elegance"],
       axes: {
-        casualness: 0.5,
-        comfort: 0.2,
-        energy: 1.0,
-        elegance: 0.6,
-        authenticity: 0.5,
+        noise_level: 1.0,
+        price_level: 0.5,
+        crowd_density: 0.2,
       },
       rationales: ["Imported from venue database with 40% confidence"],
     },
@@ -8840,13 +7667,11 @@ export const SAMPLE_VENUES = [
       addr: "Pavilions, 500 16th St Mall #350, Denver, CO 80202, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["energy", "casualness"],
       axes: {
-        casualness: 0.9,
-        comfort: 0.0,
-        energy: 1.0,
-        elegance: 0.0,
-        authenticity: 0.5,
+        noise_level: 1.0,
+        price_level: 0.5,
+        crowd_density: 0.0,
       },
       rationales: ["Imported from venue database with 20% confidence"],
     },
@@ -8862,8 +7687,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-28",
     name: "Lady Jane",
     geo: {
-      lat: 39.762153,
-      lon: -105.011576,
+      lat: 39.758837,
+      lon: -105.003074,
     },
     images: [],
     metadata: {
@@ -8871,13 +7696,11 @@ export const SAMPLE_VENUES = [
       addr: "2021 W 32nd Ave, Denver, CO 80211, USA",
     },
     llm_labels: {
-      vibe_tags: ["upscale"],
+      vibe_tags: ["elegance", "authenticity", "comfort"],
       axes: {
-        casualness: 0.2,
-        comfort: 0.8,
-        energy: 0.5,
-        elegance: 0.9,
-        authenticity: 0.9,
+        noise_level: 0.5,
+        price_level: 0.5,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 70% confidence"],
     },
@@ -8893,8 +7716,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-29",
     name: "The Devil’s Drink",
     geo: {
-      lat: 39.757484,
-      lon: -105.008609,
+      lat: 39.740942,
+      lon: -105.003412,
     },
     images: [],
     metadata: {
@@ -8902,13 +7725,11 @@ export const SAMPLE_VENUES = [
       addr: "1553 Platte St, Denver, CO 80202, USA",
     },
     llm_labels: {
-      vibe_tags: ["hidden_gem"],
+      vibe_tags: ["authenticity", "elegance", "casualness"],
       axes: {
-        casualness: 0.7,
-        comfort: 0.6,
-        energy: 0.5,
-        elegance: 0.8,
-        authenticity: 0.9,
+        noise_level: 0.5,
+        price_level: 0.5,
+        crowd_density: 0.6,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -8933,13 +7754,11 @@ export const SAMPLE_VENUES = [
       addr: "1924 Pennsylvania Ave NW #3607, Washington, DC 20006, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["authenticity", "comfort", "elegance"],
       axes: {
-        casualness: 0.5,
-        comfort: 0.7,
-        energy: 0.6,
-        elegance: 0.7,
-        authenticity: 0.8,
+        noise_level: 0.6,
+        price_level: 0.5,
+        crowd_density: 0.7,
       },
       rationales: ["Imported from venue database with 70% confidence"],
     },
@@ -8955,8 +7774,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-1",
     name: "Old Ebbitt Grill",
     geo: {
-      lat: 38.898056,
-      lon: -77.033329,
+      lat: 38.887989,
+      lon: -77.035258,
     },
     images: [],
     metadata: {
@@ -8964,13 +7783,11 @@ export const SAMPLE_VENUES = [
       addr: "675 15th St NW, Washington, DC 20005, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["comfort", "authenticity", "elegance"],
       axes: {
-        casualness: 0.5,
-        comfort: 0.8,
-        energy: 0.6,
-        elegance: 0.7,
-        authenticity: 0.8,
+        noise_level: 0.6,
+        price_level: 0.5,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 80% confidence"],
     },
@@ -8986,8 +7803,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-2",
     name: "La Grande Boucherie DC",
     geo: {
-      lat: 38.898123,
-      lon: -77.031733,
+      lat: 38.915232,
+      lon: -77.031546,
     },
     images: [],
     metadata: {
@@ -8995,13 +7812,11 @@ export const SAMPLE_VENUES = [
       addr: "699 14th St NW, Washington, DC 20005, USA",
     },
     llm_labels: {
-      vibe_tags: ["upscale"],
+      vibe_tags: ["elegance", "comfort", "energy"],
       axes: {
-        casualness: 0.1,
-        comfort: 0.8,
-        energy: 0.6,
-        elegance: 1.0,
-        authenticity: 0.6,
+        noise_level: 0.6,
+        price_level: 0.5,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -9017,8 +7832,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-3",
     name: "Le Diplomate",
     geo: {
-      lat: 38.911373,
-      lon: -77.031596,
+      lat: 38.893671,
+      lon: -77.055062,
     },
     images: [],
     metadata: {
@@ -9026,13 +7841,11 @@ export const SAMPLE_VENUES = [
       addr: "1601 14th St NW, Washington, DC 20009, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["elegance", "authenticity", "comfort"],
       axes: {
-        casualness: 0.2,
-        comfort: 0.8,
-        energy: 0.8,
-        elegance: 0.9,
-        authenticity: 0.9,
+        noise_level: 0.8,
+        price_level: 0.75,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -9048,8 +7861,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-4",
     name: "Grazie Nonna",
     geo: {
-      lat: 38.903988,
-      lon: -77.035631,
+      lat: 38.916157,
+      lon: -77.042506,
     },
     images: [],
     metadata: {
@@ -9057,13 +7870,11 @@ export const SAMPLE_VENUES = [
       addr: "1100 15th St NW, Washington, DC 20005, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["comfort", "authenticity", "casualness"],
       axes: {
-        casualness: 0.8,
-        comfort: 0.9,
-        energy: 0.7,
-        elegance: 0.1,
-        authenticity: 0.9,
+        noise_level: 0.7,
+        price_level: 0.5,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -9079,8 +7890,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-6",
     name: "Unconventional Diner",
     geo: {
-      lat: 38.906264,
-      lon: -77.023709,
+      lat: 38.91597,
+      lon: -77.016979,
     },
     images: [],
     metadata: {
@@ -9088,13 +7899,11 @@ export const SAMPLE_VENUES = [
       addr: "1207 9th St NW, Washington, DC 20001, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["casualness", "comfort", "energy"],
       axes: {
-        casualness: 0.8,
-        comfort: 0.8,
-        energy: 0.7,
-        elegance: 0.1,
-        authenticity: 0.4,
+        noise_level: 0.7,
+        price_level: 0.5,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 80% confidence"],
     },
@@ -9110,8 +7919,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-7",
     name: "SUCCOTASH",
     geo: {
-      lat: 38.897527,
-      lon: -77.024741,
+      lat: 38.91197,
+      lon: -77.052062,
     },
     images: [],
     metadata: {
@@ -9119,13 +7928,11 @@ export const SAMPLE_VENUES = [
       addr: "915 F St NW, Washington, DC 20004, USA",
     },
     llm_labels: {
-      vibe_tags: ["upscale"],
+      vibe_tags: ["elegance", "comfort", "authenticity"],
       axes: {
-        casualness: 0.4,
-        comfort: 0.8,
-        energy: 0.4,
-        elegance: 0.9,
-        authenticity: 0.7,
+        noise_level: 0.4,
+        price_level: 0.5,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 80% confidence"],
     },
@@ -9141,8 +7948,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-8",
     name: "Zaytinya",
     geo: {
-      lat: 38.898805,
-      lon: -77.023721,
+      lat: 38.882308,
+      lon: -77.058891,
     },
     images: [],
     metadata: {
@@ -9150,13 +7957,11 @@ export const SAMPLE_VENUES = [
       addr: "701 9th St NW, Washington, DC 20001, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["authenticity", "comfort", "energy"],
       axes: {
-        casualness: 0.4,
-        comfort: 0.8,
-        energy: 0.7,
-        elegance: 0.7,
-        authenticity: 0.9,
+        noise_level: 0.7,
+        price_level: 0.75,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -9172,8 +7977,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-9",
     name: "ala",
     geo: {
-      lat: 38.908108,
-      lon: -77.043766,
+      lat: 38.883758,
+      lon: -77.02045,
     },
     images: [],
     metadata: {
@@ -9181,13 +7986,11 @@ export const SAMPLE_VENUES = [
       addr: "1320 19th St NW, Washington, DC 20036, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["comfort", "authenticity", "elegance"],
       axes: {
-        casualness: 0.2,
-        comfort: 0.9,
-        energy: 0.6,
-        elegance: 0.8,
-        authenticity: 0.9,
+        noise_level: 0.6,
+        price_level: 0.5,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -9203,8 +8006,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-11",
     name: "DUA DC Coffee",
     geo: {
-      lat: 38.901667,
-      lon: -77.03353,
+      lat: 38.909608,
+      lon: -77.045986,
     },
     images: [],
     metadata: {
@@ -9212,13 +8015,11 @@ export const SAMPLE_VENUES = [
       addr: "923 15th St NW, Washington, DC 20005, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["casualness", "comfort", "energy"],
       axes: {
-        casualness: 0.9,
-        comfort: 0.9,
-        energy: 0.8,
-        elegance: 0.3,
-        authenticity: 0.5,
+        noise_level: 0.8,
+        price_level: 0.25,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -9234,8 +8035,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-12",
     name: "YELLOW Georgetown",
     geo: {
-      lat: 38.90945,
-      lon: -77.064599,
+      lat: 38.892319,
+      lon: -77.036563,
     },
     images: [],
     metadata: {
@@ -9243,13 +8044,11 @@ export const SAMPLE_VENUES = [
       addr: "1524 Wisconsin Ave NW, Washington, DC 20007, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["casualness", "energy", "authenticity"],
       axes: {
-        casualness: 0.9,
-        comfort: 0.6,
-        energy: 0.9,
-        elegance: 0.1,
-        authenticity: 0.9,
+        noise_level: 0.9,
+        price_level: 0.5,
+        crowd_density: 0.6,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -9265,8 +8064,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-13",
     name: "Big Bear Cafe",
     geo: {
-      lat: 38.912752,
-      lon: -77.012348,
+      lat: 38.892619,
+      lon: -77.046649,
     },
     images: [],
     metadata: {
@@ -9274,13 +8073,11 @@ export const SAMPLE_VENUES = [
       addr: "1700 1st St NW, Washington, DC 20001, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["comfort", "casualness", "energy"],
       axes: {
-        casualness: 0.9,
-        comfort: 1.0,
-        energy: 0.6,
-        elegance: 0.2,
-        authenticity: 0.4,
+        noise_level: 0.6,
+        price_level: 0.5,
+        crowd_density: 1.0,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -9296,8 +8093,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-14",
     name: "WARKA COFFEE",
     geo: {
-      lat: 38.89651,
-      lon: -77.01188,
+      lat: 38.904038,
+      lon: -77.034417,
     },
     images: [],
     metadata: {
@@ -9305,13 +8102,11 @@ export const SAMPLE_VENUES = [
       addr: "500 New Jersey Ave NW, Washington, DC 20001, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["comfort", "casualness"],
       axes: {
-        casualness: 0.9,
-        comfort: 1.0,
-        energy: 0.4,
-        elegance: 0.3,
-        authenticity: 0.3,
+        noise_level: 0.4,
+        price_level: 0.5,
+        crowd_density: 1.0,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -9336,13 +8131,11 @@ export const SAMPLE_VENUES = [
       addr: "Inside streets market, 2400 14th St NW, Washington, DC 20009, USA",
     },
     llm_labels: {
-      vibe_tags: ["budget"],
+      vibe_tags: ["casualness", "comfort", "authenticity"],
       axes: {
-        casualness: 0.9,
-        comfort: 0.8,
-        energy: 0.5,
-        elegance: 0.1,
-        authenticity: 0.6,
+        noise_level: 0.5,
+        price_level: 0.5,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -9358,8 +8151,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-16",
     name: "Yours Cafe",
     geo: {
-      lat: 38.924098,
-      lon: -77.051512,
+      lat: 38.912508,
+      lon: -77.025435,
     },
     images: [],
     metadata: {
@@ -9367,13 +8160,11 @@ export const SAMPLE_VENUES = [
       addr: "2619 Connecticut Ave NW, Washington, DC 20008, USA",
     },
     llm_labels: {
-      vibe_tags: ["cozy"],
+      vibe_tags: ["comfort", "casualness", "authenticity"],
       axes: {
-        casualness: 0.9,
-        comfort: 1.0,
-        energy: 0.4,
-        elegance: 0.1,
-        authenticity: 0.7,
+        noise_level: 0.4,
+        price_level: 0.5,
+        crowd_density: 1.0,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -9389,8 +8180,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-18",
     name: "The Alchemist DC",
     geo: {
-      lat: 38.91677,
-      lon: -77.030985,
+      lat: 38.889226,
+      lon: -77.021244,
     },
     images: [],
     metadata: {
@@ -9398,13 +8189,11 @@ export const SAMPLE_VENUES = [
       addr: "1334 U St NW, Washington, DC 20009, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["elegance", "energy", "authenticity"],
       axes: {
-        casualness: 0.3,
-        comfort: 0.6,
-        energy: 0.8,
-        elegance: 0.9,
-        authenticity: 0.8,
+        noise_level: 0.8,
+        price_level: 0.5,
+        crowd_density: 0.6,
       },
       rationales: ["Imported from venue database with 85% confidence"],
     },
@@ -9420,8 +8209,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-19",
     name: "Code Red",
     geo: {
-      lat: 38.921682,
-      lon: -77.042703,
+      lat: 38.926038,
+      lon: -77.045015,
     },
     images: [],
     metadata: {
@@ -9429,13 +8218,11 @@ export const SAMPLE_VENUES = [
       addr: "2440 18th St NW, Washington, DC 20009, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["energy", "elegance", "authenticity"],
       axes: {
-        casualness: 0.2,
-        comfort: 0.8,
-        energy: 0.9,
-        elegance: 0.9,
-        authenticity: 0.9,
+        noise_level: 0.9,
+        price_level: 0.5,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -9451,8 +8238,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-20",
     name: "Lost & Found DC",
     geo: {
-      lat: 38.906761,
-      lon: -77.024363,
+      lat: 38.888317,
+      lon: -77.034294,
     },
     images: [],
     metadata: {
@@ -9460,13 +8247,11 @@ export const SAMPLE_VENUES = [
       addr: "1240 9th St NW, Washington, DC 20001, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["casualness", "energy", "authenticity"],
       axes: {
-        casualness: 0.9,
-        comfort: 0.1,
-        energy: 0.9,
-        elegance: 0.1,
-        authenticity: 0.8,
+        noise_level: 0.9,
+        price_level: 0.5,
+        crowd_density: 0.1,
       },
       rationales: ["Imported from venue database with 80% confidence"],
     },
@@ -9482,8 +8267,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-21",
     name: "Madhatter",
     geo: {
-      lat: 38.907904,
-      lon: -77.04198,
+      lat: 38.888088,
+      lon: -77.023418,
     },
     images: [],
     metadata: {
@@ -9491,13 +8276,11 @@ export const SAMPLE_VENUES = [
       addr: "1319 Connecticut Ave NW, Washington, DC 20036, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["casualness", "energy", "comfort"],
       axes: {
-        casualness: 0.9,
-        comfort: 0.8,
-        energy: 0.9,
-        elegance: 0.1,
-        authenticity: 0.8,
+        noise_level: 0.9,
+        price_level: 0.5,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -9513,8 +8296,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-22",
     name: "Service Bar DC",
     geo: {
-      lat: 38.916833,
-      lon: -77.025029,
+      lat: 38.901785,
+      lon: -77.020637,
     },
     images: [],
     metadata: {
@@ -9522,13 +8305,11 @@ export const SAMPLE_VENUES = [
       addr: "926-928 U St NW, Washington, DC 20001, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["casualness", "comfort", "energy"],
       axes: {
-        casualness: 0.8,
-        comfort: 0.8,
-        energy: 0.8,
-        elegance: 0.5,
-        authenticity: 0.7,
+        noise_level: 0.8,
+        price_level: 0.5,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 85% confidence"],
     },
@@ -9544,8 +8325,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-23",
     name: "barmini",
     geo: {
-      lat: 38.896257,
-      lon: -77.023857,
+      lat: 38.92411,
+      lon: -77.021221,
     },
     images: [],
     metadata: {
@@ -9553,13 +8334,11 @@ export const SAMPLE_VENUES = [
       addr: "501 9th St NW, Washington, DC 20004, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["elegance", "energy", "comfort"],
       axes: {
-        casualness: 0.1,
-        comfort: 0.8,
-        energy: 0.9,
-        elegance: 1.0,
-        authenticity: 0.6,
+        noise_level: 0.9,
+        price_level: 1.0,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 95% confidence"],
     },
@@ -9575,8 +8354,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-24",
     name: "The Golden Age",
     geo: {
-      lat: 38.914492,
-      lon: -77.04639,
+      lat: 38.916667,
+      lon: -77.050443,
     },
     images: [],
     metadata: {
@@ -9584,13 +8363,11 @@ export const SAMPLE_VENUES = [
       addr: "1726 Connecticut Ave NW, Washington, DC 20009, USA",
     },
     llm_labels: {
-      vibe_tags: ["upscale"],
+      vibe_tags: ["comfort", "elegance", "authenticity"],
       axes: {
-        casualness: 0.5,
-        comfort: 0.9,
-        energy: 0.7,
-        elegance: 0.8,
-        authenticity: 0.8,
+        noise_level: 0.7,
+        price_level: 0.5,
+        crowd_density: 0.9,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -9606,8 +8383,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-25",
     name: "Gypsy Kitchen DC",
     geo: {
-      lat: 38.91491,
-      lon: -77.031548,
+      lat: 38.90453,
+      lon: -77.047961,
     },
     images: [],
     metadata: {
@@ -9615,13 +8392,11 @@ export const SAMPLE_VENUES = [
       addr: "1825 14th St NW, Washington, DC 20009, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["authenticity", "energy", "comfort"],
       axes: {
-        casualness: 0.5,
-        comfort: 0.7,
-        energy: 0.8,
-        elegance: 0.7,
-        authenticity: 0.9,
+        noise_level: 0.8,
+        price_level: 0.5,
+        crowd_density: 0.7,
       },
       rationales: ["Imported from venue database with 80% confidence"],
     },
@@ -9646,13 +8421,11 @@ export const SAMPLE_VENUES = [
       addr: "1011 K St NW 13th Floor, Washington, DC 20001, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["authenticity", "casualness", "energy"],
       axes: {
-        casualness: 0.7,
-        comfort: 0.5,
-        energy: 0.7,
-        elegance: 0.6,
-        authenticity: 0.9,
+        noise_level: 0.7,
+        price_level: 0.5,
+        crowd_density: 0.5,
       },
       rationales: ["Imported from venue database with 75% confidence"],
     },
@@ -9668,8 +8441,8 @@ export const SAMPLE_VENUES = [
     venue_id: "csv-27",
     name: "The Bottom Line",
     geo: {
-      lat: 38.901052,
-      lon: -77.040344,
+      lat: 38.902826,
+      lon: -77.060263,
     },
     images: [],
     metadata: {
@@ -9677,13 +8450,11 @@ export const SAMPLE_VENUES = [
       addr: "1716 I St NW, Washington, DC 20006, USA",
     },
     llm_labels: {
-      vibe_tags: ["lively"],
+      vibe_tags: ["casualness", "energy", "authenticity"],
       axes: {
-        casualness: 1.0,
-        comfort: 0.8,
-        energy: 0.9,
-        elegance: 0.1,
-        authenticity: 0.9,
+        noise_level: 0.9,
+        price_level: 0.25,
+        crowd_density: 0.8,
       },
       rationales: ["Imported from venue database with 90% confidence"],
     },
@@ -9695,89 +8466,3 @@ export const SAMPLE_VENUES = [
     confidence: 0.9,
     contributor_name: "AI Vibe Maps Team",
   }
-];
-
-/**
- * Initialize localStorage with sample data if it's empty
- * This runs once on first app load
- * 
- * Toggle via VITE_ENABLE_SEED_DATA environment variable
- * Set to 'false' when using a real backend
- */
-export function seedSampleData() {
-  // Check if seeding is enabled (default: true for demos)
-  const envValue = import.meta.env.VITE_ENABLE_SEED_DATA;
-  const seedingEnabled = envValue === undefined || envValue === "true" || envValue === true;
-  
-  console.log("🌱 Seed data config:", { envValue, seedingEnabled });
-  
-  if (!seedingEnabled) {
-    console.log("⏭️ Sample data seeding disabled (VITE_ENABLE_SEED_DATA=false)");
-    return;
-  }
-  
-  // Check if we've already seeded data
-  const hasSeeded = localStorage.getItem("data_seeded");
-  const existingVerified = JSON.parse(localStorage.getItem("verified_venues") || "[]");
-  
-  console.log("📊 Current state:", { 
-    hasSeeded, 
-    existingVenueCount: existingVerified.length,
-    expectedCount: SAMPLE_VENUES.length
-  });
-  
-  // Seed if:
-  // 1. Never seeded before, OR
-  // 2. Venues are missing, OR
-  // 3. Count changed (new venues added to seed data)
-  const needsReseed = !hasSeeded || 
-                      existingVerified.length === 0 || 
-                      existingVerified.length !== SAMPLE_VENUES.length;
-  
-  if (needsReseed) {
-    const reason = !hasSeeded ? "first time" : 
-                   existingVerified.length === 0 ? "empty data" :
-                   "venue count changed";
-    console.log(`🌱 Seeding sample venue data (${reason})...`);
-    
-    localStorage.setItem("verified_venues", JSON.stringify(SAMPLE_VENUES));
-    console.log(`✅ Seeded ${SAMPLE_VENUES.length} sample venues`);
-    
-    // Mark as seeded
-    localStorage.setItem("data_seeded", "true");
-    localStorage.setItem("data_seeded_timestamp", new Date().toISOString());
-  } else {
-    console.log(`ℹ️ Sample data already present (${existingVerified.length} venues)`);
-  }
-}
-
-/**
- * Reset all data (useful for testing)
- */
-export function resetAllData() {
-  const keys = [
-    "verified_venues",
-    "pending_venues",
-    "data_seeded",
-    "data_seeded_timestamp",
-  ];
-  
-  keys.forEach((key) => localStorage.removeItem(key));
-  
-  // Remove dynamic keys (upvotes, reviews, etc.)
-  const allKeys = Object.keys(localStorage);
-  allKeys.forEach((key) => {
-    if (key.startsWith("upvotes_") || key.startsWith("reviews_")) {
-      localStorage.removeItem(key);
-    }
-  });
-  
-  console.log("🗑️ All data cleared. Refresh to reseed.");
-}
-
-// Expose reset function for debugging in console
-if (typeof window !== "undefined") {
-  (window as any).resetAppData = resetAllData;
-}
-
-

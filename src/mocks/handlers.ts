@@ -73,9 +73,9 @@ export const handlers = [
       });
     }
     
-    // Simulate pagination
+    // Simulate pagination (use larger page size for Explore)
     const page = cursor ? parseInt(atob(cursor)) : 0;
-    const pageSize = 10;
+    const pageSize = radiusM > 3000 ? 500 : 10; // Large radius = show more venues
     const startIdx = page * pageSize;
     const endIdx = startIdx + pageSize;
     const paginatedResults = results.slice(startIdx, endIdx);

@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Switch } from "@/components/ui/switch";
-import { TagChips } from "@/components/TagChips";
+import { AxesSliders, DEFAULT_VIBE_AXES } from "@/components/AxesSliders";
 import { useAuth } from "@/contexts/AuthContext";
 import { ArrowLeft, MapPin, Plus, Target } from "lucide-react";
 import { toast } from "sonner";
@@ -14,12 +14,8 @@ import { Venue } from "@/types/venue";
 import { Map, Marker } from "pigeon-maps";
 import { HARVARD_SQUARE, getUserLocation } from "@/lib/geo";
 
-const ALL_VIBE_TAGS = [
-  "cozy", "studious", "romantic", "lively", "quiet", "budget", "upscale",
-  "hidden_gem", "touristy", "date_spot", "group_friendly", "kid_friendly",
-  "outdoorsy", "third_wave_coffee", "late_night", "brunch", "dive_bar",
-  "clubby", "queer_friendly", "studenty", "bougie", "rustic", "pet_friendly",
-];
+// Vibe metrics are now captured via sliders (casualness, comfort, energy, elegance, authenticity)
+// Tags will be derived from these metrics
 
 const CATEGORIES = [
   "cafe", "restaurant", "bar", "library", "park", "gym", "bookstore",
@@ -43,7 +39,13 @@ const Contribute: React.FC = () => {
     description: "",
   });
   
-  const [selectedTags, setSelectedTags] = useState<string[]>([]);
+  const [vibeMetrics, setVibeMetrics] = useState<Record<string, number>>({
+    casualness: 0.5,
+    comfort: 0.5,
+    energy: 0.5,
+    elegance: 0.5,
+    authenticity: 0.5,
+  });
   const [isTemporary, setIsTemporary] = useState(false);
   const [isAnonymous, setIsAnonymous] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -136,8 +138,12 @@ const Contribute: React.FC = () => {
       return;
     }
 
-    if (selectedTags.length === 0) {
-      toast.error("Please select at least one vibe tag");
+    // Validate that at least one metric is non-default
+    const hasNonDefaultMetric = Object.values(vibeMetrics).some(v => v !== 0.5);
+    if (!hasNonDefaultMetric) {
+      toast.error("Please adjust at least one vibe metric", {
+        description: "Move the sliders to describe this venue's vibe",
+      });
       return;
     }
 
@@ -157,8 +163,8 @@ const Contribute: React.FC = () => {
         addr: formData.address,
       },
       llm_labels: {
-        vibe_tags: selectedTags,
-        axes: {},
+        vibe_tags: [], // Tags are derived from metrics on the backend
+        axes: vibeMetrics,
         rationales: formData.description ? [formData.description] : [],
       },
       agg_signals: {},
@@ -169,7 +175,6 @@ const Contribute: React.FC = () => {
       is_verified: false,
       is_temporary: isTemporary,
       contributor_name: isAnonymous ? undefined : userName,
-      contributor_user_id: userName, // Always save for tracking, even if anonymous
       is_anonymous: isAnonymous,
       contribution_date: new Date().toISOString(),
     };
@@ -198,7 +203,13 @@ const Contribute: React.FC = () => {
         imageUrl: "",
         description: "",
       });
-      setSelectedTags([]);
+      setVibeMetrics({
+        casualness: 0.5,
+        comfort: 0.5,
+        energy: 0.5,
+        elegance: 0.5,
+        authenticity: 0.5,
+      });
       setIsTemporary(false);
       setIsAnonymous(false);
 
@@ -421,36 +432,34 @@ const Contribute: React.FC = () => {
               </CardContent>
             </Card>
 
-            {/* Vibe Tags */}
+            {/* Vibe Metrics */}
             <Card>
               <CardHeader>
                 <CardTitle>
-                  Vibe Tags <span className="text-red-500">*</span>
+                  Vibe Metrics <span className="text-red-500">*</span>
                 </CardTitle>
-                <CardDescription>Select all that apply - first tag will be the primary vibe</CardDescription>
+                <CardDescription>
+                  Adjust the sliders to describe this venue's vibe
+                </CardDescription>
               </CardHeader>
               <CardContent>
-                <TagChips
-                  tags={ALL_VIBE_TAGS}
-                  selectedTags={selectedTags}
-                  onTagToggle={(tag) => {
-                    if (selectedTags.includes(tag)) {
-                      setSelectedTags(selectedTags.filter((t) => t !== tag));
-                    } else {
-                      setSelectedTags([...selectedTags, tag]);
-                    }
+                <AxesSliders
+                  axes={DEFAULT_VIBE_AXES}
+                  values={vibeMetrics}
+                  onChange={(key, value) => {
+                    setVibeMetrics(prev => ({ ...prev, [key]: value }));
                   }}
-                  selectable
-                  variant="default"
                 />
-                {selectedTags.length > 0 && (
-                  <div className="mt-4 p-3 bg-primary/10 rounded-lg">
-                    <p className="text-sm font-medium">Selected ({selectedTags.length}):</p>
-                    <p className="text-sm text-muted-foreground mt-1">
-                      {selectedTags.join(", ")}
-                    </p>
-                  </div>
-                )}
+                <div className="mt-4 p-3 bg-muted/50 rounded-lg text-sm">
+                  <p className="font-medium mb-2">💡 Tips:</p>
+                  <ul className="space-y-1 text-muted-foreground">
+                    <li>• <strong>Casualness</strong>: Dress code, formality of atmosphere</li>
+                    <li>• <strong>Comfort</strong>: Seating, temperature, overall coziness</li>
+                    <li>• <strong>Energy</strong>: Noise level, activity, liveliness</li>
+                    <li>• <strong>Elegance</strong>: Decor, ambiance, refinement</li>
+                    <li>• <strong>Authenticity</strong>: Uniqueness, local character</li>
+                  </ul>
+                </div>
               </CardContent>
             </Card>
 

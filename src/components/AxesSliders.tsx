@@ -63,24 +63,36 @@ export const AxesSliders: React.FC<AxesSlidersProps> = ({
   );
 };
 
-// Default axis configurations for common use cases
+// Default axis configurations - 5 core vibe metrics
 export const DEFAULT_VIBE_AXES: AxisConfig[] = [
   {
-    key: "noise_level",
-    label: "Noise Level",
-    lowLabel: "Quiet",
-    highLabel: "Loud",
+    key: "casualness",
+    label: "Casualness",
+    lowLabel: "Formal",
+    highLabel: "Casual",
   },
   {
-    key: "lighting_warmth",
-    label: "Lighting",
-    lowLabel: "Bright",
-    highLabel: "Warm/Dim",
+    key: "comfort",
+    label: "Comfort",
+    lowLabel: "Minimal",
+    highLabel: "Cozy",
   },
   {
-    key: "price_level",
-    label: "Price",
-    lowLabel: "Budget",
-    highLabel: "Upscale",
+    key: "energy",
+    label: "Energy",
+    lowLabel: "Calm",
+    highLabel: "Lively",
+  },
+  {
+    key: "elegance",
+    label: "Elegance",
+    lowLabel: "Simple",
+    highLabel: "Refined",
+  },
+  {
+    key: "authenticity",
+    label: "Authenticity",
+    lowLabel: "Generic",
+    highLabel: "Unique",
   },
 ];

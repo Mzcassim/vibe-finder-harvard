@@ -1,0 +1,529 @@
+[
+  {
+    "venue_id": "csv-venue-000",
+    "name": "Gramercy Tavern",
+    "geo": {
+      "lat": 40.7589,
+      "lon": -73.9851
+    },
+    "images": [],
+    "metadata": {
+      "category": "Bar",
+      "addr": "42 E 20th St, New York, NY 10003, USA"
+    },
+    "llm_labels": {
+      "vibe_tags": [
+        "cozy",
+        "upscale",
+        "elegant"
+      ],
+      "axes": {
+        "noise_level": 0.09999999999999998,
+        "price_level": 1.0,
+        "crowd_density": 0.6
+      },
+      "rationales": [
+        "We had lunch at Gramercy Tavern on Sunday with a group of four, seated in the Tavern area rather than the formal dining room."
+      ]
+    },
+    "agg_signals": {
+      "avg_rating": 4.45,
+      "review_count": 5
+    },
+    "is_verified": true,
+    "confidence": 0.95,
+    "contributor_name": "AI Vibe Maps Team"
+  },
+  {
+    "venue_id": "csv-venue-001",
+    "name": "Boucherie Union Square",
+    "geo": {
+      "lat": 40.759899999999995,
+      "lon": -73.98610000000001
+    },
+    "images": [],
+    "metadata": {
+      "category": "Brunch Spot",
+      "addr": "225 Park Ave S, New York, NY 10003, USA"
+    },
+    "llm_labels": {
+      "vibe_tags": [
+        "cozy",
+        "upscale",
+        "elegant"
+      ],
+      "axes": {
+        "noise_level": 0.19999999999999996,
+        "price_level": 0.75,
+        "crowd_density": 0.3
+      },
+      "rationales": [
+        "I wanted to treat my aunt to an amazing, fairly high end lunch as she is well traveled and highly intelligent."
+      ]
+    },
+    "agg_signals": {
+      "avg_rating": 4.4,
+      "review_count": 5
+    },
+    "is_verified": true,
+    "confidence": 0.9,
+    "contributor_name": "AI Vibe Maps Team"
+  },
+  {
+    "venue_id": "csv-venue-002",
+    "name": "Nobu Downtown",
+    "geo": {
+      "lat": 40.7609,
+      "lon": -73.9871
+    },
+    "images": [],
+    "metadata": {
+      "category": "Restaurant",
+      "addr": "195 Broadway, New York, NY 10007, USA"
+    },
+    "llm_labels": {
+      "vibe_tags": [
+        "formal",
+        "cozy",
+        "upscale",
+        "elegant",
+        "authentic"
+      ],
+      "axes": {
+        "noise_level": 0.19999999999999996,
+        "price_level": 1.0,
+        "crowd_density": 0.5
+      },
+      "rationales": [
+        "This restaurant anywhere in the world will always be my favorite."
+      ]
+    },
+    "agg_signals": {
+      "avg_rating": 4.45,
+      "review_count": 5
+    },
+    "is_verified": true,
+    "confidence": 0.95,
+    "contributor_name": "AI Vibe Maps Team"
+  },
+  {
+    "venue_id": "csv-venue-003",
+    "name": "The Dutch",
+    "geo": {
+      "lat": 40.7619,
+      "lon": -73.9881
+    },
+    "images": [],
+    "metadata": {
+      "category": "Brunch Spot",
+      "addr": "131 Sullivan St, New York, NY 10012, USA"
+    },
+    "llm_labels": {
+      "vibe_tags": [
+        "casual",
+        "cozy",
+        "energetic"
+      ],
+      "axes": {
+        "noise_level": 0.19999999999999996,
+        "price_level": 0.75,
+        "crowd_density": 0.8
+      },
+      "rationales": [
+        "A solid brunch option - not the most unique menu but both plates we ordered tasted good and ok value."
+      ]
+    },
+    "agg_signals": {
+      "avg_rating": 4.45,
+      "review_count": 5
+    },
+    "is_verified": true,
+    "confidence": 0.95,
+    "contributor_name": "AI Vibe Maps Team"
+  },
+  {
+    "venue_id": "csv-venue-004",
+    "name": "Manhatta",
+    "geo": {
+      "lat": 40.762899999999995,
+      "lon": -73.98910000000001
+    },
+    "images": [],
+    "metadata": {
+      "category": "Restaurant",
+      "addr": "28 Liberty St 60th floor, New York, NY 10005, USA"
+    },
+    "llm_labels": {
+      "vibe_tags": [
+        "formal",
+        "upscale",
+        "elegant"
+      ],
+      "axes": {
+        "noise_level": 0.30000000000000004,
+        "price_level": 1.0,
+        "crowd_density": 0.5
+      },
+      "rationales": [
+        "Celebrated a friend\u2019s birthday here and the views definitely made it a memorable spot! Had the steak (portion could have been better), the Gold Bar Squash with sauce ravigote side which was really rea."
+      ]
+    },
+    "agg_signals": {
+      "avg_rating": 4.45,
+      "review_count": 5
+    },
+    "is_verified": true,
+    "confidence": 0.95,
+    "contributor_name": "AI Vibe Maps Team"
+  },
+  {
+    "venue_id": "csv-venue-005",
+    "name": "Jack's Wife Freda",
+    "geo": {
+      "lat": 40.7639,
+      "lon": -73.9901
+    },
+    "images": [],
+    "metadata": {
+      "category": "Brunch Spot",
+      "addr": "226 Lafayette St, New York, NY 10012, USA"
+    },
+    "llm_labels": {
+      "vibe_tags": [
+        "casual",
+        "cozy",
+        "energetic"
+      ],
+      "axes": {
+        "noise_level": 0.19999999999999996,
+        "price_level": 0.5,
+        "crowd_density": 0.8
+      },
+      "rationales": [
+        "The atmosphere was amazing and the waitstaff were absolutely lovely."
+      ]
+    },
+    "agg_signals": {
+      "avg_rating": 4.45,
+      "review_count": 5
+    },
+    "is_verified": true,
+    "confidence": 0.95,
+    "contributor_name": "AI Vibe Maps Team"
+  },
+  {
+    "venue_id": "csv-venue-006",
+    "name": "Lindens",
+    "geo": {
+      "lat": 40.7649,
+      "lon": -73.9911
+    },
+    "images": [],
+    "metadata": {
+      "category": "Brunch Spot",
+      "addr": "2 Renwick St, New York, NY 10013, USA"
+    },
+    "llm_labels": {
+      "vibe_tags": [
+        "casual",
+        "cozy"
+      ],
+      "axes": {
+        "noise_level": 0.09999999999999998,
+        "price_level": 0.5,
+        "crowd_density": 0.7
+      },
+      "rationales": [
+        "I had such an incredible experience at Lindens! Fran, the bartender/mixologist, was absolutely amazing \u2014 so patient and thoughtful in helping me choose a drink."
+      ]
+    },
+    "agg_signals": {
+      "avg_rating": 4.45,
+      "review_count": 5
+    },
+    "is_verified": true,
+    "confidence": 0.95,
+    "contributor_name": "AI Vibe Maps Team"
+  },
+  {
+    "venue_id": "csv-venue-007",
+    "name": "Tatiana by Kwame Onwuachi",
+    "geo": {
+      "lat": 40.765899999999995,
+      "lon": -73.99210000000001
+    },
+    "images": [],
+    "metadata": {
+      "category": "Restaurant",
+      "addr": "10 Lincoln Center Plaza, New York, NY 10023, USA"
+    },
+    "llm_labels": {
+      "vibe_tags": [
+        "formal",
+        "cozy",
+        "energetic",
+        "upscale",
+        "elegant",
+        "authentic"
+      ],
+      "axes": {
+        "noise_level": 0.09999999999999998,
+        "price_level": 1.0,
+        "crowd_density": 0.8
+      },
+      "rationales": [
+        "I went to Tatiana during my birthday trip to New York, and honestly, it ended up being one of the best dining experiences I\u2019ve ever had! We showed up on a Saturday around 3:50 with no reservation, and."
+      ]
+    },
+    "agg_signals": {
+      "avg_rating": 4.45,
+      "review_count": 5
+    },
+    "is_verified": true,
+    "confidence": 0.95,
+    "contributor_name": "AI Vibe Maps Team"
+  },
+  {
+    "venue_id": "csv-venue-008",
+    "name": "Craft New York",
+    "geo": {
+      "lat": 40.7669,
+      "lon": -73.9931
+    },
+    "images": [],
+    "metadata": {
+      "category": "Restaurant",
+      "addr": "43 E 19th St, New York, NY 10003, USA"
+    },
+    "llm_labels": {
+      "vibe_tags": [
+        "formal",
+        "cozy",
+        "upscale",
+        "elegant"
+      ],
+      "axes": {
+        "noise_level": 0.09999999999999998,
+        "price_level": 0.75,
+        "crowd_density": 0.4
+      },
+      "rationales": [
+        "Another excellent experience at the bar at Craft."
+      ]
+    },
+    "agg_signals": {
+      "avg_rating": 4.45,
+      "review_count": 5
+    },
+    "is_verified": true,
+    "confidence": 0.95,
+    "contributor_name": "AI Vibe Maps Team"
+  },
+  {
+    "venue_id": "csv-venue-010",
+    "name": "Little Collins",
+    "geo": {
+      "lat": 40.768899999999995,
+      "lon": -73.99510000000001
+    },
+    "images": [],
+    "metadata": {
+      "category": "Brunch Spot",
+      "addr": "708 3rd Ave, New York, NY 10017, USA"
+    },
+    "llm_labels": {
+      "vibe_tags": [
+        "casual",
+        "cozy",
+        "energetic"
+      ],
+      "axes": {
+        "noise_level": 0.19999999999999996,
+        "price_level": 0.5,
+        "crowd_density": 0.8
+      },
+      "rationales": [
+        "This place has such a nice vibe."
+      ]
+    },
+    "agg_signals": {
+      "avg_rating": 4.45,
+      "review_count": 5
+    },
+    "is_verified": true,
+    "confidence": 0.95,
+    "contributor_name": "AI Vibe Maps Team"
+  },
+  {
+    "venue_id": "csv-venue-011",
+    "name": "Bibble & Sip",
+    "geo": {
+      "lat": 40.7699,
+      "lon": -73.9961
+    },
+    "images": [],
+    "metadata": {
+      "category": "Restaurant",
+      "addr": "253 W 51st St, New York, NY 10019, USA"
+    },
+    "llm_labels": {
+      "vibe_tags": [
+        "casual",
+        "authentic"
+      ],
+      "axes": {
+        "noise_level": 0.5,
+        "price_level": 0.5,
+        "crowd_density": 0.7
+      },
+      "rationales": [
+        "One of my absolute favorite dessert spots in NYC, and truly the best cream puffs you\u2019ll find in the city! Their cream puffs are always incredibly fresh, light, and filled with the most delicious, crea."
+      ]
+    },
+    "agg_signals": {
+      "avg_rating": 4.45,
+      "review_count": 5
+    },
+    "is_verified": true,
+    "confidence": 0.95,
+    "contributor_name": "AI Vibe Maps Team"
+  },
+  {
+    "venue_id": "csv-venue-012",
+    "name": "Coffee Project New York | East Village",
+    "geo": {
+      "lat": 40.7709,
+      "lon": -73.9971
+    },
+    "images": [],
+    "metadata": {
+      "category": "Cafe",
+      "addr": "239 E 5th St, New York, NY 10003, USA"
+    },
+    "llm_labels": {
+      "vibe_tags": [
+        "casual",
+        "cozy"
+      ],
+      "axes": {
+        "noise_level": 0.19999999999999996,
+        "price_level": 0.5,
+        "crowd_density": 0.5
+      },
+      "rationales": [
+        "Coffee Project New York is hands down one of the best coffee spots I\u2019ve ever visited in the city! The atmosphere is cozy and welcoming, with the aroma of freshly brewed coffee filling the air."
+      ]
+    },
+    "agg_signals": {
+      "avg_rating": 4.45,
+      "review_count": 5
+    },
+    "is_verified": true,
+    "confidence": 0.95,
+    "contributor_name": "AI Vibe Maps Team"
+  },
+  {
+    "venue_id": "csv-venue-013",
+    "name": "In Common NYC - A Breakfast & Brunch Restaurant",
+    "geo": {
+      "lat": 40.771899999999995,
+      "lon": -73.99810000000001
+    },
+    "images": [],
+    "metadata": {
+      "category": "Brunch Spot",
+      "addr": "441 9th Ave Suite 101, New York, NY 10001, USA"
+    },
+    "llm_labels": {
+      "vibe_tags": [
+        "casual",
+        "cozy",
+        "energetic"
+      ],
+      "axes": {
+        "noise_level": 0.09999999999999998,
+        "price_level": 0.5,
+        "crowd_density": 0.9
+      },
+      "rationales": [
+        "Great breakfast spot."
+      ]
+    },
+    "agg_signals": {
+      "avg_rating": 4.45,
+      "review_count": 5
+    },
+    "is_verified": true,
+    "confidence": 0.95,
+    "contributor_name": "AI Vibe Maps Team"
+  },
+  {
+    "venue_id": "csv-venue-017",
+    "name": "Charlotte Cafe",
+    "geo": {
+      "lat": 40.7759,
+      "lon": -74.0021
+    },
+    "images": [],
+    "metadata": {
+      "category": "Cafe",
+      "addr": "605 2nd Ave, New York, NY 10016, USA"
+    },
+    "llm_labels": {
+      "vibe_tags": [
+        "casual",
+        "cozy",
+        "quiet"
+      ],
+      "axes": {
+        "noise_level": 0.0,
+        "price_level": 0.25,
+        "crowd_density": 0.2
+      },
+      "rationales": [
+        "Lovely staff, great coffee and peaceful ambience."
+      ]
+    },
+    "agg_signals": {
+      "avg_rating": 4.45,
+      "review_count": 5
+    },
+    "is_verified": true,
+    "confidence": 0.95,
+    "contributor_name": "AI Vibe Maps Team"
+  },
+  {
+    "venue_id": "csv-venue-018",
+    "name": "Gold coffee",
+    "geo": {
+      "lat": 40.7769,
+      "lon": -74.0031
+    },
+    "images": [],
+    "metadata": {
+      "category": "Cafe",
+      "addr": "491 3rd Ave, New York, NY 10016, USA"
+    },
+    "llm_labels": {
+      "vibe_tags": [
+        "casual",
+        "cozy"
+      ],
+      "axes": {
+        "noise_level": 0.19999999999999996,
+        "price_level": 0.25,
+        "crowd_density": 0.5
+      },
+      "rationales": [
+        "I was walking around this area one day and decided to stop in at the Gold Coffee to check it out."
+      ]
+    },
+    "agg_signals": {
+      "avg_rating": 4.45,
+      "review_count": 5
+    },
+    "is_verified": true,
+    "confidence": 0.95,
+    "contributor_name": "AI Vibe Maps Team"
+  }
+]

@@ -26,12 +26,12 @@ export const RadarChart: React.FC<RadarChartProps> = ({
     );
   }
 
-  // Add padding for labels (20% of size on each side)
-  const padding = size * 0.2;
-  const viewBoxSize = size + padding * 2;
-  const centerX = viewBoxSize / 2;
-  const centerY = viewBoxSize / 2;
-  const radius = size * 0.35;
+  // Calculate dimensions - use wider viewBox for left/right labels
+  const viewBoxWidth = 380; // Wider for left/right labels
+  const viewBoxHeight = 300; // Standard height
+  const centerX = viewBoxWidth / 2;
+  const centerY = viewBoxHeight / 2;
+  const radius = 90; // Fixed radius that leaves room for labels
   const numAxes = axes.length;
 
   // Calculate points for each axis
@@ -64,8 +64,10 @@ export const RadarChart: React.FC<RadarChartProps> = ({
     <svg
       width={size}
       height={size}
-      viewBox={`0 0 ${viewBoxSize} ${viewBoxSize}`}
+      viewBox={`0 0 ${viewBoxWidth} ${viewBoxHeight}`}
       className={className}
+      style={{ maxWidth: '100%', height: 'auto' }}
+      preserveAspectRatio="xMidYMid meet"
     >
       {/* Background grid */}
       <g className="opacity-20">
@@ -120,18 +122,25 @@ export const RadarChart: React.FC<RadarChartProps> = ({
 
         // Adjust text anchor based on position
         let textAnchor: "start" | "middle" | "end" = "middle";
-        if (labelX < centerX - 5) textAnchor = "end";
-        else if (labelX > centerX + 5) textAnchor = "start";
+        if (labelX < centerX - 10) textAnchor = "end";
+        else if (labelX > centerX + 10) textAnchor = "start";
+        
+        // Add slight vertical offset for better positioning
+        let dy = 0;
+        if (Math.abs(labelY - centerY) < radius * 0.3) {
+          // Labels on sides need slight adjustment
+          dy = labelY > centerY ? 4 : -4;
+        }
 
         return (
           <text
             key={`label-${i}`}
             x={labelX}
-            y={labelY}
+            y={labelY + dy}
             textAnchor={textAnchor}
             dominantBaseline="middle"
-            className="text-xs fill-current font-medium"
-            style={{ fontSize: Math.max(10, size / 18) }}
+            className="fill-current font-medium"
+            style={{ fontSize: '14px' }}
           >
             {point.axis.label}
           </text>

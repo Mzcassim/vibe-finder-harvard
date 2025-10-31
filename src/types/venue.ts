@@ -1,17 +1,18 @@
 import { z } from "zod";
 
 // Axes Schema - all values normalized to 0..1
+// Core 5 vibe metrics
 export const AxesSchema = z.object({
+  casualness: z.number().min(0).max(1).optional(),
+  comfort: z.number().min(0).max(1).optional(),
+  energy: z.number().min(0).max(1).optional(),
+  elegance: z.number().min(0).max(1).optional(),
+  authenticity: z.number().min(0).max(1).optional(),
+  // Legacy/additional metrics
   noise_level: z.number().min(0).max(1).optional(),
   lighting_warmth: z.number().min(0).max(1).optional(),
   crowd_density: z.number().min(0).max(1).optional(),
   price_level: z.number().min(0).max(1).optional(),
-  music_energy: z.number().min(0).max(1).optional(),
-  formality: z.number().min(0).max(1).optional(),
-  novelty: z.number().min(0).max(1).optional(),
-  authenticity: z.number().min(0).max(1).optional(),
-  cleanliness: z.number().min(0).max(1).optional(),
-  accessibility: z.number().min(0).max(1).optional(),
 });
 
 export type Axes = z.infer<typeof AxesSchema>;
